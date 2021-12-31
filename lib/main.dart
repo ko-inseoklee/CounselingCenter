@@ -1,67 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:online_counseling_center/view/HomePage.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+void main() => runApp(GetMaterialApp(home: Home()));
 
-  runApp(GetMaterialApp(
-    initialRoute: '/home',
-    getPages: [
-      GetPage(name: '/home', page: () => HomePage()),
-    ],
-  ));
-}
-
-class HomeBinding implements Bindings {
-  @override
-  void dependencies() {
-    Get.lazyPut(() => HomeController());
-  }
-}
-
-class HomeController extends GetxController {
+class Controller extends GetxController{
   var count = 0.obs;
-  void increment() => count++;
+  increment() => count++;
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+class Home extends StatelessWidget {
 
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+  @override
+  Widget build(context) {
+
+    // Instantiate your class using Get.put() to make it available for all "child" routes there.
+    final Controller c = Get.put(Controller());
+
+    return Scaffold(
+      // Use Obx(()=> to update Text() whenever count is changed.
+        appBar: AppBar(title: Obx(() => Text("Clicks: ${c.count}"))),
+
+        // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
+        body: Center(child: ElevatedButton(
+            child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
+        floatingActionButton:
+        FloatingActionButton(child: Icon(Icons.add), onPressed: c.increment));
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class Other extends StatelessWidget {
+  // You can ask Get to find a Controller that is being used by another page and redirect you to it.
+  final Controller c = Get.find();
 
   @override
   Widget build(BuildContext context) {
