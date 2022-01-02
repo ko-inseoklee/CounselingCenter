@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/controller/userController.dart';
 
 void main() => runApp(GetMaterialApp(home: Home()));
 
@@ -9,6 +10,8 @@ class Controller extends GetxController{
 }
 
 class Home extends StatelessWidget {
+
+  var user = Get.find<UserController>();
 
   @override
   Widget build(context) {
@@ -24,12 +27,20 @@ class Home extends StatelessWidget {
         body: Center(child: ElevatedButton(
             child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
         floatingActionButton:
-        FloatingActionButton(child: Icon(Icons.add), onPressed: c.increment));
+        FloatingActionButton(child: Icon(Icons.add), onPressed: (){
+          user.addUser(name: 'inseok');
+        }));
   }
 }
 
-class Other extends StatelessWidget {
+class Other extends StatefulWidget {
+  final title = "Other";
   // You can ask Get to find a Controller that is being used by another page and redirect you to it.
+  @override
+  _OtherState createState() => _OtherState();
+}
+
+class _OtherState extends State<Other> {
   final Controller c = Get.find();
 
   @override
@@ -70,14 +81,14 @@ class Other extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '${c.count}',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: c.increment(),
         tooltip: 'meng',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
