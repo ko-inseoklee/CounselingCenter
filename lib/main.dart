@@ -89,7 +89,7 @@ class _OtherState extends State<Other> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: c.increment(),
-        tooltip: 'meng',
+        tooltip: 'meng2',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
