@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/userController.dart';
+import 'package:online_counseling_center/view/Login.dart';
 
-void main() => runApp(GetMaterialApp(home: Home()));
+// void main() => runApp(GetMaterialApp(home: Home()));
+void main() => runApp(GetMaterialApp(home: LogInPage()));
 
 class Controller extends GetxController{
   var count = 0.obs;
@@ -28,7 +30,6 @@ class Home extends StatelessWidget {
             child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
         floatingActionButton:
         FloatingActionButton(child: Icon(Icons.add), onPressed: (){
-          user.addUser(name: 'inseok');
         }));
   }
 }
