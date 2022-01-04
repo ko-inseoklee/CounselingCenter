@@ -10,6 +10,6 @@ Online counseling platform for resolve generational conflict.
     - 회원가입 용 유저 데이터 작성 및 회원가입 기능 완성 & 테스트
     - 텍스트박스 커스터 마이징 및 API 작성
 
-## API
+# API
     - TextBox(bool isBlank)
         1. getText() -> return 텍스트 필드 값.
