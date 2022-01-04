@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TextBox extends StatelessWidget {
-  TextBox({Key? key}) : super(key: key);
+  final bool isBlank;
+  TextBox({Key? key,required bool isBlank}) : isBlank = isBlank;
 
   TextEditingController _controller = new TextEditingController();
 
@@ -10,6 +11,8 @@ class TextBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: _controller,
+      obscureText: isBlank,
+      autocorrect: false,
     );
   }
 

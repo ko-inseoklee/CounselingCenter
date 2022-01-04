@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:online_counseling_center/controller/authentication.dart';
-import 'package:online_counseling_center/controller/userController.dart';
+import 'package:online_counseling_center/controller/Authentication.dart';
+import 'package:online_counseling_center/controller/UserController.dart';
 import 'package:online_counseling_center/model/user.dart';
 import 'package:uuid/uuid.dart';
 

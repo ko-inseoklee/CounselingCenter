@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:online_counseling_center/controller/userController.dart';
-import 'package:online_counseling_center/view/Login.dart';
+import 'package:online_counseling_center/controller/UserController.dart';
+import 'package:online_counseling_center/view/Login/Login.dart';
 
 // void main() => runApp(GetMaterialApp(home: Home()));
 void main() => runApp(GetMaterialApp(home: LogInPage()));
