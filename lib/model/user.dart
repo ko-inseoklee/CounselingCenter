@@ -2,7 +2,7 @@ class User{
   final String ID;
   final String password;
   final String uID;
-  final int age;
+  final String age;
   final bool sex;
   bool phoneVerified = false;
   String nickName = '';
@@ -12,7 +12,7 @@ class User{
   : this.ID = " ",
   this.password = " ",
   this.uID = " ",
-  this.age = 0,
+  this.age = " ",
   this.sex = true;
 
   User({required this.age, required this.nickName, required this.uID, required this.ID, required this.password, required this.sex });

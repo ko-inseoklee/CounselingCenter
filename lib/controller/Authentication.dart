@@ -1,17 +1,14 @@
+import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/UserController.dart';
 import 'package:online_counseling_center/model/user.dart';
+import 'package:uuid/uuid.dart';
 
 class Authentication{
-  bool _iDValidate = false;
-  bool _nickNameValidate = false;
+  bool iDValidate = false;
+  bool nickNameValidate = false;
 
-  late var _user;
+  late var user;
   late UserController _userController;
-
-
-
-  set iDValidate (bool result) => _iDValidate = result;
-  set nickNameValidate (bool result) => _nickNameValidate = result;
 
   //TODO: Should be change IDs with server . current: constant value.
   bool checkIDValidate({required String input,required List<String> iDs}){
@@ -23,5 +20,12 @@ class Authentication{
     return nicknames.contains(input);
   }
 
+  void signUp({required String iD, required String password, required String age, required bool sex, required String nickname}){
+    String uID = Uuid().v4().toString();
+    user = new User(age: age, nickName: nickname, uID: uID, ID: iD, password: password, sex: sex);
+
+    _userController = UserController(user: user);
+    Get.put(_userController);
+  }
 
 }
