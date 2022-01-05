@@ -1,35 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/userController.dart';
+import 'package:online_counseling_center/view/matching.dart';
+import 'package:online_counseling_center/view/HomePage.dart';
 
-void main() => runApp(GetMaterialApp(home: Home()));
+void main() => runApp(GetMaterialApp(
+      home: HomePage(),
+      getPages: [GetPage(name: '/matching', page: () => MatchingPage())],
+    ));
 
-class Controller extends GetxController{
+class Controller extends GetxController {
   var count = 0.obs;
   increment() => count++;
 }
 
 class Home extends StatelessWidget {
-
   var user = Get.find<UserController>();
 
   @override
   Widget build(context) {
-
     // Instantiate your class using Get.put() to make it available for all "child" routes there.
     final Controller c = Get.put(Controller());
 
     return Scaffold(
-      // Use Obx(()=> to update Text() whenever count is changed.
+        // Use Obx(()=> to update Text() whenever count is changed.
         appBar: AppBar(title: Obx(() => Text("Clicks: ${c.count}"))),
 
         // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
-        body: Center(child: ElevatedButton(
-            child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
-        floatingActionButton:
-        FloatingActionButton(child: Icon(Icons.add), onPressed: (){
-          user.addUser(name: 'inseok');
-        }));
+        body: Center(
+            child: ElevatedButton(
+                child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              user.addUser(name: 'inseok');
+            }));
   }
 }
 
@@ -45,12 +50,6 @@ class _OtherState extends State<Other> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
