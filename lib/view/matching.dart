@@ -8,7 +8,7 @@ class MatchingPage extends StatefulWidget {
 }
 
 class _MatchingPageState extends State<MatchingPage> {
-  final List<String> users = <String>['소망', '인석', '성은', '예찬', '지열'];
+  final List<String> users = <String>['소망', '인석', '성은', '예찬', '지열', '지웅'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
