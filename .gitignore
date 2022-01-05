@@ -47,3 +47,5 @@ app.*.map.json
 /android/app/release
 /android/build.gradle
 /android/gradle.properties
+
+./pubspec.lock

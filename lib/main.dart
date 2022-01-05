@@ -9,7 +9,7 @@ void main() => runApp(GetMaterialApp(
       home: HomePage(),
       getPages: [
         GetPage(name: '/matching', page: () => MatchingPage()),
-        GetPage(name: '/login', page: () => LoginPage()),
+        GetPage(name: '/login', page: () => LogInPage()),
       ],
     ));
 
@@ -38,7 +38,6 @@ class Home extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
             onPressed: () {
-              user.addUser(name: 'inseok');
             }));
   }
 }
