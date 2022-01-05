@@ -1,21 +1,43 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:get/get.dart';
+import 'package:online_counseling_center/controller/Authentication.dart';
+import 'package:online_counseling_center/controller/UserController.dart';
 import 'package:online_counseling_center/model/user.dart';
 import 'package:uuid/uuid.dart';
 
 void main() {
 
-  test("Model Test",() {
+  test("User Model Test",() {
     String uid = Uuid().v4.toString();
-    int age = 20;
+    String age = '20대';
     String nickName = "Inseoking";
-    User(age, nickName, uid);
+    User user = User(age: age, nickName: nickName, uID: uid, ID: 'tjrkd222', password: 'dkssud11', sex: true,);
+    User user2 = User.init();
+
+    UserController userController = new UserController(user: user);
+
+    assert(user == userController.user, 'test failed, [UID] first = ${user.uID}, second = ${user2.uID}');
+  });
+
+  test("ID Validation",(){
+    List<String> ids = ["tjrkd222", "tjrkd111", "tjrkd000"];
+    String id = "tjrkd222";
+    Authentication auth = new Authentication();
+
+    bool result = auth.checkIDValidate(input: id, iDs: ids);
+
+    assert(result, 'Test Failed, ID = $id');
+
+  });
+
+  //TODO: Observer pattern 확인완료. 백엔드 API 개발 후 네트워킹 테스트 예정.
+  test("Sign up",(){
+    Authentication _auth = new Authentication();
+
+    _auth.signUp(iD: 'tjrkd222', password: '1234', age: '10대', sex: true, nickname: '인석이');
+
+    UserController _usercontroller = Get.find<UserController>();
+
+    assert(_auth.user == _usercontroller.user, "Failed Sign up");
   });
 }
