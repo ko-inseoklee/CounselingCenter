@@ -39,7 +39,21 @@ class _MatchingPageState extends State<MatchingPage> {
       password: '1234',
       sex: false);
 
-  late List<User> users = [user_me, user1, user2];
+  Chatter chat1 = Chatter(
+      age: ['20대'],
+      nickName: ['소맹'],
+      uID: ['uid_0'],
+      ID: ['someng'],
+      sex: [false]);
+
+  Chatter chat2 = Chatter(
+      age: ['10대'],
+      nickName: ['inseoking'],
+      uID: ['uid_1'],
+      ID: ['inseoklee'],
+      sex: [true]);
+
+  late List<Chatter> users = [chat1, chat2, chat1];
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +122,8 @@ class _MatchingPageState extends State<MatchingPage> {
                         ListTile(
                           leading: Icon(Icons.chat_outlined),
                           title: Text('주제: '),
-                          subtitle: Text(
+                          subtitle:
+                          Text(
                               '${users[index].nickName} / ${users[index].age} '),
                         )
                       ])),
@@ -118,6 +133,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         if (i != index) selected[i] = false;
                       }
                       selected[index] = true;
+
                     });
                   },
                 ),
@@ -146,7 +162,29 @@ class _MatchingPageState extends State<MatchingPage> {
               // height: 40,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.orange),
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    for(int i = 0; i < 3; i++) {
+                      if (selected[i]) {
+                        if (i == 0) {
+                          chat1.nickName.add('웅지');
+                          chat1.age.add('30대');
+                          chat1.ID.add('woongzy');
+                          chat1.uID.add('0');
+                          chat1.sex.add(true);
+                        }
+                        else if (i == 1) {
+                          chat2.nickName.add('웅지');
+                          chat2.age.add('30대');
+                          chat2.ID.add('woongzy');
+                          chat2.uID.add('0');
+                          chat2.sex.add(true);
+                        }
+                      }
+                    }
+                  });
+
+                },
                 child: Text('매칭방 입장',
                     style:
                         TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
