@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/UserController.dart';
 import 'package:online_counseling_center/view/Login/Login.dart';
-import 'package:online_counseling_center/view/matching.dart';
+import 'package:online_counseling_center/view/Matching/Matching.dart';
 import 'package:online_counseling_center/view/HomePage.dart';
+import 'package:online_counseling_center/view/Matching/NewMatching.dart';
+
+const primaryColor = Colors.white;
 
 void main() => runApp(GetMaterialApp(
       home: HomePage(),
       getPages: [
         GetPage(name: '/matching', page: () => MatchingPage()),
         GetPage(name: '/login', page: () => LogInPage()),
+        GetPage(name: '/newMatching', page: () => NewMatchingPage()),
       ],
+      theme: ThemeData(
+        primaryColor: primaryColor,
+      ),
     ));
 
 class Controller extends GetxController {
@@ -35,10 +42,8 @@ class Home extends StatelessWidget {
         body: Center(
             child: ElevatedButton(
                 child: Text("Go to Other"), onPressed: () => Get.to(Other()))),
-        floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: () {
-            }));
+        floatingActionButton:
+            FloatingActionButton(child: Icon(Icons.add), onPressed: () {}));
   }
 }
 

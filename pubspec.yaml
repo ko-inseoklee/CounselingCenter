@@ -32,6 +32,7 @@ dependencies:
   uuid: 3.0.0
   flutter_screenutil: 5.0.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

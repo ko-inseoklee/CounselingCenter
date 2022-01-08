@@ -3,7 +3,7 @@ class User{
   final String password;
   final String uID;
   final String age;
-  final bool sex;
+  final String sex;
   bool phoneVerified = false;
   String nickName = '';
   //TODO: 게시글 리스트, 내 댓글 리스트
@@ -13,7 +13,7 @@ class User{
   this.password = " ",
   this.uID = " ",
   this.age = " ",
-  this.sex = true;
+  this.sex = " ";
 
   User({required this.age, required this.nickName, required this.uID, required this.ID, required this.password, required this.sex });
 }

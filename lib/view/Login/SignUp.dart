@@ -39,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
     isBlank: false,
   );
   var _selectedAgeValue = '10대';
-  bool? _inputSex;
+  String? _inputSex;
   String? _inputAge;
 
   @override
@@ -71,12 +71,12 @@ class _SignUpPageState extends State<SignUpPage> {
               child: Text("닉네임 중복확인")),
           TextButton(
               onPressed: () {
-                _inputSex = true;
+                _inputSex = '남';
               },
               child: Text("남자")),
           TextButton(
               onPressed: () {
-                _inputSex = false;
+                _inputSex = '여';
               },
               child: Text("여자")),
           DropdownButton<String>(
