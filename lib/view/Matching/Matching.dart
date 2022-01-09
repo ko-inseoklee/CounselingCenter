@@ -19,27 +19,27 @@ class _MatchingPageState extends State<MatchingPage> {
 
   User user_me = User(
       age: '20대',
-      nickName: '소맹',
+      nickname: '소맹',
       uID: 'uid_0',
       ID: 'someng',
       password: '1234',
-      sex: '여');
+      sex: '여', phoneVerified: false);
 
   User user1 = User(
       age: '30대',
-      nickName: 'inseoking',
+      nickname: 'inseoking',
       uID: 'uid_1',
       ID: 'inseoklee',
       password: '1234',
-      sex: '남');
+      sex: '남', phoneVerified: false);
 
   User user2 = User(
       age: '40대',
-      nickName: 'kin9son',
+      nickname: 'kin9son',
       uID: 'uid_2',
       ID: 'seong_eun',
       password: '1234',
-      sex: '남');
+      sex: '남', phoneVerified: false);
 
   // Chatter chat1 = Chatter.init();
   Chatter chat1 = Chatter(
