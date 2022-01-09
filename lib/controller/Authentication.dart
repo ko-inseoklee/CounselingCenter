@@ -21,7 +21,7 @@ class Authentication extends GetxController{
     return !nicknames.contains(input);
   }
 
-  Future<void> signUp({required String iD, required String password, required String age, required bool sex, required String nickname}) async{
+  Future<void> signUp({required String iD, required String password, required String age, required String sex, required String nickname}) async{
     String uID = Uuid().v4().toString();
     User user = new User(age: age, nickname: nickname, uID: uID, ID: iD, password: password, sex: sex, phoneVerified: false);
 

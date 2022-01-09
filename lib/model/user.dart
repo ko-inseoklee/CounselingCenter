@@ -13,9 +13,15 @@ class User with _$User {
         required String password,
         required String uID,
         required String age,
-        required bool sex,
+        required String sex,
         required bool phoneVerified,
         required String nickname}) = _User;
+    User.init()
+  : this.ID = " ",
+  this.password = " ",
+  this.uID = " ",
+  this.age = " ",
+  this.sex = " ";
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 }

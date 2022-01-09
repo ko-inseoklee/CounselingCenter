@@ -1,12 +1,39 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/model/user.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+
+  // User user_me = User(
+  //     age: '20대',
+  //     nickName: '소맹',
+  //     uID: 'uid_0',
+  //     ID: 'someng',
+  //     password: '1234',
+  //     sex: false);
+  //
+  // User user1 = User(
+  //     age: '30대',
+  //     nickName: 'inseoking',
+  //     uID: 'uid_1',
+  //     ID: 'inseoklee',
+  //     password: '1234',
+  //     sex: true);
+  //
+  // User user2 = User(
+  //     age: '40대',
+  //     nickName: 'kin9son',
+  //     uID: 'uid_2',
+  //     ID: 'seong_eun',
+  //     password: '1234',
+  //     sex: false);
 
   @override
   Widget build(BuildContext context) {
+
+    print('someng logged in!\n');
     return Scaffold(
       appBar: AppBar(
         title: Text('메인'),

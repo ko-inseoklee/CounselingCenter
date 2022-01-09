@@ -9,12 +9,9 @@ class LogInPage extends StatelessWidget {
   LogInPage({Key? key}) : super(key: key);
   Authentication authentication = new Authentication();
 
-  TextBox iDTextBox = new TextBox(
-    isBlank: false,
-  );
-  TextBox passWordTextBox = new TextBox(
-    isBlank: true,
-  );
+
+  TextBox iDTextBox = new TextBox(isBlank: false,hintText: '',);
+  TextBox passWordTextBox = new TextBox(isBlank: true, hintText: '',);
 
   @override
   Widget build(BuildContext context) {
