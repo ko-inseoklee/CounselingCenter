@@ -11,7 +11,7 @@ void main() {
     String uid = Uuid().v4.toString();
     String age = '20대';
     String nickName = "Inseoking";
-    User user = User(age: age, nickName: nickName, uID: uid, ID: 'tjrkd222', password: 'dkssud11', sex: true,);
+    User user = User(age: age, nickName: nickName, uID: uid, ID: 'tjrkd222', password: 'dkssud11', sex: '남',);
     User user2 = User.init();
 
     UserController userController = new UserController(user: user);
@@ -34,7 +34,7 @@ void main() {
   test("Sign up",(){
     Authentication _auth = new Authentication();
 
-    _auth.signUp(iD: 'tjrkd222', password: '1234', age: '10대', sex: true, nickname: '인석이');
+    _auth.signUp(iD: 'tjrkd222', password: '1234', age: '10대', sex: '남', nickname: '인석이');
 
     UserController _usercontroller = Get.find<UserController>();
 

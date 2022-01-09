@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 class TextBox extends StatelessWidget {
   final bool isBlank;
-  TextBox({Key? key,required bool isBlank}) : isBlank = isBlank;
+  final String hintText;
+  TextBox({Key? key, required bool isBlank, required String hintText})
+      : isBlank = isBlank, hintText = hintText;
 
   TextEditingController _controller = new TextEditingController();
 
@@ -13,10 +15,13 @@ class TextBox extends StatelessWidget {
       controller: _controller,
       obscureText: isBlank,
       autocorrect: false,
+      decoration: InputDecoration(
+          // border: InputBorder.none,
+          hintText: hintText),
     );
   }
 
-  String getText(){
+  String getText() {
     return _controller.text;
   }
 }

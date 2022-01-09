@@ -7,8 +7,8 @@ import 'package:online_counseling_center/view/customWidget/TextBox.dart';
 class LogInPage extends StatelessWidget {
   LogInPage({Key? key}) : super(key: key);
 
-  TextBox iDTextBox = new TextBox(isBlank: false,);
-  TextBox passWordTextBox = new TextBox(isBlank: true,);
+  TextBox iDTextBox = new TextBox(isBlank: false,hintText: '',);
+  TextBox passWordTextBox = new TextBox(isBlank: true, hintText: '',);
 
   @override
   Widget build(BuildContext context) {

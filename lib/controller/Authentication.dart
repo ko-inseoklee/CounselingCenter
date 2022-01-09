@@ -20,7 +20,7 @@ class Authentication{
     return nicknames.contains(input);
   }
 
-  void signUp({required String iD, required String password, required String age, required bool sex, required String nickname}){
+  void signUp({required String iD, required String password, required String age, required String sex, required String nickname}){
     String uID = Uuid().v4().toString();
     user = new User(age: age, nickName: nickname, uID: uID, ID: iD, password: password, sex: sex);
 
