@@ -31,12 +31,15 @@ class _SignUpPageState extends State<SignUpPage> {
 
   TextBox _iDInputBox = new TextBox(
     isBlank: false,
+    hintText: '',
   );
   TextBox _passWordInputBox = new TextBox(
     isBlank: true,
+    hintText: '',
   );
   TextBox _nicknameInputBox = new TextBox(
     isBlank: false,
+    hintText: '',
   );
   var _selectedAgeValue = '10대';
   String? _inputSex;

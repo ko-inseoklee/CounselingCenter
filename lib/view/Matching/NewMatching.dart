@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_counseling_center/view/customWidget/TextBox.dart';
+import 'package:get/get.dart';
 
 Map<String, bool> ageList = {
   '10대': true,
@@ -21,6 +22,8 @@ class NewMatchingPage extends StatefulWidget {
 class _NewMatchingPageState extends State<NewMatchingPage> {
   List<String> topic_list = ['우정', '연애/사랑', '취업/진로', '세대 차이'];
   String selected_topic = '세대 차이';
+
+  final _CheckBoxState check = _CheckBoxState();
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +62,7 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
             Center(
                 child: Container(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    child: TextBox(isBlank: false))),
+                    child: TextBox(isBlank: false, hintText: '방 제목 입력',))),
             Text('참여 가능 연령대',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
             CheckBox(),
@@ -67,7 +70,10 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         primary: Colors.deepPurple[400]),
-                    onPressed: () {},
+                    onPressed: () {
+                      check.getItems();
+                      Get.off('/matching');
+                    },
                     child: Text('매칭방 만들기')))
           ],
         ),
@@ -84,15 +90,6 @@ class CheckBox extends StatefulWidget {
 }
 
 class _CheckBoxState extends State<CheckBox> {
-  // Map<String, bool> List = {
-  //   '10대': true,
-  //   '20대': true,
-  //   '30대': true,
-  //   '40대': true,
-  //   '50대': true,
-  //   '60대': true,
-  //   '70대 이상': true,
-  // };
 
   var holder = [];
 
