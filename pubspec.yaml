@@ -30,12 +30,17 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.3.0
   uuid: 3.0.0
+  http: ^0.13.3
+  freezed_annotation: ^0.14.0
   flutter_screenutil: 5.0.0
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  json_serializable:
+  freezed:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

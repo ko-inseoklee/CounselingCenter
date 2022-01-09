@@ -98,11 +98,11 @@ class _SignUpPageState extends State<SignUpPage> {
             },
           ),
           TextButton(
-              onPressed: () {
+              onPressed: () async{
                 if (_inputAge == null || _inputSex == null) {
                   print("Bad request");
                 } else if (_auth.iDValidate && _auth.nickNameValidate) {
-                  _auth.signUp(
+                  await _auth.signUp(
                       iD: _iDInputBox.getText(),
                       password: _passWordInputBox.getText(),
                       age: _inputAge!,
