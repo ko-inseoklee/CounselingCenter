@@ -19,7 +19,12 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Get.toNamed('/matching');
                 },
-                child: Text('매칭 페이지'))
+                child: Text('매칭 페이지')),
+            TextButton(
+                onPressed: () {
+                  Get.toNamed('/sign-up');
+                },
+                child: Text('회원가입 페이지'))
           ],
         ),
       ),
