@@ -16,6 +16,19 @@ class Authentication extends GetxController{
     return !iDs.contains(input);
   }
 
+  Future<bool> checkIDValidateWithServer({required String input}) async{
+    var uri =  Uri.http('localhost:8080','users/idVerified');
+    http.Response response = await http.post(uri,
+      headers: <String,String>{
+        'content-type' : "application/json;"
+      },
+      body: input
+    );
+
+    if(response.statusCode == 200) return true;
+    return false;
+  }
+
   //TODO: Same as ID validate.
   bool checkNicknameValidate({required String input,required List<String> nicknames}){
     return !nicknames.contains(input);
@@ -33,7 +46,7 @@ class Authentication extends GetxController{
         uri,
         //TODO: 헤더 공부
         // headers: <String,String>{
-        //   'Content-type': 'application/json;',
+        //   'content-type': 'application/json;',
         // },
         body: user.toJson()
       );

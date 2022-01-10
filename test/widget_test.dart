@@ -1,9 +1,11 @@
+import 'package:flutter/animation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/Authentication.dart';
 import 'package:online_counseling_center/controller/UserController.dart';
 import 'package:online_counseling_center/model/user.dart';
 import 'package:uuid/uuid.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
 
@@ -42,4 +44,6 @@ void main() {
 
     assert(_auth.user == _usercontroller.user, "Failed Sign up");
   });
+
+
 }
