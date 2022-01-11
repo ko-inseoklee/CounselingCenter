@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/UserController.dart';
+import 'package:online_counseling_center/ignore.dart';
 import 'package:online_counseling_center/model/user.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
@@ -19,7 +20,7 @@ class Authentication extends GetxController{
       'id': input,
     };
 
-    var uri = Uri.http('localhost:8080', '/users/verify-id',_queryParameters);
+    var uri = Uri.http(apiServer, '/users/verify-id',_queryParameters);
     try{
       http.Response response = await http.get(uri);
       if(response.statusCode == 200){
@@ -40,7 +41,7 @@ class Authentication extends GetxController{
       'nickname': input,
     };
 
-    var uri = Uri.http('localhost:8080', '/users/verify-nickname',_queryParameters);
+    var uri = Uri.http(apiServer, '/users/verify-nickname',_queryParameters);
     try{
       http.Response response = await http.get(uri);
       if(response.statusCode == 200){
@@ -62,7 +63,7 @@ class Authentication extends GetxController{
 
     UserController userController = new UserController(user: user);
 
-    var uri = Uri.http('localhost:8080', 'users/create');
+    var uri = Uri.http(apiServer, 'users/create');
     try{
 
       http.Response response = await http.post(uri,
@@ -93,7 +94,7 @@ class Authentication extends GetxController{
   
   Future<void> signIn({required String ID, required String password}) async{
     try{
-      var uri = Uri.http('localhost:8080', '/users?ID=${ID}&pw=${password}');
+      var uri = Uri.http(apiServer, '/users?ID=${ID}&pw=${password}');
       var response = await http.get(uri);
 
       assert(response.statusCode == 200, "Bad Request");

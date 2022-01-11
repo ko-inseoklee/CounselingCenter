@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:online_counseling_center/controller/UserController.dart';
+import 'package:online_counseling_center/ignore.dart';
 import 'package:online_counseling_center/model/user.dart';
 
 void main(){
@@ -13,7 +14,7 @@ void main(){
       'id': userID,
     };
 
-    var uri = Uri.http('localhost:8080', '/users/verifyId',_queryParameters);
+    var uri = Uri.http(apiServer, '/users/verifyId',_queryParameters);
 
     http.Response response = await http.get(uri);
 
@@ -27,7 +28,7 @@ void main(){
 
     UserController userController = new UserController(user: user);
 
-    var uri = Uri.http('localhost:8080', 'users/create');
+    var uri = Uri.http(apiServer, 'users/create');
 
     http.Response response = await http.post(uri,
       headers: <String,String> {
