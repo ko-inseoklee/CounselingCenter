@@ -15,9 +15,6 @@ void main(){
 
     var uri = Uri.http('localhost:8080', '/users/verifyId',_queryParameters);
 
-
-    print(uri);
-
     http.Response response = await http.get(uri);
 
     print('body = ${response.body}');
@@ -31,8 +28,6 @@ void main(){
     UserController userController = new UserController(user: user);
 
     var uri = Uri.http('localhost:8080', 'users/create');
-
-    // print(user.toJson());
 
     http.Response response = await http.post(uri,
       headers: <String,String> {

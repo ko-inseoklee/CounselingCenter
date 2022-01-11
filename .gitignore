@@ -49,3 +49,4 @@ app.*.map.json
 /android/gradle.properties
 
 ./pubspec.lock
+./lib/ignore.dart
