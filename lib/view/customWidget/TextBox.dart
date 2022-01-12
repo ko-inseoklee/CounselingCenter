@@ -24,4 +24,8 @@ class TextBox extends StatelessWidget {
   String getText() {
     return _controller.text;
   }
+
+  void clear(){
+    _controller.clear();
+  }
 }

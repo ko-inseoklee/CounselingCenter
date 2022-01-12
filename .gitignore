@@ -31,6 +31,7 @@
 .pub/
 /build/
 pubspec.lock
+lib/ignore.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -48,4 +49,3 @@ app.*.map.json
 /android/build.gradle
 /android/gradle.properties
 
-./pubspec.lock

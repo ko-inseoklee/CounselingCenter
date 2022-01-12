@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/Authentication.dart';
-import 'package:online_counseling_center/model/user.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 import 'package:online_counseling_center/view/customWidget/TextBox.dart';
 import 'package:uuid/uuid.dart';
 
@@ -59,17 +59,17 @@ class _SignUpPageState extends State<SignUpPage> {
         children: [
           _iDInputBox,
           TextButton(
-              onPressed: () {
-                _auth.iDValidate = _auth.checkIDValidate(
-                    input: _iDInputBox.getText(), iDs: constantIDList);
+              onPressed: () async {
+                _auth.iDValidate = await _auth.checkIDValidate(
+                    input: _iDInputBox.getText());
               },
               child: Text("ID 중복확인")),
           _passWordInputBox,
           _nicknameInputBox,
           TextButton(
-              onPressed: () {
-                _auth.nickNameValidate = _auth.checkNicknameValidate(
-                    input: _iDInputBox.getText(), nicknames: constantIDList);
+              onPressed: () async {
+                _auth.nickNameValidate = await _auth.checkNicknameValidate(
+                    input: _iDInputBox.getText());
               },
               child: Text("닉네임 중복확인")),
           TextButton(
@@ -102,12 +102,13 @@ class _SignUpPageState extends State<SignUpPage> {
                 if (_inputAge == null || _inputSex == null) {
                   print("Bad request");
                 } else if (_auth.iDValidate && _auth.nickNameValidate) {
-                  await _auth.signUp(
+                  bool result = await _auth.signUp(
                       iD: _iDInputBox.getText(),
                       password: _passWordInputBox.getText(),
                       age: _inputAge!,
                       sex: _inputSex!,
                       nickname: _nicknameInputBox.getText());
+                  result? print("가입이 성공적으로 완료되었습니다.") : print("예기치 못한 오류가 발생했습니다.");
                 } else {
                   print("Can't sign up: validation check yet");
                 }

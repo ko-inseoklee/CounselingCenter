@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_counseling_center/model/user/user.dart';
+import 'package:online_counseling_center/model/chatter.dart';
 import 'package:online_counseling_center/dummy/testUserData.dart';
-import 'package:online_counseling_center/model/user.dart';
 import 'package:online_counseling_center/model/matching.dart';
 import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:get/get.dart';
