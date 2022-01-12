@@ -4,7 +4,6 @@ import 'package:online_counseling_center/model/user/user.dart';
 import 'package:online_counseling_center/model/chatter.dart';
 import 'package:online_counseling_center/dummy/testUserData.dart';
 import 'package:online_counseling_center/model/matching.dart';
-import 'package:lib/view/Matching/MatchingPage.dart'
 import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:get/get.dart';
 // import 'package:online_counseling_center/view/Matching/NewMatching.dart';
