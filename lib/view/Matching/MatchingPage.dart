@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/model/user/user.dart';
 import 'package:online_counseling_center/model/chatter.dart';
+import 'package:online_counseling_center/dummy/testUserData.dart';
+import 'package:online_counseling_center/model/matching.dart';
+import 'package:lib/view/Matching/MatchingPage.dart'
 import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:get/get.dart';
 // import 'package:online_counseling_center/view/Matching/NewMatching.dart';
@@ -17,64 +20,26 @@ class _MatchingPageState extends State<MatchingPage> {
   List<bool> selected = <bool>[false, false, false];
   // final List<String> user = <String>['소망', '인석', '성은', '예찬', '지열', '지웅'];
 
-  User user_me = User(
-      age: '20대',
-      nickname: '소맹',
-      uID: 'uid_0',
-      ID: 'someng',
-      password: '1234',
-      sex: '여', phoneVerified: false);
-
-  User user1 = User(
-      age: '30대',
-      nickname: 'inseoking',
-      uID: 'uid_1',
-      ID: 'inseoklee',
-      password: '1234',
-      sex: '남', phoneVerified: false);
-
-  User user2 = User(
-      age: '40대',
-      nickname: 'kin9son',
-      uID: 'uid_2',
-      ID: 'seong_eun',
-      password: '1234',
-      sex: '남', phoneVerified: false);
-
-  // Chatter chat1 = Chatter.init();
-  Chatter chat1 = Chatter(
+  // Chat chat1 = Chat.init();
+  matching chat1 = matching(
       topic: '세대 차이',
       title: '할아버지와의 세대 차이.. 도와주세요!',
-      age_: '20대',
-      nickName_: '소맹',
-      uID_: 'uid_0',
-      ID_: 'someng',
-      sex_: '여',
-      age: [],
-      nickName: [],
-      sex: [],
-      ID: [],
-      uID: [],
+      chatId: '0',
+      chatterId: user_me.uID,
+      partnerId: user1.uID,
       ageLimit: ['50대', '60대', '70대'],
       sexLimit: ['남', '여']);
 
-  Chatter chat2 = Chatter(
+  matching chat2 = matching(
       topic: '우정',
       title: '친구랑 다퉜는데 화해하고 싶어요ㅜ',
-      age_: '10대',
-      nickName_: 'inseoking',
-      uID_: 'uid_1',
-      ID_: 'inseoklee',
-      sex_: '남',
-      age: [],
-      nickName: [],
-      sex: [],
-      ID: [],
-      uID: [],
+      chatId: '0',
+      chatterId: user_me.uID,
+      partnerId: user2.uID,
       ageLimit: ['10대', '20대', '30대', '50대', '60대', '70대', '40대'],
       sexLimit: ['남']);
 
-  late List<Chatter> users = [chat1, chat2, chat1];
+  late List<matching> users = [chat1, chat2, chat1];
 
   @override
   Widget build(BuildContext context) {
@@ -160,20 +125,20 @@ class _MatchingPageState extends State<MatchingPage> {
                               getAgeLimit(index),
                               Row(
                                 children: [
-                                  Text(
-                                    '${users[index].nickName_} / ${users[index].age_} / ${users[index].sex_}',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
+                                  // Text(
+                                  //   // '${users[index].nickName_} / ${users[index].age_} / ${users[index].sex_}',
+                                  //   style:
+                                  //       TextStyle(fontWeight: FontWeight.bold),
+                                  // ),
                                   Icon(
                                     Icons.star,
                                     size: 17,
                                   )
                                 ],
                               ),
-                              for (int i = 0; i < users[index].ID.length; i++)
-                                Text(
-                                    '${users[index].nickName[i]} / ${users[index].age[i]} / ${users[index].sex[i]}'),
+                              // for (int i = 0; i < users[index].ID.length; i++)
+                              //   Text(
+                              //       '${users[index].nickName[i]} / ${users[index].age[i]} / ${users[index].sex[i]}'),
                             ],
                           ),
                         )
@@ -214,23 +179,23 @@ class _MatchingPageState extends State<MatchingPage> {
                 style: ElevatedButton.styleFrom(primary: Colors.orange),
                 onPressed: () {
                   setState(() {
-                    for (int i = 0; i < 3; i++) {
-                      if (selected[i]) {
-                        if (i == 0) {
-                          chat1.nickName.add('웅지');
-                          chat1.age.add('30대');
-                          chat1.ID.add('woongzy');
-                          chat1.uID.add('0');
-                          chat1.sex.add('남');
-                        } else if (i == 1) {
-                          chat2.nickName.add('웅지');
-                          chat2.age.add('30대');
-                          chat2.ID.add('woongzy');
-                          chat2.uID.add('0');
-                          chat2.sex.add('남');
-                        }
-                      }
-                    }
+                    // for (int i = 0; i < 3; i++) {
+                    //   if (selected[i]) {
+                    //     if (i == 0) {
+                    //       chat1.nickName.add('웅지');
+                    //       chat1.age.add('30대');
+                    //       chat1.ID.add('woongzy');
+                    //       chat1.uID.add('0');
+                    //       chat1.sex.add('남');
+                    //     } else if (i == 1) {
+                    //       chat2.nickName.add('웅지');
+                    //       chat2.age.add('30대');
+                    //       chat2.ID.add('woongzy');
+                    //       chat2.uID.add('0');
+                    //       chat2.sex.add('남');
+                    //     }
+                    //   }
+                    // }
                   });
                 },
                 child: Text('매칭방 입장',
