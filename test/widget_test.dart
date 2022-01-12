@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/Authentication.dart';
 import 'package:online_counseling_center/controller/UserController.dart';
-import 'package:online_counseling_center/model/user.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 import 'package:uuid/uuid.dart';
 
 void main() {
