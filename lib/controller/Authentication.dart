@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/UserController.dart';
-import 'package:online_counseling_center/model/user.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
 
