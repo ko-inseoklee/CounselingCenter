@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:online_counseling_center/controller/UserController.dart';
 import 'package:online_counseling_center/view/Login/Login.dart';
 import 'package:online_counseling_center/view/Login/SignUp.dart';
-import 'package:online_counseling_center/view/Matching/Matching.dart';
+import 'package:online_counseling_center/view/Matching/MatchingPage.dart';
 import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:online_counseling_center/view/Matching/NewMatching.dart';
 
