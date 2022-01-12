@@ -9,12 +9,12 @@ import 'package:online_counseling_center/model/user/user.dart';
 void main(){
 
   test("아이디 중복확인",() async {
-    String userID = "tjrkd222";
+    String userID = "tjrkd2222";
     final Map<String, String> _queryParameters = <String, String>{
       'id': userID,
     };
 
-    var uri = Uri.http(apiServer, '/users/verifyId',_queryParameters);
+    var uri = Uri.http(apiServer, '/users/verify-id',_queryParameters);
 
     http.Response response = await http.get(uri);
 
@@ -45,7 +45,7 @@ void main(){
       })
     );
 
-    // assert(response.statusCode == 200, "Bad Request");
+    assert(response.statusCode == 200, "Bad Request");
 
   });
 }

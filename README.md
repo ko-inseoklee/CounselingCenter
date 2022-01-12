@@ -2,7 +2,6 @@
 
 Online counseling platform for resolve generational conflict.
 
-
 # TODO
 
 #### 인석
