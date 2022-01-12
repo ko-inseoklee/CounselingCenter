@@ -1,4 +1,4 @@
-import 'package:online_counseling_center/model/user.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 
 User user_me = User(
     age: '20대',
