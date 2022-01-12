@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:online_counseling_center/controller/UserController.dart';
 import 'package:online_counseling_center/ignore.dart';
-import 'package:online_counseling_center/model/user.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 
 void main(){
 

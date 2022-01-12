@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:online_counseling_center/model/user.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 
 class UserController extends GetxController{
   Rx<User> user;

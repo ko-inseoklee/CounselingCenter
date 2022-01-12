@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:online_counseling_center/model/user.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -51,7 +51,12 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Get.toNamed('/sign-up');
                 },
-                child: Text('회원가입 페이지'))
+                child: Text('회원가입 페이지')),
+            TextButton(
+                onPressed: () {
+                  Get.toNamed('/chat');
+                },
+                child: Text('채팅 페이지'))
           ],
         ),
       ),
