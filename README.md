@@ -11,4 +11,4 @@ Online counseling platform for resolve generational conflict.
 
 # API
     - TextBox(bool isBlank)
-        1. getText() -> return 텍스트 필드 값.
+        1. getText() -> return 텍스트 필드 값..
