@@ -1,4 +1,4 @@
-class matching {
+class Match {
   String topic;
   String title;
 
@@ -10,7 +10,7 @@ class matching {
   List<String> ageLimit;
   List<String> sexLimit;
 
-  matching.init()
+  Match.init()
       : this.topic = ' ',
         this.title = ' ',
         this.chatId = ' ',
@@ -19,7 +19,7 @@ class matching {
         this.ageLimit = [],
         this.sexLimit = [];
 
-  matching({
+  Match({
     required this.topic,
     required this.title,
     required this.chatId,

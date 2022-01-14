@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/model/user/user.dart';
 import 'package:online_counseling_center/dummy/testUserData.dart';
-import 'package:online_counseling_center/model/matching.dart';
+import 'package:online_counseling_center/model/match.dart';
 import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:get/get.dart';
 // import 'package:online_counseling_center/view/Matching/NewMatching.dart';
+import 'package:online_counseling_center/dummy/testMatchingData.dart';
+import 'package:online_counseling_center/controller/MatchController.dart';
 
 class MatchingPage extends StatefulWidget {
   const MatchingPage({Key? key}) : super(key: key);
@@ -16,28 +18,8 @@ class MatchingPage extends StatefulWidget {
 
 class _MatchingPageState extends State<MatchingPage> {
   List<bool> selected = <bool>[false, false, false];
-  // final List<String> user = <String>['소망', '인석', '성은', '예찬', '지열', '지웅'];
 
-  // Chat chat1 = Chat.init();
-  matching chat1 = matching(
-      topic: '세대 차이',
-      title: '할아버지와의 세대 차이.. 도와주세요!',
-      chatId: '0',
-      chatterId: user_me.uID,
-      partnerId: user1.uID,
-      ageLimit: ['50대', '60대', '70대'],
-      sexLimit: ['남', '여']);
-
-  matching chat2 = matching(
-      topic: '우정',
-      title: '친구랑 다퉜는데 화해하고 싶어요ㅜ',
-      chatId: '0',
-      chatterId: user_me.uID,
-      partnerId: user2.uID,
-      ageLimit: ['10대', '20대', '30대', '50대', '60대', '70대', '40대'],
-      sexLimit: ['남']);
-
-  late List<matching> users = [chat1, chat2, chat1];
+  late List<Match> matching_rooms = [chat1, chat2, chat1];
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +73,9 @@ class _MatchingPageState extends State<MatchingPage> {
           height: MediaQuery.of(context).size.height * 0.65,
           child: ListView.separated(
             itemBuilder: (context, index) {
+              MatchController matchcontroller =
+                  MatchController(match: matching_rooms[index]);
+              Match match = matching_rooms[index];
               return Container(
                 padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                 height: 130,
@@ -109,34 +94,29 @@ class _MatchingPageState extends State<MatchingPage> {
                       child: Column(children: [
                         ListTile(
                           leading: Icon(Icons.chat_outlined),
-                          title: Text('<${users[index].title}>',
+                          title: Text('<${matching_rooms[index].title}>',
                               style: TextStyle(fontSize: 15)),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
-                                  Text('#${users[index].topic} '),
+                                  Text('#${matching_rooms[index].topic} '),
                                   getSexLimit(index),
                                 ],
                               ),
                               getAgeLimit(index),
+                              SizedBox(height: 5),
                               Row(
                                 children: [
-                                  // Text(
-                                  //   // '${users[index].nickName_} / ${users[index].age_} / ${users[index].sex_}',
-                                  //   style:
-                                  //       TextStyle(fontWeight: FontWeight.bold),
-                                  // ),
-                                  Icon(
-                                    Icons.star,
-                                    size: 17,
-                                  )
+                                  Icon(Icons.account_circle),
+                                  Text(
+                                    '  ${matchcontroller.getNickname(match: match)} / ${matchcontroller.getAge(match: match)} / ${matchcontroller.getSex(match: match)}',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
                                 ],
                               ),
-                              // for (int i = 0; i < users[index].ID.length; i++)
-                              //   Text(
-                              //       '${users[index].nickName[i]} / ${users[index].age[i]} / ${users[index].sex[i]}'),
                             ],
                           ),
                         )
@@ -152,7 +132,7 @@ class _MatchingPageState extends State<MatchingPage> {
                 ),
               );
             },
-            itemCount: users.length,
+            itemCount: matching_rooms.length,
             separatorBuilder: (context, index) {
               return Divider();
             },
@@ -208,24 +188,24 @@ class _MatchingPageState extends State<MatchingPage> {
   }
 
   Widget getSexLimit(int index) {
-    if (users[index].sexLimit.contains('남') &&
-        !users[index].sexLimit.contains('여')) {
+    if (matching_rooms[index].sexLimit.contains('남') &&
+        !matching_rooms[index].sexLimit.contains('여')) {
       return Text('#남자만');
-    } else if (users[index].sexLimit.contains('남') &&
-        !users[index].sexLimit.contains('여'))
+    } else if (matching_rooms[index].sexLimit.contains('남') &&
+        !matching_rooms[index].sexLimit.contains('여'))
       return Text('#여자만');
     else
       return Text('');
   }
 
   Widget getAgeLimit(int index) {
-    users[index].ageLimit.sort();
+    matching_rooms[index].ageLimit.sort();
 
-    if (users[index].ageLimit.length < 7) {
+    if (matching_rooms[index].ageLimit.length < 7) {
       return Row(children: [
-        for (int i = 0; i < users[index].ageLimit.length; i++)
+        for (int i = 0; i < matching_rooms[index].ageLimit.length; i++)
           Text(
-            '#${users[index].ageLimit[i]} ',
+            '#${matching_rooms[index].ageLimit[i]} ',
             // softWrap: true,
           )
       ]);
