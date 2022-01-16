@@ -123,7 +123,10 @@ class _MatchingPageState extends State<MatchingPage> {
                   MatchController(match: matching_rooms[index]);
               Match match = matching_rooms[index];
 
-              if ((_selectedTopic == '주제' || match.topic == _selectedTopic) && (_selectedSex == '성별' || match.sexLimit.contains(_selectedSex)))
+              if ((match.partnerId == '') &&
+                  (_selectedTopic == '주제' || match.topic == _selectedTopic) &&
+                  (_selectedSex == '성별' ||
+                      match.sexLimit.contains(_selectedSex)))
                 return Container(
                   padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
                   height: 130,
@@ -149,7 +152,11 @@ class _MatchingPageState extends State<MatchingPage> {
                               children: [
                                 Row(
                                   children: [
-                                    Text('#${matching_rooms[index].topic} ', style: TextStyle(fontWeight: FontWeight.bold),),
+                                    Text(
+                                      '#${matching_rooms[index].topic} ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                     getSexLimit(index),
                                   ],
                                 ),
@@ -207,23 +214,36 @@ class _MatchingPageState extends State<MatchingPage> {
                 style: ElevatedButton.styleFrom(primary: Colors.orange),
                 onPressed: () {
                   setState(() {
-                    // for (int i = 0; i < 3; i++) {
-                    //   if (selected[i]) {
-                    //     if (i == 0) {
-                    //       chat1.nickName.add('웅지');
-                    //       chat1.age.add('30대');
-                    //       chat1.ID.add('woongzy');
-                    //       chat1.uID.add('0');
-                    //       chat1.sex.add('남');
-                    //     } else if (i == 1) {
-                    //       chat2.nickName.add('웅지');
-                    //       chat2.age.add('30대');
-                    //       chat2.ID.add('woongzy');
-                    //       chat2.uID.add('0');
-                    //       chat2.sex.add('남');
-                    //     }
-                    //   }
-                    // }
+                    for (int i = 0; i < matching_rooms.length; i++) {
+                      Match _match = matching_rooms[i];
+                      if (selected[i]) {
+                        if (_match.chatterId == user_me.uID) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('중복 참여'),
+                                  content: Text('내가 만든 방에는 참여할 수 없어요!'),
+                                  actions: [
+                                    TextButton(
+                                        child: Text('확인'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        })
+                                  ],
+                                );
+                              });
+                        } else {
+                          if (i == 0) {
+                            match1.partnerId = user_me.uID;
+                          } else if (i == 1) {
+                            match2.partnerId = user_me.uID;
+                          } else if (i == 2) {
+                            match3.partnerId = user_me.uID;
+                          }
+                        }
+                      }
+                    }
                   });
                 },
                 child: Text('매칭방 입장',
