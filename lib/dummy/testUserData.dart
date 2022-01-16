@@ -17,7 +17,7 @@ User user1 = User(
     sex: '남', phoneVerified: false);
 
 User user2 = User(
-    age: '40대',
+    age: '30대',
     nickname: 'kin9son',
     uID: 'uid_2',
     ID: 'seong_eun',
