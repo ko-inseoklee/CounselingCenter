@@ -119,6 +119,7 @@ class _CheckBoxState extends State<CheckBox> {
     // Print all selected items on Terminal screen.
     print(holder);
     // Here you will get all your selected Checkbox items.
+    // 서버 연결 후, db에 체크된 항목 저장
 
     // Clear array after use.
     holder.clear();
