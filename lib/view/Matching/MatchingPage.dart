@@ -19,7 +19,10 @@ class MatchingPage extends StatefulWidget {
 class _MatchingPageState extends State<MatchingPage> {
   List<bool> selected = <bool>[false, false, false];
 
-  late List<Match> matching_rooms = [chat1, chat2, chat1];
+  late List<Match> matching_rooms = [match1, match2, match3];
+
+  String _selectedTopic = '주제';
+  final List<String> topicList = ['주제', '세대 차이', '우정', '취업/진로'];
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +35,18 @@ class _MatchingPageState extends State<MatchingPage> {
           children: [
             SizedBox(
               width: 110,
-              child: OutlinedButton(
-                onPressed: () {},
-                child: Text('주제',
-                    style: TextStyle(fontSize: 17, color: Colors.lightGreen)),
+              child: DropdownButton(
+                value: _selectedTopic,
+                items: topicList.map((value) {
+                  return DropdownMenuItem(value: value, child: Text(value));
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    // _selectedTopic = value;
+                  });
+                },
+                // child: Text('주제',
+                //     style: TextStyle(fontSize: 17, color: Colors.lightGreen)),
               ),
             ),
             SizedBox(

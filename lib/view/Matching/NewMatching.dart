@@ -12,6 +12,11 @@ Map<String, bool> ageList = {
   '70대 이상': true,
 };
 
+Map<String, bool> sexList = {
+  '남자': true,
+  '여자': true,
+};
+
 class NewMatchingPage extends StatefulWidget {
   const NewMatchingPage({Key? key}) : super(key: key);
 
@@ -62,19 +67,26 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
             Center(
                 child: Container(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    child: TextBox(isBlank: false, hintText: '방 제목 입력',))),
-            Text('참여 가능 연령대',
+                    child: TextBox(
+                      isBlank: false,
+                      hintText: '방 제목 입력',
+                    ))),
+            Text('매칭 파트너 연령',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-            CheckBox(),
+            CheckBox(list: ageList,),
+            Text('매칭 파트너 성별',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+            CheckBox(list: sexList),
             Center(
                 child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         primary: Colors.deepPurple[400]),
                     onPressed: () {
-                      check.getItems();
+                      check.getItems(list: ageList);
+                      check.getItems(list: sexList);
                       Get.off('/matching');
                     },
-                    child: Text('매칭방 만들기')))
+                    child: Text('매칭방 만들기'))),
           ],
         ),
       ),
@@ -83,18 +95,22 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
 }
 
 class CheckBox extends StatefulWidget {
-  const CheckBox({Key? key}) : super(key: key);
+  // Rx<Map> List;
+
+  final Map<String, bool> list;
+
+  const CheckBox({Key? key, required this.list}) : super(key: key);
+
 
   @override
   _CheckBoxState createState() => _CheckBoxState();
 }
 
 class _CheckBoxState extends State<CheckBox> {
-
   var holder = [];
 
-  getItems() {
-    ageList.forEach((key, value) {
+  getItems({required Map<String, bool> list}) {
+    list.forEach((key, value) {
       if (value == true) {
         holder.add(key);
       }
@@ -112,23 +128,22 @@ class _CheckBoxState extends State<CheckBox> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: 200,
-        // margin: EdgeInsets.symmetric(vertical: 20.0),
+        height: 70,
         child: ListView(
           scrollDirection: Axis.horizontal,
-          children: ageList.keys.map((String key) {
+          children: widget.list.keys.map((String key) {
             return Row(
               children: [
                 Column(
                   children: [
                     Text(key),
                     Checkbox(
-                      value: ageList[key],
+                      value: widget.list[key],
                       activeColor: Colors.deepPurple[400],
                       checkColor: Colors.white,
                       onChanged: (bool? value) {
                         setState(() {
-                          ageList[key] = value!;
+                          widget.list[key] = value!;
                         });
                       },
                     )
@@ -136,17 +151,6 @@ class _CheckBoxState extends State<CheckBox> {
                 )
               ],
             );
-            // return CheckboxListTile(
-            //   title: Text(key),
-            //   value: List[key],
-            //   activeColor: Colors.deepPurple[400],
-            //   checkColor: Colors.white,
-            //   onChanged: (bool? value) {
-            //     setState(() {
-            //       List[key] = value!;
-            //     });
-            //   },
-            // );
           }).toList(),
         ),
       ),
