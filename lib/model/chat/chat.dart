@@ -11,6 +11,7 @@ class Chat with _$Chat{
     required String messagesID,
     required String ownerNickname,
     required String otherNickname,
+    required Map<String,dynamic> messages,
   }) = _Chat;
 
   factory Chat.fromJson(Map<String,dynamic> json) => _$ChatFromJson(json);
@@ -21,6 +22,22 @@ class Messages{
   List<Message> messages;
 
   Messages({required this.messagesID, required this.messages});
+
+
+}
+
+List<Map<String,dynamic>> messageToJson({required Messages messages}){
+  List<Map<String, dynamic>> result = [];
+  messages.messages.forEach((element) {
+    Map<String,dynamic> t = {
+      'nickname' : element.nickname,
+      'timeStamp' : element.t,
+      'text' : element.message
+    };
+    result.add(t);
+  });
+
+  return result;
 }
 
 class Message{

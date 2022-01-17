@@ -13,7 +13,7 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   TextBox inputBox = new TextBox(isBlank: false, hintText: '');
 
-  Chat chat = new Chat(matchingID: '1234', messagesID: '12345', ownerNickname: 'inseoking', otherNickname: 'someng2');
+  Chat chat = new Chat(matchingID: '1234', messagesID: '12345', ownerNickname: 'inseoking', otherNickname: 'someng2',messages: {});
   Messages messages = new Messages(messagesID: '12345', messages: []);
 
   @override
