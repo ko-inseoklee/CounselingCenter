@@ -213,27 +213,27 @@ class _MatchingPageState extends State<MatchingPage> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.orange),
                 onPressed: () {
-                  setState(() {
-                    for (int i = 0; i < matching_rooms.length; i++) {
-                      Match _match = matching_rooms[i];
-                      if (selected[i]) {
-                        if (_match.chatterId == user_me.uID) {
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('중복 참여'),
-                                  content: Text('내가 만든 방에는 참여할 수 없어요!'),
-                                  actions: [
-                                    TextButton(
-                                        child: Text('확인'),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        })
-                                  ],
-                                );
-                              });
-                        } else {
+                  for (int i = 0; i < matching_rooms.length; i++) {
+                    Match _match = matching_rooms[i];
+                    if (selected[i]) {
+                      if (_match.chatterId == user_me.uID) {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: Text('중복 참여'),
+                                content: Text('내가 만든 방에는 참여할 수 없어요!'),
+                                actions: [
+                                  TextButton(
+                                      child: Text('확인'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      })
+                                ],
+                              );
+                            });
+                      } else {
+                        setState(() {
                           if (i == 0) {
                             match1.partnerId = user_me.uID;
                           } else if (i == 1) {
@@ -241,10 +241,10 @@ class _MatchingPageState extends State<MatchingPage> {
                           } else if (i == 2) {
                             match3.partnerId = user_me.uID;
                           }
-                        }
+                        });
                       }
                     }
-                  });
+                  }
                 },
                 child: Text('매칭방 입장',
                     style:

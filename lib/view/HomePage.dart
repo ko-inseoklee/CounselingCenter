@@ -32,7 +32,12 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Get.toNamed('/chat');
                 },
-                child: Text('채팅 페이지'))
+                child: Text('채팅 페이지')),
+            TextButton(
+                onPressed: () {
+                  Get.toNamed('/board');
+                },
+                child: Text('소통 게시판 페이지'))
           ],
         ),
       ),

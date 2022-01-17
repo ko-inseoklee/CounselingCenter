@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:online_counseling_center/view/customWidget/TextBox.dart';
 import 'package:get/get.dart';
 
+import 'package:online_counseling_center/view/Matching/MatchingPage.dart';
+
 Map<String, bool> ageList = {
   '10대': true,
   '20대': true,
@@ -82,9 +84,10 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
                     style: ElevatedButton.styleFrom(
                         primary: Colors.deepPurple[400]),
                     onPressed: () {
+                      // 서버 연결 후, db에 체크된 항목 저장
                       check.getItems(list: ageList);
                       check.getItems(list: sexList);
-                      Get.off('/matching');
+                      Get.back();
                     },
                     child: Text('매칭방 만들기'))),
           ],
@@ -121,7 +124,7 @@ class _CheckBoxState extends State<CheckBox> {
     // Here you will get all your selected Checkbox items.
     // 서버 연결 후, db에 체크된 항목 저장
 
-    // Clear array after use.
+    // Cear array after use.
     holder.clear();
   }
 
