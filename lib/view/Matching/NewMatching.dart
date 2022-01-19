@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_counseling_center/controller/UserController.dart';
+import 'package:online_counseling_center/dummy/testMatchingData.dart';
 import 'package:online_counseling_center/model/match.dart';
 import 'package:online_counseling_center/view/customWidget/TextBox.dart';
 import 'package:get/get.dart';
@@ -28,10 +30,18 @@ class NewMatchingPage extends StatefulWidget {
 }
 
 class _NewMatchingPageState extends State<NewMatchingPage> {
+
+  // UserController _userController = Get.find<UserController>();
+
   List<String> topic_list = ['우정', '연애/사랑', '취업/진로', '세대 차이'];
   String selected_topic = '세대 차이';
 
   final _CheckBoxState check = _CheckBoxState();
+
+  TextBox titleTextBox = TextBox(
+    isBlank: false,
+    hintText: '방 제목 입력',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -70,10 +80,8 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
             Center(
                 child: Container(
                     width: MediaQuery.of(context).size.width * 0.8,
-                    child: TextBox(
-                      isBlank: false,
-                      hintText: '방 제목 입력',
-                    ))),
+                    child: titleTextBox
+                )),
             Text('매칭 파트너 연령',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
             CheckBox(list: ageList,),
@@ -85,11 +93,23 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
                     style: ElevatedButton.styleFrom(
                         primary: Colors.deepPurple[400]),
                     onPressed: () {
+                      Match match = new Match(topic: selected_topic, title: titleTextBox.getText(), chatId: '', chatterId: "uid_1"/* _userController.user.value.ID*/, partnerId: '', ageLimit: [], sexLimit: []);
+                      setState(() {
+                        try{
+                          // makeMathcing(match);  :  POST method 이용하여 DB에 올리는 작업.
+                          matching_rooms.add(match);
+                          selected.add(false);
+                          print(matching_rooms.length);
+                        } catch(e){
+                          // Get.Dialog(errordialog);
+                        }
+
+                      });
                       // Match match = Match(topic: '', title: '', chatId: )
                       // 서버 연결 후, db에 체크된 항목 저장
                       check.getItems(list: ageList);
                       check.getItems(list: sexList);
-                      Get.back();
+                      Get.off(MatchingPage());
                     },
                     child: Text('매칭방 만들기'))),
           ],
