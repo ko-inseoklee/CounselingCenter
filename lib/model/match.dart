@@ -10,14 +10,14 @@ class Match {
   List<String> ageLimit;
   List<String> sexLimit;
 
-  Match.init()
-      : this.topic = ' ',
-        this.title = ' ',
-        this.chatId = ' ',
-        this.chatterId = ' ',
-        this.partnerId = ' ',
-        this.ageLimit = [],
-        this.sexLimit = [];
+  // Match.init()
+  //     : this.topic = ' ',
+  //       this.title = ' ',
+  //       this.chatId = ' ',
+  //       this.chatterId = ' ',
+  //       this.partnerId = ' ',
+  //       this.ageLimit = [],
+  //       this.sexLimit = [];
 
   Match({
     required this.topic,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_counseling_center/model/match.dart';
 import 'package:online_counseling_center/view/customWidget/TextBox.dart';
 import 'package:get/get.dart';
 
@@ -84,6 +85,7 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
                     style: ElevatedButton.styleFrom(
                         primary: Colors.deepPurple[400]),
                     onPressed: () {
+                      // Match match = Match(topic: '', title: '', chatId: )
                       // 서버 연결 후, db에 체크된 항목 저장
                       check.getItems(list: ageList);
                       check.getItems(list: sexList);
