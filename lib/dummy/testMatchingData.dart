@@ -8,7 +8,7 @@ Match match1 = Match(
     chatterId: user_me.uID,
     partnerId: '',
     ageLimit: ['50대', '60대', '70대'],
-    sexLimit: ['남', '여']);
+    sexLimit: ['남자', '여자']);
 
 Match match2 = Match(
     topic: '우정',
@@ -17,7 +17,7 @@ Match match2 = Match(
     chatterId: user1.uID,
     partnerId: '',
     ageLimit: ['10대', '20대', '30대', '50대', '60대', '70대', '40대'],
-    sexLimit: ['남']);
+    sexLimit: ['남자']);
 
 Match match3 = Match(
     topic: '취업/진로',
@@ -26,4 +26,4 @@ Match match3 = Match(
     chatterId: user2.uID,
     partnerId: '',
     ageLimit: ['20대', '30대'],
-    sexLimit: ['남', '여']);
+    sexLimit: ['남자', '여자']);
