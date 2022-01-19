@@ -9,6 +9,9 @@ import 'package:get/get.dart';
 import 'package:online_counseling_center/dummy/testMatchingData.dart';
 import 'package:online_counseling_center/controller/MatchController.dart';
 
+List<bool> selected = <bool>[false, false, false];
+
+
 class MatchingPage extends StatefulWidget {
   const MatchingPage({Key? key}) : super(key: key);
 
@@ -17,15 +20,22 @@ class MatchingPage extends StatefulWidget {
 }
 
 class _MatchingPageState extends State<MatchingPage> {
-  List<bool> selected = <bool>[false, false, false];
 
-  late List<Match> matching_rooms = [match1, match2, match3];
+  late List<Match> matchingRooms;
+
 
   String _selectedTopic = '주제';
   final List<String> topicList = ['주제', '세대 차이', '우정', '취업/진로'];
 
   String _selectedSex = '성별';
   final List<String> sexList = ['성별', '남자', '여자'];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    matchingRooms = matching_rooms;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +188,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         ])),
                     onTap: () {
                       setState(() {
-                        for (int i = 0; i <= 2; i++) {
+                        for (int i = 0; i <= matching_rooms.length; i++) {
                           if (i != index) selected[i] = false;
                         }
                         selected[index] = true;

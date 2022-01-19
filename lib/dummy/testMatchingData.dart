@@ -27,3 +27,6 @@ Match match3 = Match(
     partnerId: '',
     ageLimit: ['20대', '30대'],
     sexLimit: ['남자', '여자']);
+
+
+List<Match> matching_rooms = [match1, match2, match3];
