@@ -7,6 +7,7 @@ import 'package:online_counseling_center/view/Matching/MatchingPage.dart';
 import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:online_counseling_center/view/Matching/NewMatching.dart';
 import 'package:online_counseling_center/view/Board/BoardPage.dart';
+import 'package:online_counseling_center/view/Board/GenerationBoardPage.dart';
 
 const primaryColor = Colors.white;
 
@@ -19,6 +20,7 @@ void main() => runApp(GetMaterialApp(
         GetPage(name: '/newMatching', page: () => NewMatchingPage()),
         GetPage(name: '/chat', page: () => ChatPage()),
         GetPage(name: '/board', page: () => BoardPage()),
+        GetPage(name: '/generationBoard', page: () => GenerationBoardPage()),
       ],
       theme: ThemeData(
         primaryColor: primaryColor,

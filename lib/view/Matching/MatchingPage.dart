@@ -111,7 +111,7 @@ class _MatchingPageState extends State<MatchingPage> {
           ],
         ),
         Divider(
-          color: Colors.black38,
+          color: Colors.black,
           indent: 20,
           endIndent: 20,
         ),

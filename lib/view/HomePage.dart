@@ -20,14 +20,14 @@ class HomePage extends StatelessWidget {
             Text('넉넉'),
             TextButton(
                 onPressed: () {
-                  Get.toNamed('/matching');
-                },
-                child: Text('매칭 페이지')),
-            TextButton(
-                onPressed: () {
                   Get.toNamed('/sign-up');
                 },
                 child: Text('회원가입 페이지')),
+            TextButton(
+                onPressed: () {
+                  Get.toNamed('/matching');
+                },
+                child: Text('매칭 페이지')),
             TextButton(
                 onPressed: () {
                   Get.toNamed('/chat');
