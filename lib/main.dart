@@ -8,6 +8,7 @@ import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:online_counseling_center/view/Matching/NewMatching.dart';
 import 'package:online_counseling_center/view/Board/BoardPage.dart';
 import 'package:online_counseling_center/view/Board/GenerationBoardPage.dart';
+import 'package:online_counseling_center/color.dart';
 
 const primaryColor = Colors.white;
 
@@ -22,7 +23,16 @@ void main() => runApp(GetMaterialApp(
         GetPage(name: '/board', page: () => BoardPage()),
         GetPage(name: '/generationBoard', page: () => GenerationBoardPage()),
       ],
-      theme: ThemeData(
-        primaryColor: primaryColor,
-      ),
+      // theme: ThemeData(
+      //   primaryColor: primaryColor,
+      // ),
+      theme: _knockTheme,
     ));
+
+final ThemeData _knockTheme = _buildKnockTheme();
+
+ThemeData _buildKnockTheme() {
+  final ThemeData base = ThemeData.light();
+
+  return base.copyWith(primaryColor: MainYellow);
+}
