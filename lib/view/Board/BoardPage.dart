@@ -12,7 +12,7 @@ class _BoardPageState extends State<BoardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('소통 게시판')),
+        // appBar: AppBar(title: Text('소통 게시판')),
         body: Center(
           child: Column(children: [
             Container(height: 100),
