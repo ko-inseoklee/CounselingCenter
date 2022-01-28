@@ -61,6 +61,11 @@ flutter:
     - image/boardIcon.png
     - image/matchIcon.png
     - image/messageIcon.png
+    - image/tipIcon.png
+    - image/homeIcon.png
+    - image/mainLogo.png
+    - image/bellIcon.png
+    - image/menuIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

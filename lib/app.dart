@@ -34,5 +34,5 @@ final ThemeData _knockTheme = _buildKnockTheme();
 ThemeData _buildKnockTheme() {
   final ThemeData base = ThemeData.light();
 
-  return base.copyWith(primaryColor: MainYellow);
+  return base.copyWith(primaryColor: PrimaryColor);
 }
