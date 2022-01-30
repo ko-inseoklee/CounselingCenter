@@ -31,8 +31,10 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
             ),
             IconButton(
-                onPressed: () {},
-                icon: ImageIcon(AssetImage("image/navigateIcon.png")))
+              onPressed: () {},
+              icon: ImageIcon(AssetImage("image/navigateNextIcon.png")),
+              color: Color(0xff333333),
+            )
           ],
         ),
       ),

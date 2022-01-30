@@ -23,6 +23,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
+  // bool isMain = true;
   final List<Widget> menuList = [
     HomePage(),
     BoardPage(),
@@ -34,14 +35,16 @@ class _MainPageState extends State<MainPage> {
   void _onTap(int index) {
     setState(() {
       _currentIndex = index;
+      // isMain = ((index == 0) ? true : false);
     });
   }
 
-  DefaultAppBar _defaultAppBar = DefaultAppBar();
-  // BottomNavigationBar _bottomNavigationBar = BottomNavigationBar(type: type, onTap: _onTap, currentIndex: currentIndex, items: items)
+
 
   @override
   Widget build(BuildContext context) {
+    DefaultAppBar _defaultAppBar = DefaultAppBar(pageIndex: _currentIndex,);
+
     print('someng logged in!\n');
     ScreenUtil.init(
         BoxConstraints(
