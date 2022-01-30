@@ -53,7 +53,7 @@ class _MainPageState extends State<MainPage> {
         orientation: Orientation.portrait);
     // ScreenUtil().setWidth(320);
     // ScreenUtil().setHeight(568);
-    ScreenUtil().setSp(11);
+    // ScreenUtil().setSp(11);
     return Scaffold(
       appBar: _defaultAppBar,
 
@@ -63,6 +63,8 @@ class _MainPageState extends State<MainPage> {
         onTap: _onTap,
         selectedItemColor: PrimaryColor,
         currentIndex: _currentIndex,
+        selectedFontSize: 11.sp,
+        unselectedFontSize: 11.sp,
         items: [
           BottomNavigationBarItem(
               label: '홈',

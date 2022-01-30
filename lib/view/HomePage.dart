@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,9 +20,23 @@ class _HomePageState extends State<HomePage> {
         // context: context,
         // minTextAdapt: true,
         orientation: Orientation.portrait);
-    // ScreenUtil().setWidth(320);
-    // ScreenUtil().setHeight(568);
     ScreenUtil().setSp(11);
-    return Container(child: Text('홈페이지'));
+    return Column(children: [
+      Padding(
+        padding: EdgeInsets.only(left: 16.w, top: 14.h),
+        child: Row(
+          children: [
+            Text(
+              'Today Topic',
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+            ),
+            IconButton(
+                onPressed: () {},
+                icon: ImageIcon(AssetImage("image/navigateIcon.png")))
+          ],
+        ),
+      ),
+      SwipingCards(),
+    ]);
   }
 }
