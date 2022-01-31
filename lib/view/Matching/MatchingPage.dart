@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/model/user/user.dart';
 import 'package:online_counseling_center/dummy/testUserData.dart';
 import 'package:online_counseling_center/model/match.dart';
-import 'package:online_counseling_center/view/HomePage.dart';
+import 'package:online_counseling_center/view/MainPage.dart';
 import 'package:get/get.dart';
 // import 'package:online_counseling_center/view/Matching/NewMatching.dart';
 import 'package:online_counseling_center/dummy/testMatchingData.dart';
