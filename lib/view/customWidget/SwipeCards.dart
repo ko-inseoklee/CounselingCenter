@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/color.dart';
-import 'package:scrolling_page_indicator/scrolling_page_indicator.dart';
+// import 'package:scrolling_page_indicator/scrolling_page_indicator.dart';
 
 class SwipingCards extends StatefulWidget {
   const SwipingCards({Key? key}) : super(key: key);
@@ -21,6 +21,7 @@ class _SwipingCardsState extends State<SwipingCards> {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: items는 나중에 데이터로 불러올 것이기 때문에 따로 데이터를 만들어두고 call 해오는 방식으로 짜면 좋을 듯?(인석)
     List<Widget> items = [
       buildPage("0", "2022.01.30", "그저께 질문", "Producer", 76, 70),
       buildPage("1", "2022.01.31", "어제 질문", "Producer", 40, 25),
@@ -32,6 +33,7 @@ class _SwipingCardsState extends State<SwipingCards> {
       alignment: Alignment.center,
       width: 288.w,
       height: 158.h,
+      padding: EdgeInsets.all(0),
       child: Column(
         children: <Widget>[
           Expanded(
@@ -40,16 +42,16 @@ class _SwipingCardsState extends State<SwipingCards> {
               controller: _controller,
             ),
           ),
-          ScrollingPageIndicator(
-            dotColor: Color(0xffC4C4C4),
-            dotSelectedColor: SecondaryLColor,
-            dotSize: 3.33.sp,
-            dotSelectedSize: 3.33.sp,
-            dotSpacing: 6.w,
-            controller: _controller,
-            itemCount: items.length,
-            orientation: Axis.horizontal,
-          ),
+          // ScrollingPageIndicator(
+          //   dotColor: Color(0xffC4C4C4),
+          //   dotSelectedColor: SecondaryLColor,
+          //   dotSize: 3.33.sp,
+          //   dotSelectedSize: 3.33.sp,
+          //   dotSpacing: 6.w,
+          //   controller: _controller,
+          //   itemCount: items.length,
+          //   orientation: Axis.horizontal,
+          // ),
         ],
       ),
     );
@@ -57,25 +59,42 @@ class _SwipingCardsState extends State<SwipingCards> {
 
   Widget buildPage(String text, String date, String question, String creator, int like, int comments) {
     return Container(
-      margin: EdgeInsets.only(bottom: 8.h),
       decoration: BoxDecoration(
-          color: PrimaryVariant1Color, borderRadius: BorderRadius.circular(24)),
+          // color: PrimaryVariant1Color,
+          borderRadius: BorderRadius.all(Radius.circular(25))),
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(left: 14.w, top: 9.h),
+            width: 288.w,
+            height: 49.h,
+            decoration: BoxDecoration(
+                color: PrimaryVariant1Color,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+              image: DecorationImage(
+                image: AssetImage("image/topicCard.png"),
+                fit: BoxFit.contain,
+                alignment: Alignment.centerLeft
+              )
+            ),
+            padding: EdgeInsets.only(left: 14.w,top: 9.h),
             child: Text(date,
                 style: TextStyle(
                     fontSize: 13.sp,
                     fontWeight: FontWeight.w700,
                     color: Color(0xffFFFFFF))),
           ),
-          Center(
+          Container(
+            color: PrimaryVariant1Color,
+            height: 66.h,
             child: Row(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 44.01.h),
+                Container(
+                  alignment: Alignment.topCenter,
+                  width: 35.w,
+                  height: 45.h,
+                  // padding: EdgeInsets.only(top: 44.01.h),
                   child: IconButton(
                     onPressed: () {
                       _controller.previousPage(
@@ -87,8 +106,7 @@ class _SwipingCardsState extends State<SwipingCards> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 26.h),
-                  width: 205.w,
+                  width: 215.w,
                   height: 45.h,
                   child: Text(
                     'Q. $question',
@@ -99,8 +117,10 @@ class _SwipingCardsState extends State<SwipingCards> {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(top: 44.01.h),
+                Container(
+                  alignment: Alignment.topCenter,
+                  width: 35.w,
+                  height: 45.h,
                   child: IconButton(
                       onPressed: () {
                         _controller.nextPage(
@@ -116,31 +136,42 @@ class _SwipingCardsState extends State<SwipingCards> {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 25.sp),
+            decoration: BoxDecoration(color: PrimaryVariant1Color.withOpacity(0.8), borderRadius: BorderRadius.vertical(bottom: Radius.circular(25))),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SizedBox(width: 29.w),
-                Text('by $creator',
-                    style: TextStyle(
-                        color: TextPrimaryColor,
-                        fontSize: 9.sp,
-                        fontWeight: FontWeight.w500)),
-                SizedBox(width: 135.77.sp),
-                ImageIcon(AssetImage("image/likeIcon.png"),
-                    color: TextPrimaryColor),
-                Text('$like',
-                    style: TextStyle(
-                        color: TextPrimaryColor,
-                        fontSize: 9.sp,
-                        fontWeight: FontWeight.w500)),
-                SizedBox(width: 13.w),
-                ImageIcon(AssetImage("image/commentIcon.png"),
-                    color: TextPrimaryColor),
-                Text('$comments',
-                    style: TextStyle(
-                        color: TextPrimaryColor,
-                        fontSize: 9.sp,
-                        fontWeight: FontWeight.w500))
+                Container(
+                  alignment: Alignment.center,
+                  child: Text('by $creator',
+                      style: TextStyle(
+                          color: TextPrimaryColor,
+                          fontSize: 9.sp,
+                          fontWeight: FontWeight.w500)
+                  ),
+                  width: 91.w,
+                ),
+                Container(
+                  margin: EdgeInsets.only(right: 16.w),
+                  child: Row(
+                    children: [
+                      ImageIcon(AssetImage("image/likeIcon.png"),
+                        color: TextPrimaryColor),
+                      Text('$like',
+                          style: TextStyle(
+                              color: TextPrimaryColor,
+                              fontSize: 9.sp,
+                              fontWeight: FontWeight.w500)),
+                      ImageIcon(AssetImage("image/commentIcon.png"),
+                          color: TextPrimaryColor),
+                      Text('$comments',
+                          style: TextStyle(
+                              color: TextPrimaryColor,
+                              fontSize: 9.sp,
+                              fontWeight: FontWeight.w500)
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
