@@ -44,32 +44,6 @@ class _KnockKnockAppState extends State<KnockKnockApp> {
   }
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    //Set the fit size (Find your UI design, look at the dimensions of the device screen and fill it in,unit in dp)
-    return ScreenUtilInit(
-      designSize: Size(320, 568),
-      builder: () =>
-          GetMaterialApp(
-            home: MediaQuery(data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0), child: MainPage(),),
-            getPages: [
-              GetPage(name: '/matching', page: () => MatchingPage()),
-              GetPage(name: '/login', page: () => LogInPage()),
-              GetPage(name: '/sign-up', page: () => SignUpPage()),
-              GetPage(name: '/newMatching', page: () => NewMatchingPage()),
-              GetPage(name: '/chat', page: () => ChatPage()),
-              GetPage(name: '/board', page: () => BoardPage()),
-              GetPage(name: '/generationBoard', page: () => GenerationBoardPage()),
-            ],
-            theme: _knockTheme,
-          ),
-    );
-  }
-}
-
-
-
 final ThemeData _knockTheme = _buildKnockTheme();
 
 ThemeData _buildKnockTheme() {

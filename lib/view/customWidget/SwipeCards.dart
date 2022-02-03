@@ -30,10 +30,22 @@ class _SwipingCardsState extends State<SwipingCards> {
     ];
 
     return Container(
+
       alignment: Alignment.center,
+      // decoration: BoxDecoration(
+      //   boxShadow: [
+      //     BoxShadow(
+      //       color: Colors.black,
+      //       // offset: Offset(0,2.h),
+      //       blurRadius: 6.0,
+      //       spreadRadius: 2.0
+      //     )
+      //   ]
+      // ),
       width: 288.w,
       height: 158.h,
       padding: EdgeInsets.all(0),
+      margin: EdgeInsets.only(left:  16.w),
       child: Column(
         children: <Widget>[
           Expanded(
@@ -61,7 +73,7 @@ class _SwipingCardsState extends State<SwipingCards> {
     return Container(
       decoration: BoxDecoration(
           // color: PrimaryVariant1Color,
-          borderRadius: BorderRadius.all(Radius.circular(25))),
+          borderRadius: BorderRadius.all(Radius.circular(30))),
       child: Column(
         // mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +83,7 @@ class _SwipingCardsState extends State<SwipingCards> {
             height: 49.h,
             decoration: BoxDecoration(
                 color: PrimaryVariant1Color,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
               image: DecorationImage(
                 image: AssetImage("image/topicCard.png"),
                 fit: BoxFit.contain,
@@ -88,6 +100,7 @@ class _SwipingCardsState extends State<SwipingCards> {
           Container(
             color: PrimaryVariant1Color,
             height: 66.h,
+            width: 288.w,
             child: Row(
               children: [
                 Container(
@@ -136,7 +149,9 @@ class _SwipingCardsState extends State<SwipingCards> {
             ),
           ),
           Container(
-            decoration: BoxDecoration(color: PrimaryVariant1Color.withOpacity(0.8), borderRadius: BorderRadius.vertical(bottom: Radius.circular(25))),
+            width: 288.w,
+
+            decoration: BoxDecoration(color: PrimaryVariant1Color.withOpacity(0.8), borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -175,6 +190,20 @@ class _SwipingCardsState extends State<SwipingCards> {
               ],
             ),
           ),
+          Center(
+            child: Container(
+              width: 22.w,
+              padding: EdgeInsets.only(top: 8.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Icon(Icons.fiber_manual_record_rounded,size: 3.3.sp, color: text == "0"? SecondaryDColor : DisabledColor,),
+                  Icon(Icons.fiber_manual_record_rounded,size: 3.3.sp, color: text == "1"? SecondaryDColor : DisabledColor,),
+                  Icon(Icons.fiber_manual_record_rounded,size: 3.3.sp, color: text == "2"? SecondaryDColor : DisabledColor,),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
