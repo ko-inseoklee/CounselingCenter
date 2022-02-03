@@ -12,3 +12,5 @@ const SurfaceColor = Color(0xffF9F9F9);
 const ErrorColor = Color(0xffF12C2C);
 
 const TextPrimaryColor = Color(0xffffffff);
+
+const DisabledColor = Color(0xffC4C4C4);

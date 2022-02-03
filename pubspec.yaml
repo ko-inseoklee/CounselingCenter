@@ -35,7 +35,7 @@ dependencies:
   flutter_screenutil: 5.0.0
 #  swipe_cards: ^1.0.0
 #  flutter_swiper: ^1.1.6
-  scrolling_page_indicator: ^0.1.2
+#  scrolling_page_indicator: ^0.1.2
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +73,8 @@ flutter:
     - image/navigateBeforeIcon.png
     - image/likeIcon.png
     - image/commentIcon.png
+    - image/topicCard.png
+    - image/hotCard.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_counseling_center/dummy/testHotBoardData.dart';
 import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
+
+import 'MainComponents/KKCardWidget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         // minTextAdapt: true,
         orientation: Orientation.portrait);
     ScreenUtil().setSp(11);
-    return Column(children: [
+    return ListView(children: [
       Padding(
         padding: EdgeInsets.only(left: 16.w, top: 14.h),
         child: Row(
@@ -39,6 +42,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       SwipingCards(),
+      KKCardWidget(width: 288.w,height: 324.h, title: '핫한 게시글',hotPosts: hotboards,)
     ]);
   }
 }
