@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/dummy/testHotBoardData.dart';
+import 'package:online_counseling_center/dummy/testMatchingData.dart';
+import 'package:online_counseling_center/view/customWidget/MatchingListCards.dart';
 import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
 
 import 'MainComponents/KKCardWidget.dart';
@@ -42,7 +44,18 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       SwipingCards(),
-      KKCardWidget(width: 288.w,height: 324.h, title: '핫한 게시글',hotPosts: hotboards,)
+      KKCardWidget(
+        width: 288.w,
+        height: 231.h,
+        title: '핫한 게시글',
+        hotPosts: hotboards,
+      ),
+      MatchingListCards(
+        width: 288.w,
+        height: 220.h,
+        title: '현재 매칭 가능방',
+        matchList: matching_rooms,
+      ),
     ]);
   }
 }
