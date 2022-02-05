@@ -41,7 +41,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
               children: [
                 Text(
                   widget.title,
-                  style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.black),
                 ),
                 IconButton(
                   onPressed: () {},
@@ -67,7 +67,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
           Center(
             child: Container(
               width: 22.w,
-              padding: EdgeInsets.only(top: 8.h),
+              padding: EdgeInsets.only(top: 2.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -84,51 +84,142 @@ class _KKCardWidgetState extends State<KKCardWidget> {
   }
 
   List<Widget> buildCards(){
-    return widget.hotPosts.map((e) => buildCard(e)).toList();
+    var idx = 0;
+    return widget.hotPosts.map((e) => buildCard(e, ++idx)).toList();
   }
 
-  Widget buildCard(Board board){
+  Widget buildCard(Board board, int idx){
     return Center(
-      child: Container(
-        width: 288.w,
-        height: 158.h,
-        child: Column(
-          children: [
-            Container(
-              constraints: BoxConstraints(minWidth: widget.width),
+            child: Container(
+              width: 288.w,
+              height: 158.h,
+              margin: EdgeInsets.only(bottom: 6.0),
               decoration: BoxDecoration(
-                color: SecondaryLColor.withOpacity(0.75),
-                borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-                  image: DecorationImage(
-                      image: AssetImage("image/hotCard.png"),
-                      fit: BoxFit.contain,
-                      alignment: Alignment.centerLeft,
+                borderRadius: BorderRadius.circular(40),
+              boxShadow: [BoxShadow(
+              color: DisabledColor.withOpacity(0.75),
+              blurRadius: 10.0,
+              spreadRadius: 0.0,
+              offset: Offset(0.0, 2.0),
+              )]),
+              child: Column(
+                children: [
+                  Container(
+                    constraints: BoxConstraints(minWidth: widget.width),
+                    decoration: BoxDecoration(
+                      color: SecondaryLColor.withOpacity(0.75),
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+                        image: DecorationImage(
+                            image: AssetImage("image/hotCard.png"),
+                            fit: BoxFit.contain,
+                            alignment: Alignment.centerLeft,
+                        )
+                    ),
+                    height: 49.h,
+                    padding: EdgeInsets.only(left: 14.w,top: 9.h),
+                    child: Text("Best $idx",
+                        style: TextStyle(
+                            fontSize: 13.sp,
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xffFFFFFF))),
+                  ),
+                  Container(
+                    height: 76.h,
+                    decoration: BoxDecoration(
+                      color: SecondaryLColor.withOpacity(0.75),
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          alignment: Alignment.topCenter,
+                          width: 35.w,
+                          height: 45.h,
+                          // padding: EdgeInsets.only(top: 44.01.h),
+                          child: IconButton(
+                            onPressed: () {
+                              _pageController.previousPage(
+                                  duration: Duration(milliseconds: 400),
+                                  curve: Curves.easeIn);
+                            },
+                            icon: ImageIcon(AssetImage("image/navigateBeforeIcon.png")),
+                            color: Color(0xffffffff).withOpacity(0.6),
+                          ),
+                        ),
+                        Container(
+                          width: 215.w,
+                          height: 45.h,
+                          child: Text(
+                            'Q. ${board.title}',
+                            // text,
+                            style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.topCenter,
+                          width: 35.w,
+                          height: 45.h,
+                          child: IconButton(
+                              onPressed: () {
+                                _pageController.nextPage(
+                                    duration: Duration(milliseconds: 400),
+                                    curve: Curves.easeIn);
+                              },
+                              icon: ImageIcon(
+                                AssetImage("image/navigateNextIcon.png"),
+                                color: Color(0xffffffff).withOpacity(0.6),
+                              )),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 27.h,
+                    decoration: BoxDecoration(
+                        color: SecondaryLColor,
+                        borderRadius: BorderRadius.vertical(bottom: Radius.circular(40))
+                    ),
+                    child:Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Text(board.nickname,
+                            style: TextStyle(
+                            fontSize: 9.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xffFFFFFF))),
+                          padding: EdgeInsets.only(left: 29.w),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(right: 29.w),
+                          child: Row(
+                            children: [
+                              ImageIcon(AssetImage("image/likeIcon.png"),
+                                  color: TextPrimaryColor),
+                              Text(board.likes.toString(),
+                                  style: TextStyle(
+                                      color: TextPrimaryColor,
+                                      fontSize: 9.sp,
+                                      fontWeight: FontWeight.w500)),
+                              ImageIcon(AssetImage("image/commentIcon.png"),
+                                  color: TextPrimaryColor),
+                              Text(board.comments!.length.toString(),
+                                  style: TextStyle(
+                                      color: TextPrimaryColor,
+                                      fontSize: 9.sp,
+                                      fontWeight: FontWeight.w500)
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   )
-              ),
-              height: 49.h,
-              padding: EdgeInsets.only(left: 14.w,top: 9.h),
-              child: Text(board.writtenTime,
-                  style: TextStyle(
-                      fontSize: 13.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xffFFFFFF))),
-            ),
-            Container(
-              height: 76.h,
-              decoration: BoxDecoration(
-                color: SecondaryLColor.withOpacity(0.75),
+                ],
               ),
             ),
-            Container(
-              height: 33.h,
-              decoration: BoxDecoration(
-                  color: SecondaryLColor,
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(40))
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+      );
   }
 }

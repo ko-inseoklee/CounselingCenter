@@ -42,7 +42,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
               constraints: BoxConstraints(
                 minWidth: 180.w
               ),
-              width: 220.w,
+              width: 180.w,
               height: 25.h,
               child: TextFormField(
                 textAlignVertical: TextAlignVertical.center,

@@ -49,5 +49,41 @@ final ThemeData _knockTheme = _buildKnockTheme();
 ThemeData _buildKnockTheme() {
   final ThemeData base = ThemeData.light();
 
-  return base.copyWith(primaryColor: PrimaryColor);
+  return base.copyWith(
+    primaryColor: PrimaryColor,
+    textTheme: _textTheme(base.textTheme)
+  );
+}
+
+TextTheme _textTheme(TextTheme base){
+  return TextTheme().copyWith(
+    headline2: base.headline2!.copyWith(
+        fontSize: 42.sp,
+        fontWeight: FontWeight.w400
+    ),
+    headline3: base.headline3!.copyWith(
+      fontSize: 34.sp,
+      fontWeight: FontWeight.w700
+    ),
+    headline4: base.headline4!.copyWith(
+      fontSize: 28.sp,
+      fontWeight: FontWeight.w400
+    ),
+    headline5: base.headline5!.copyWith(
+        fontSize: 22.sp,
+        fontWeight: FontWeight.w400
+    ),
+    headline6: base.headline6!.copyWith(
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w400
+    ),
+    bodyText1: base.bodyText1!.copyWith(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w400,
+    ),
+    caption: base.caption!.copyWith(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w400
+    )
+  );
 }
