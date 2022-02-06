@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               'Today Topic',
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.black),
             ),
             IconButton(
               onPressed: () {},
