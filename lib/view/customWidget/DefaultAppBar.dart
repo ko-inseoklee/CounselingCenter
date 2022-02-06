@@ -19,40 +19,40 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
     bool isMain = (_pageIndex == 0);
 
     return AppBar(
-
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30.sp),
               bottomRight: Radius.circular(30.sp))),
       backgroundColor: isMain ? PrimaryColor : Color(0xffffffff),
       elevation: isMain ? 4.sp : 10.sp,
-      shadowColor: isMain ? Color(0xffBC9A3140) : Color(0xff000000).withOpacity(0.04),
+      shadowColor:
+          isMain ? Color(0xffBC9A3140) : Color(0xff000000).withOpacity(0.04),
       actions: [
-        Container(
-          width: 43.w,
-          height: 25.h,
-          margin: EdgeInsets.only(right: 6.w),
-          child: Image.asset("image/mainLogo.png",
-              fit: BoxFit.contain,
-              color: isMain ? Color(0xffffffff) : PrimaryColor),
-        ),
-        SafeArea(
-          child: Center(
-            child: Container(
-              constraints: BoxConstraints(
-                minWidth: 180.w
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              // margin: EdgeInsets.only(left: 11.w),
+              child: Image.asset(
+                "image/mainLogo.png",
+                fit: BoxFit.fill,
+                color: isMain ? Color(0xffffffff) : PrimaryColor,
+                width: 43.w,
+                height: 25.01.h,
               ),
-              width: 220.w,
-              height: 25.h,
+            ),
+            SizedBox(width: 11.w),
+            Container(
+              constraints: BoxConstraints(minWidth: 180.w),
+              width: 180.w,
+              height: 26.h,
               child: TextFormField(
-                textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
                 hintText: '키워드 입력',
                 hintStyle: isMain
                     ? TextStyle(
                         color: PrimaryVariantLColor,
                         fontSize: 12.sp,
-
                       )
                     : TextStyle(
                         color: PrimaryColor,
@@ -87,24 +87,35 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                 borderRadius: BorderRadius.circular(37),
               ),
             ),
-          ),
+            // ),
+            // ),
+            Container(
+              child: IconButton(
+                icon: Image.asset("image/bellIcon.png",
+                    color: isMain ? Color(0xffFFFFFF) : PrimaryColor,
+                    width: 15.sp,
+                    height: 15.sp),
+                onPressed: () {},
+              ),
+            ),
+            Container(
+              child: IconButton(
+                icon: Image.asset(
+                  "image/menuIcon.png",
+                  color: isMain
+                      ? Color(
+                          0xffFFFFFF,
+                        )
+                      : PrimaryColor,
+                  width: 13.sp,
+                  height: 10.95.sp,
+                ),
+                onPressed: () {},
+              ),
+            ),
+            // SizedBox(width: 16.w)
+          ],
         ),
-        Container(
-          margin: EdgeInsets.all(0),
-          child: IconButton(
-            icon: Image.asset("image/bellIcon.png", color: isMain ? Color(0xffFFFFFF) : PrimaryColor),
-            onPressed: () {},
-            iconSize: 15.sp,
-          ),
-        ),
-        Container(
-          // margin: EdgeInsets.only(left: 11.88),
-          child: IconButton(
-            icon: Image.asset("image/menuIcon.png", color: isMain ? Color(0xffFFFFFF) : PrimaryColor),
-            onPressed: () {},
-            iconSize: 13.sp,
-          ),
-        )
       ],
     );
   }
