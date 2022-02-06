@@ -22,7 +22,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    // TODO: implement initStatenavigateNextIcon
     super.initState();
 
     _pageController = new PageController(initialPage: currentPageIdx);

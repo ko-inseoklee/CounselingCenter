@@ -4,6 +4,7 @@ import 'package:online_counseling_center/dummy/testHotBoardData.dart';
 import 'package:online_counseling_center/dummy/testMatchingData.dart';
 import 'package:online_counseling_center/view/customWidget/MatchingListCards.dart';
 import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
+import 'package:online_counseling_center/view/customWidget/BestTipCards.dart';
 
 import 'MainComponents/KKCardWidget.dart';
 
@@ -52,10 +53,11 @@ class _HomePageState extends State<HomePage> {
       ),
       MatchingListCards(
         width: 288.w,
-        height: 220.h,
+        height: 170.h,
         title: '현재 매칭 가능방',
         matchList: matching_rooms,
       ),
+      BestTipCards(title: 'Best 꿀팁')
     ]);
   }
 }
