@@ -73,10 +73,17 @@ flutter:
     - image/navigateBeforeIcon.png
     - image/likeIcon.png
     - image/commentIcon.png
+    - image/20sIcon.png
+    - image/30sIcon.png
+
     - image/topicCard.png
     - image/hotCard.png
+    - image/Intersect_0.png
     - image/Intersect_1.png
     - image/Ellipse_31.png
+    - image/Intersect_2.png
+    - image/Intersect_3.png
+    - image/Ellipse_40.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

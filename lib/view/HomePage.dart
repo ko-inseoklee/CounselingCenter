@@ -5,6 +5,7 @@ import 'package:online_counseling_center/dummy/testMatchingData.dart';
 import 'package:online_counseling_center/view/customWidget/MatchingListCards.dart';
 import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
 import 'package:online_counseling_center/view/customWidget/BestTipCards.dart';
+import 'package:online_counseling_center/dummy/testTodayTopicData.dart';
 
 import 'MainComponents/KKCardWidget.dart';
 
@@ -28,29 +29,23 @@ class _HomePageState extends State<HomePage> {
         orientation: Orientation.portrait);
     ScreenUtil().setSp(11);
     return ListView(children: [
-      Padding(
-        padding: EdgeInsets.only(left: 16.w, top: 14.h),
-        child: Row(
-          children: [
-            Text(
-              'Today Topic',
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.black),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: ImageIcon(AssetImage("image/navigateNextIcon.png")),
-              color: Color(0xff333333),
-            )
-          ],
-        ),
-      ),
-      SwipingCards(),
+      // SwipingCards(),
+      SizedBox(height: 14.h),
       KKCardWidget(
+        title: 'Today Toipic',
         width: 288.w,
-        height: 231.h,
-        title: '핫한 게시글',
+        height: 221.h,
+        isTodayTopic: true,
         hotPosts: hotboards,
+        topics: topicData,
       ),
+      KKCardWidget(
+          width: 288.w,
+          height: 231.h,
+          title: '핫한 게시글',
+          isTodayTopic: false,
+          topics: topicData,
+          hotPosts: hotboards),
       MatchingListCards(
         width: 288.w,
         height: 170.h,
