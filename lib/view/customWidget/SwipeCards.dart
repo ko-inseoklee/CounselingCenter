@@ -25,12 +25,11 @@ class _SwipingCardsState extends State<SwipingCards> {
     List<Widget> items = [
       buildPage("0", "2022.01.30", "그저께 질문", "Producer", 76, 70),
       buildPage("1", "2022.01.31", "어제 질문", "Producer", 40, 25),
-      buildPage(
-          "2", "2022.02.01", "학창시절로 다시 돌아간다면, 무엇을 가장 하고 싶어요?", "Producer", 15, 10),
+      buildPage("2", "2022.02.01", "학창시절로 다시 돌아간다면, 무엇을 가장 하고 싶어요?", "Producer",
+          15, 10),
     ];
 
     return Container(
-
       alignment: Alignment.center,
       // decoration: BoxDecoration(
       //   boxShadow: [
@@ -45,7 +44,7 @@ class _SwipingCardsState extends State<SwipingCards> {
       width: 288.w,
       height: 158.h,
       padding: EdgeInsets.all(0),
-      margin: EdgeInsets.only(left:  16.w),
+      margin: EdgeInsets.only(left: 16.w),
       child: Column(
         children: <Widget>[
           Expanded(
@@ -69,7 +68,8 @@ class _SwipingCardsState extends State<SwipingCards> {
     );
   }
 
-  Widget buildPage(String text, String date, String question, String creator, int like, int comments) {
+  Widget buildPage(String text, String date, String question, String creator,
+      int like, int comments) {
     return Container(
       decoration: BoxDecoration(
           // color: PrimaryVariant1Color,
@@ -83,14 +83,12 @@ class _SwipingCardsState extends State<SwipingCards> {
             height: 49.h,
             decoration: BoxDecoration(
                 color: PrimaryVariant1Color,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-              image: DecorationImage(
-                image: AssetImage("image/topicCard.png"),
-                fit: BoxFit.contain,
-                alignment: Alignment.centerLeft
-              )
-            ),
-            padding: EdgeInsets.only(left: 14.w,top: 9.h),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                image: DecorationImage(
+                    image: AssetImage("image/topicCard.png"),
+                    fit: BoxFit.contain,
+                    alignment: Alignment.centerLeft)),
+            padding: EdgeInsets.only(left: 14.w, top: 9.h),
             child: Text(date,
                 style: TextStyle(
                     fontSize: 13.sp,
@@ -150,8 +148,10 @@ class _SwipingCardsState extends State<SwipingCards> {
           ),
           Container(
             width: 288.w,
-
-            decoration: BoxDecoration(color: PrimaryVariant1Color.withOpacity(0.8), borderRadius: BorderRadius.vertical(bottom: Radius.circular(30))),
+            decoration: BoxDecoration(
+                color: PrimaryVariant1Color.withOpacity(0.8),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(30))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -161,8 +161,7 @@ class _SwipingCardsState extends State<SwipingCards> {
                       style: TextStyle(
                           color: TextPrimaryColor,
                           fontSize: 9.sp,
-                          fontWeight: FontWeight.w500)
-                  ),
+                          fontWeight: FontWeight.w500)),
                   width: 91.w,
                 ),
                 Container(
@@ -170,7 +169,7 @@ class _SwipingCardsState extends State<SwipingCards> {
                   child: Row(
                     children: [
                       ImageIcon(AssetImage("image/likeIcon.png"),
-                        color: TextPrimaryColor),
+                          color: TextPrimaryColor),
                       Text('$like',
                           style: TextStyle(
                               color: TextPrimaryColor,
@@ -182,8 +181,7 @@ class _SwipingCardsState extends State<SwipingCards> {
                           style: TextStyle(
                               color: TextPrimaryColor,
                               fontSize: 9.sp,
-                              fontWeight: FontWeight.w500)
-                      ),
+                              fontWeight: FontWeight.w500)),
                     ],
                   ),
                 )
@@ -197,9 +195,21 @@ class _SwipingCardsState extends State<SwipingCards> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.fiber_manual_record_rounded,size: 3.3.sp, color: text == "0"? SecondaryDColor : DisabledColor,),
-                  Icon(Icons.fiber_manual_record_rounded,size: 3.3.sp, color: text == "1"? SecondaryDColor : DisabledColor,),
-                  Icon(Icons.fiber_manual_record_rounded,size: 3.3.sp, color: text == "2"? SecondaryDColor : DisabledColor,),
+                  Icon(
+                    Icons.fiber_manual_record_rounded,
+                    size: 3.3.sp,
+                    color: text == "0" ? SecondaryDColor : DisabledColor,
+                  ),
+                  Icon(
+                    Icons.fiber_manual_record_rounded,
+                    size: 3.3.sp,
+                    color: text == "1" ? SecondaryDColor : DisabledColor,
+                  ),
+                  Icon(
+                    Icons.fiber_manual_record_rounded,
+                    size: 3.3.sp,
+                    color: text == "2" ? SecondaryDColor : DisabledColor,
+                  ),
                 ],
               ),
             ),

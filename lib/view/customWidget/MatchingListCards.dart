@@ -40,19 +40,38 @@ class _MatchingListCardsState extends State<MatchingListCards> {
         children: [
           Container(
             padding: EdgeInsets.only(left: 16.w),
-            child: Row(
-              children: [
-                Text(
-                  widget.title,
-                  style:
-                      TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: ImageIcon(AssetImage("image/navigateNextIcon.png")),
-                  color: Color(0xff111111),
-                )
-              ],
+            child:
+            // Row(
+            //   children: [
+            //     Text(
+            //       widget.title,
+            //       style:
+            //           TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Color(0xff37352F)),
+            //     ),
+            //     IconButton(
+            //       onPressed: () {},
+            //       icon: ImageIcon(AssetImage("image/navigateNextIcon.png")),
+            //       color: Color(0xff111111),
+            //     )
+            //   ],
+            // ),
+            TextButton(
+              onPressed: () {},
+              child: Row(
+                children: [
+                  Text(
+                    widget.title,
+                    style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff37352F)),
+                  ),
+                  ImageIcon(
+                    AssetImage("image/navigateNextIcon.png"),
+                    color: Color(0xff111111),
+                  )
+                ],
+              ),
             ),
           ),
           Container(
