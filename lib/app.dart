@@ -51,7 +51,8 @@ ThemeData _buildKnockTheme() {
 
   return base.copyWith(
     primaryColor: PrimaryColor,
-    textTheme: _textTheme(base.textTheme)
+    textTheme: _textTheme(base.textTheme),
+    scaffoldBackgroundColor: BackgroundColor
   );
 }
 

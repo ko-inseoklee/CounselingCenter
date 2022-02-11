@@ -275,15 +275,89 @@ class BestTipCards extends StatelessWidget {
                           width: 138.w,
                           height: 159.h,
                           decoration: BoxDecoration(
-                              color: Color(0xff206DD3).withOpacity(0.6),
-                              borderRadius: BorderRadius.circular(24))),
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(24),
+                              image: DecorationImage(
+                                image: AssetImage('image/image_13.png'),
+                                fit: BoxFit.cover,
+                                alignment: Alignment.center,
+                              )),
+                          child: Column(children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 45.h,
+                                  padding: EdgeInsets.only(
+                                      top: 14.33.h, left: 14.39.w),
+                                  child: Container(
+                                      width: 33.26.w,
+                                      height: 33.28.h,
+                                      child:
+                                          Image.asset('image/playTipIcon.png')),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(right: 22.w),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text('오락 꿀팁',
+                                          style: TextStyle(
+                                              fontSize: 11.sp,
+                                              fontWeight: FontWeight.w700)),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(height: 9.h),
+                            Container(
+                              child: Container(
+                                width: 90.w,
+                                child: Text(
+                                  '전 세대적 유행한 오락게임!',
+                                  softWrap: true,
+                                  textAlign: TextAlign.end,
+                                  style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 27.h),
+                            Container(
+                              height: 12.h,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  miniWhiteBox('게임', 2),
+                                  SizedBox(width: 8.w),
+                                  miniWhiteBox('가족', 2),
+                                  SizedBox(width: 8.w),
+                                  miniWhiteBox('화목', 2),
+                                ],
+                              )
+                            )
+                          ])),
                       SizedBox(height: 12.h),
                       Container(
                           width: 138.w,
                           height: 114.h,
                           decoration: BoxDecoration(
                               color: Color(0xff226FB7).withOpacity(0.6),
-                              borderRadius: BorderRadius.circular(24)))
+                              borderRadius: BorderRadius.circular(24),
+                              image: DecorationImage(
+                                image: AssetImage('image/image_17.png'),
+                                fit: BoxFit.contain,
+                                // alignment: Alignment.center,
+                              )
+                          ),
+                        // child:
+                      )
                     ],
                   ))
             ],
@@ -305,7 +379,7 @@ class BestTipCards extends StatelessWidget {
         style: TextStyle(
           color: (idx == 1
               ? Color(0xff45C5F9)
-              : (idx == 3 ? Color(0xff469BE9) : (Colors.black))),
+              : (idx == 2 ? Color(0xff5C96E2) :(idx == 3 ? Color(0xff469BE9) : (Colors.black)))),
           fontSize: 7.sp,
           fontWeight: FontWeight.w500,
         ),

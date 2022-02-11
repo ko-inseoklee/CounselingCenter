@@ -12,7 +12,7 @@ Match match1 = Match(
 
 Match match2 = Match(
     topic: '우정',
-    title: '친구랑 다퉜는데 화해하고 싶어요ㅜ',
+    title: '나이차는 시누랑 어떻게 해야될지 모르게써요ㅠㅠㅠㅠ',
     chatId: '1',
     chatterId: user1.uID,
     partnerId: '',
