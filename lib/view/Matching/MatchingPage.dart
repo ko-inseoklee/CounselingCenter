@@ -50,6 +50,7 @@ class _MatchingPageState extends State<MatchingPage> {
                       borderRadius: BorderRadius.circular(24.sp),
                       color: SecondaryDColor),
                   width: 90.w,
+                  height: 33.h,
                   child: TextButton(
                       onPressed: () {},
                       child: Text(
@@ -65,6 +66,7 @@ class _MatchingPageState extends State<MatchingPage> {
                       borderRadius: BorderRadius.circular(24.sp),
                       color: Color(0xffE0E0E0)),
                   width: 90.w,
+                  height: 33.h,
                   child: TextButton(
                       onPressed: () {},
                       child: Text(
@@ -80,6 +82,7 @@ class _MatchingPageState extends State<MatchingPage> {
                       borderRadius: BorderRadius.circular(24.sp),
                       color: Color(0xffE0E0E0)),
                   width: 90.w,
+                  height: 33.h,
                   child: TextButton(
                       onPressed: () {},
                       child: Text(
@@ -214,21 +217,29 @@ class _MatchingPageState extends State<MatchingPage> {
                                             fontWeight: FontWeight.w500))),
                                 SizedBox(width: 5.w),
                                 Container(
-                                  padding: EdgeInsets.only(left: 8.w, right: 8.w),
-                                  height: 22.h,
-                                  decoration: BoxDecoration(
-                                      color: Color(0xffffffff),
-                                      borderRadius:
-                                          BorderRadius.circular(21.sp)),
-                                  alignment: Alignment.center,
+                                    padding:
+                                        EdgeInsets.only(left: 8.w, right: 8.w),
+                                    height: 22.h,
+                                    decoration: BoxDecoration(
+                                        color: Color(0xffffffff),
+                                        borderRadius:
+                                            BorderRadius.circular(21.sp)),
+                                    alignment: Alignment.center,
                                     child: Text('#주제_${match.topic}',
                                         style: TextStyle(
                                             color: Color(0xff0098D1),
                                             fontSize: 9.sp,
                                             fontWeight: FontWeight.w500))),
-
                               ],
-                            ))
+                            )),
+                        SizedBox(height: 3.h),
+                        Container(
+                            child: Row(children: [
+                          Text(
+                            '${matchcontroller.getNickname(match: match)} / ${matchcontroller.getAge(match: match)} / ${matchcontroller.getSex(match: match)}',
+                            style: TextStyle(fontSize: 9.sp, fontWeight: FontWeight.w500),
+                          )
+                        ]))
                       ],
                     ),
                   ));

@@ -3,7 +3,7 @@ import 'package:online_counseling_center/model/match.dart';
 
 Match match1 = Match(
     topic: '세대 차이',
-    title: '할아버지와의 세대 차이.. 도와주세요!',
+    title: '할아버지와의 말이 안통해요..',
     chatId: '0',
     chatterId: user_me.uID,
     partnerId: '',
