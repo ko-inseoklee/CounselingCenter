@@ -49,19 +49,6 @@ class _KKCardWidgetState extends State<KKCardWidget> {
           Container(
             padding: EdgeInsets.only(left: 16.w),
             child:
-                // Row(
-                //   children: [
-                //     Text(
-                //       widget.title,
-                //       style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.black),
-                //     ),
-                //     IconButton(
-                //       onPressed: () {},
-                //       icon: ImageIcon(AssetImage("image/navigateNextIcon.png")),
-                //       color: Color(0xff333333),
-                //     )
-                //   ],
-                // ),
                 TextButton(
               onPressed: () {},
               child: Row(
@@ -238,15 +225,6 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                     : SecondaryLColor.withOpacity(0.75),
                 borderRadius:
                 BorderRadius.vertical(bottom: Radius.circular(40)),
-
-                // gradient: LinearGradient(
-                //   begin: Alignment.topCenter,
-                //   end: Alignment.bottomCenter,
-                //   colors: [
-                //     Color(0xffffff).withOpacity(0.2),
-                //     PrimaryVariant1Color
-                //   ]
-                // )
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -296,13 +274,6 @@ class _KKCardWidgetState extends State<KKCardWidget> {
         height: 158.h,
         margin: EdgeInsets.only(bottom: 6.0),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),
-            // boxShadow: [
-            // BoxShadow(
-            //   color: DisabledColor.withOpacity(0.75),
-            //   blurRadius: 10.0,
-            //   spreadRadius: 0.0,
-            //   offset: Offset(0.0, 2.0),
-            // )
             boxShadow: [
               BoxShadow(
                   color: Color(0xff000000).withOpacity(0.08),

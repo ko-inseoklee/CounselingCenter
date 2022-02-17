@@ -84,6 +84,7 @@ flutter:
     - image/Intersect_2.png
     - image/Intersect_3.png
     - image/Ellipse_40.png
+    - image/generations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
