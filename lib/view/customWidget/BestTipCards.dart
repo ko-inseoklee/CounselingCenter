@@ -272,6 +272,7 @@ class BestTipCards extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
+                          margin: EdgeInsets.all(0),
                           width: 138.w,
                           height: 159.h,
                           decoration: BoxDecoration(
@@ -279,8 +280,8 @@ class BestTipCards extends StatelessWidget {
                               borderRadius: BorderRadius.circular(24),
                               image: DecorationImage(
                                 image: AssetImage('image/image_13.png'),
-                                fit: BoxFit.cover,
-                                alignment: Alignment.center,
+                                // fit: BoxFit.cover,
+                                // alignment: Alignment.center,
                               )),
                           child: Column(children: [
                             Row(
@@ -347,11 +348,14 @@ class BestTipCards extends StatelessWidget {
                       Container(
                           width: 138.w,
                           height: 114.h,
+                          padding: EdgeInsets.all(0),
+                          margin: EdgeInsets.all(0),
+                          alignment: Alignment.center,
                           decoration: BoxDecoration(
-                              color: Color(0xff226FB7).withOpacity(0.6),
+                              color: Colors.black,
                               borderRadius: BorderRadius.circular(24),
                               image: DecorationImage(
-                                image: AssetImage('image/image_17.png'),
+                                image: AssetImage('image/image_17.png',),
                                 fit: BoxFit.contain,
                                 // alignment: Alignment.center,
                               )

@@ -78,6 +78,8 @@ flutter:
     - image/playTipIcon.png
     - image/musicTipIcon.png
     - image/checkIcon_before.png
+    - image/closeIcon.png
+    - image/image_3.png
 
     - image/topicCard.png
     - image/hotCard.png

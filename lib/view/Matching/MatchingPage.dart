@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 import 'package:online_counseling_center/dummy/testMatchingData.dart';
 import 'package:online_counseling_center/controller/MatchController.dart';
 
-List<bool> selected = <bool>[false, false, false];
+List<bool> selected = <bool>[true, false, false];
 
 class MatchingPage extends StatefulWidget {
   const MatchingPage({Key? key}) : super(key: key);
@@ -25,15 +25,17 @@ class _MatchingPageState extends State<MatchingPage> {
   String _selectedTopic = '주제';
   final List<String> topicList = ['주제', '세대 차이', '우정', '취업/진로'];
 
-  String _selectedSex = '성별';
-  final List<String> sexList = ['성별', '남자', '여자'];
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     matchingRooms = matching_rooms;
   }
+
+  SnackBar snackbar_age = SnackBar(
+    content: Text('content'),
+    duration: Duration(days: 1),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +50,23 @@ class _MatchingPageState extends State<MatchingPage> {
               Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24.sp),
-                      color: SecondaryDColor),
+                      color: selected[0] ? SecondaryDColor : Color(0xffE0E0E0)),
                   width: 90.w,
                   height: 33.h,
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          selected[0] = true;
+                          selected[1] = false;
+                          selected[2] = false;
+                        });
+                      },
                       child: Text(
                         '전체보기',
                         style: TextStyle(
-                            color: Color(0xffffffff),
+                            color: selected[0]
+                                ? Color(0xffffffff)
+                                : Color(0xff939393),
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w500),
                       ))),
@@ -64,15 +74,26 @@ class _MatchingPageState extends State<MatchingPage> {
               Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24.sp),
-                      color: Color(0xffE0E0E0)),
+                      color: selected[1] ? SecondaryDColor : Color(0xffE0E0E0)),
                   width: 90.w,
                   height: 33.h,
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          selected[1] = true;
+                          selected[0] = false;
+                          selected[2] = false;
+
+                          showPopup('세대');
+
+                        });
+                      },
                       child: Text(
                         '세대별',
                         style: TextStyle(
-                            color: Color(0xff939393),
+                            color: selected[1]
+                                ? Color(0xffffffff)
+                                : Color(0xff939393),
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400),
                       ))),
@@ -80,15 +101,23 @@ class _MatchingPageState extends State<MatchingPage> {
               Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24.sp),
-                      color: Color(0xffE0E0E0)),
+                      color: selected[2] ? SecondaryDColor : Color(0xffE0E0E0)),
                   width: 90.w,
                   height: 33.h,
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          selected[2] = true;
+                          selected[0] = false;
+                          selected[1] = false;
+                        });
+                      },
                       child: Text(
                         '주제별',
                         style: TextStyle(
-                            color: Color(0xff939393),
+                            color: selected[2]
+                                ? Color(0xffffffff)
+                                : Color(0xff939393),
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400),
                       )))
@@ -237,7 +266,8 @@ class _MatchingPageState extends State<MatchingPage> {
                             child: Row(children: [
                           Text(
                             '${matchcontroller.getNickname(match: match)} / ${matchcontroller.getAge(match: match)} / ${matchcontroller.getSex(match: match)}',
-                            style: TextStyle(fontSize: 9.sp, fontWeight: FontWeight.w500),
+                            style: TextStyle(
+                                fontSize: 9.sp, fontWeight: FontWeight.w500),
                           )
                         ]))
                       ],
@@ -472,6 +502,114 @@ class _MatchingPageState extends State<MatchingPage> {
         //   ],
         // )
       ]),
+    );
+  }
+
+  showPopup(String category) {
+    bool isAgeCategory = (category == '세대');
+    List<bool> isSelected = [true, false, false, false, false, false];
+
+    showModalBottomSheet<String>(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          height: isAgeCategory ? 307.h : 490.h,
+          color: Color(0xffffffff),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(top: 11.h, right: 15.w, bottom: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      width: 24.w,
+                      height: 24.h,
+                      child: IconButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            // return '10대';
+                            Get.back();
+                          },
+                          icon: ImageIcon(
+                            AssetImage('image/closeIcon.png'),
+                            color: TextBodyColor,
+                          )),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                  padding: EdgeInsets.only(left: 17.w, top: 10.h),
+                  child: Row(
+                    children: [
+                      Text('$category 선택',
+                          style: TextStyle(
+                              color: TextBodyColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w700)),
+                    ],
+                  )),
+              Container(
+                  padding: EdgeInsets.only(top: 19.h, left: 16.w),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                              width: 90.w,
+                              height: 78.h,
+                              decoration: BoxDecoration(
+                                  color: (isSelected[0]
+                                      ? PrimaryColor
+                                      : PrimaryColor.withOpacity(0.3)),
+                                  borderRadius: BorderRadius.circular(24.sp)),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.only(top:6.h),
+                                      child: Image.asset('image/image_3.png', fit: BoxFit.contain),
+                                      width: 30.w,
+                                      height: 44.h),
+                                  SizedBox(height: 1.h),
+                                  Text('10대',
+                                      style: TextStyle(
+                                          color: Color(0xffffffff),
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 13.sp))
+                                ],
+                              )),
+                          SizedBox(width: 9.w),
+                          Container(
+                            width: 90.w,
+                            height: 78.h,
+                            decoration: BoxDecoration(
+                                color: (isSelected[1]
+                                    ? PrimaryColor
+                                    : PrimaryColor.withOpacity(0.3)),
+                                borderRadius: BorderRadius.circular(24.sp)),
+                          ),
+                          SizedBox(width: 9.w),
+                          Container(
+                            width: 90.w,
+                            height: 78.h,
+                            decoration: BoxDecoration(
+                                color: (isSelected[2]
+                                    ? PrimaryColor
+                                    : PrimaryColor.withOpacity(0.3)),
+                                borderRadius: BorderRadius.circular(24.sp)),
+                          )
+                        ],
+                      ),
+                      Row()
+                    ],
+                  ))
+            ],
+          ),
+        );
+      },
     );
   }
 

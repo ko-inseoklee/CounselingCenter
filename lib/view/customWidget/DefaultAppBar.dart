@@ -6,6 +6,8 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   int _pageIndex = 0;
   bool isExpanded = false;
   String pageTitle = '';
+  // final string title;
+  // final perff bot;
 
   DefaultAppBar({Key? key, required int pageIndex, bool? isExpanded}) {
     _pageIndex = pageIndex;
@@ -247,3 +249,5 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                           )))));
   }
 }
+
+
