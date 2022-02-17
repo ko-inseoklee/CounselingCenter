@@ -23,11 +23,9 @@ class KnockKnockApp extends StatefulWidget {
 class _KnockKnockAppState extends State<KnockKnockApp> {
   @override
   Widget build(BuildContext context) {
-
     return ScreenUtilInit(
-      designSize: Size(320, 568),
-      builder: () =>
-          GetMaterialApp(
+        designSize: Size(320, 568),
+        builder: () => GetMaterialApp(
             home: MainPage(),
             getPages: [
               GetPage(name: '/matching', page: () => MatchingPage()),
@@ -36,11 +34,11 @@ class _KnockKnockAppState extends State<KnockKnockApp> {
               GetPage(name: '/newMatching', page: () => NewMatchingPage()),
               GetPage(name: '/chat', page: () => ChatPage()),
               GetPage(name: '/board', page: () => BoardPage()),
-              GetPage(name: '/generationBoard', page: () => GenerationBoardPage()),
+              GetPage(
+                  name: '/generationBoard', page: () => GenerationBoardPage()),
             ],
             theme: _knockTheme,
-          ),
-    );
+            debugShowCheckedModeBanner: false));
   }
 }
 
@@ -50,40 +48,27 @@ ThemeData _buildKnockTheme() {
   final ThemeData base = ThemeData.light();
 
   return base.copyWith(
-    primaryColor: PrimaryColor,
-    textTheme: _textTheme(base.textTheme)
-  );
+      primaryColor: PrimaryColor,
+      textTheme: _textTheme(base.textTheme),
+      scaffoldBackgroundColor: BackgroundColor);
 }
 
-TextTheme _textTheme(TextTheme base){
+TextTheme _textTheme(TextTheme base) {
   return TextTheme().copyWith(
-    headline2: base.headline2!.copyWith(
-        fontSize: 42.sp,
-        fontWeight: FontWeight.w400
-    ),
-    headline3: base.headline3!.copyWith(
-      fontSize: 34.sp,
-      fontWeight: FontWeight.w700
-    ),
-    headline4: base.headline4!.copyWith(
-      fontSize: 28.sp,
-      fontWeight: FontWeight.w400
-    ),
-    headline5: base.headline5!.copyWith(
-        fontSize: 22.sp,
-        fontWeight: FontWeight.w400
-    ),
-    headline6: base.headline6!.copyWith(
-        fontSize: 20.sp,
-        fontWeight: FontWeight.w400
-    ),
-    bodyText1: base.bodyText1!.copyWith(
-      fontSize: 14.sp,
-      fontWeight: FontWeight.w400,
-    ),
-    caption: base.caption!.copyWith(
-      fontSize: 12.sp,
-      fontWeight: FontWeight.w400
-    )
-  );
+      headline2: base.headline2!
+          .copyWith(fontSize: 42.sp, fontWeight: FontWeight.w400),
+      headline3: base.headline3!
+          .copyWith(fontSize: 34.sp, fontWeight: FontWeight.w700),
+      headline4: base.headline4!
+          .copyWith(fontSize: 28.sp, fontWeight: FontWeight.w400),
+      headline5: base.headline5!
+          .copyWith(fontSize: 22.sp, fontWeight: FontWeight.w400),
+      headline6: base.headline6!
+          .copyWith(fontSize: 20.sp, fontWeight: FontWeight.w400),
+      bodyText1: base.bodyText1!.copyWith(
+        fontSize: 14.sp,
+        fontWeight: FontWeight.w400,
+      ),
+      caption:
+          base.caption!.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w400));
 }
