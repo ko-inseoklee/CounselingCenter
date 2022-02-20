@@ -47,22 +47,28 @@ class GenerationBoard extends StatelessWidget {
       width: 78.h,
       height: 78.h,
       margin: EdgeInsets.only(right: 12.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            child: ImageIcon(
-                AssetImage("image/generations/${idx + 1}.png"),size: 50.sp,
+      child: TextButton(
+        onPressed: (){
+          print(idx);
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: ImageIcon(
+                  AssetImage("image/generations/${idx + 1}.png"),size: 50.sp, color: Colors.black,
+              ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(top: 1.h),
-            child: Text('${(idx+1) * 10}대',style: TextStyle(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w700),),
-          )
+            Container(
+              margin: EdgeInsets.only(top: 1.h),
+              child: Text('${(idx+1) * 10}대',style: TextStyle(
+                color: Colors.white,
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w700),),
+            )
 
-        ],
+          ],
+        ),
       ),
       decoration: BoxDecoration(
         color: PrimaryColor,
