@@ -28,5 +28,13 @@ Match match3 = Match(
     ageLimit: ['20대', '30대'],
     sexLimit: ['남자', '여자']);
 
+Match match4 = Match(
+    topic: '세대차이',
+    title: '세대차이 어떻게 극복할까요?',
+    chatId: '0',
+    chatterId: user1.uID,
+    partnerId: '',
+    ageLimit: ['10대', '20대', '30대'],
+    sexLimit: ['남자', '여자']);
 
-List<Match> matching_rooms = [match1, match2, match3];
+List<Match> matching_rooms = [match1, match2, match3, match4];
