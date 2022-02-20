@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:online_counseling_center/color.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_counseling_center/view/customWidget/TextBox.dart';
+import 'package:online_counseling_center/view/Board/TopicInput.dart';
 
 class TodayTopicWithAnswer extends StatelessWidget {
   final TodayTopic topic;
@@ -115,7 +116,14 @@ class TodayTopicWithAnswer extends StatelessWidget {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10)
                               ),
-                              child: TextFormField(
+                              alignment: Alignment.topLeft,
+                              child:
+                                TextButton(onPressed: () {
+                                  Get.bottomSheet(TopicInput());
+                                },
+                                  child: Text("답변하기",style: TextStyle(color: Color(0xffAAAAAA)),),
+                                ),
+                              /*TextFormField(
                                 decoration: InputDecoration(
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(color: Colors.white)
@@ -125,7 +133,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                                     color: Colors.black.withOpacity(0.3)
                                   )
                                 ),
-                              )
+                              )*/
                             ),
                             Container(
                               alignment: Alignment.topCenter,
@@ -154,8 +162,75 @@ class TodayTopicWithAnswer extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                       borderRadius: BorderRadius.vertical(bottom: Radius.circular(35))
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 36.h,
+                        padding: EdgeInsets.only(top: 11.h, left: 16.w),
+                        child: Row(
+                          children: [
+                            Text("BEST", style: TextStyle(color: PrimaryVariant1Color, fontWeight: FontWeight.w700, fontSize: 13.sp),),
+                            Container(
+                              padding: EdgeInsets.only(left: 10.w),
+                              child: Text(topic.comments![0].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13.sp)),
+                            ),
 
-          ),
+                          ],
+                        ),
+                      ),
+                      Divider(indent: 16.w,endIndent: 14.w,),
+                      Container(
+                        height: 50.h,
+                        padding: EdgeInsets.only(left: 16.w,top: 4.h,bottom: 10.h),
+                        alignment: Alignment.centerLeft,
+                        child: Text(topic.comments![0].contents,style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 12.sp),),
+                      ),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  child: Text('20대', style: TextStyle(color: Color(0xffAAAAAA)),),
+                                  margin: EdgeInsets.only(left: 16.w, right: 8.w),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(right: 10.w),
+                                  child: Text(topic.writerID, style: TextStyle(color: Color(0xffAAAAAA)),),
+                                  constraints: BoxConstraints(
+                                      minWidth: 131.w
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(right: 2.w),
+                                  child: Icon(Icons.favorite_border,size: 10.sp,color: PrimaryVariant1Color,),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(right: 16.w),
+                                  child: Text(topic.likes.toString(),  style: TextStyle(color: Colors.black,),),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(right: 2.w),
+
+                                  child: Icon(Icons.sms,size: 10.sp,color:PrimaryVariant1Color,),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(right: 16.w),
+                                  child: Text(topic.comments![0].re.length.toString(),  style: TextStyle(color: Colors.black,),),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),

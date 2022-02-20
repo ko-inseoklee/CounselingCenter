@@ -24,11 +24,11 @@ class HotPostWidget extends StatelessWidget implements PostWidget{
   Widget build(BuildContext context) {
     return Container(
       width: 288.w,
-      height: 68.h,
+      height: 68,
       margin: EdgeInsets.only(bottom: 9.h),
       decoration: BoxDecoration(
         color: backgroundColor.withOpacity(0.75),
-        borderRadius: BorderRadius.circular(40)
+        borderRadius: BorderRadius.circular(24)
       ),
       child: Row(
         children: [

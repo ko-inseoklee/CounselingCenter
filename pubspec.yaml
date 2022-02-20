@@ -74,6 +74,8 @@ flutter:
     - image/likeIcon.png
     - image/commentIcon.png
     - image/20sIcon.png
+    - image/bg_13.png
+    - image/bg_14.png
     - image/30sIcon.png
     - image/playTipIcon.png
     - image/musicTipIcon.png
