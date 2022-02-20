@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_counseling_center/view/customWidget/GenerationCards.dart';
 
 import '../../color.dart';
 
@@ -28,15 +29,17 @@ class GenerationBoard extends StatelessWidget {
           Container(
             width: ScreenUtil.defaultSize.width,
             height: 78.h,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: generationCards(6),
-            ),
+            // child: ListView(
+            //   scrollDirection: Axis.horizontal,
+            //   children: generationCards(6),
+            // ),
+            child: GenerationCards(idx: 6, isWrap: false),
           ),
         ],
       ),
     );
   }
+
 
   List<Widget> generationCards(int length){
     return List<Widget>.generate(length, (index) => generationCard(index));

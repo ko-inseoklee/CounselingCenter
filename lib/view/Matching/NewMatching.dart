@@ -98,7 +98,7 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
                         try{
                           // makeMathcing(match);  :  POST method 이용하여 DB에 올리는 작업.
                           matching_rooms.add(match);
-                          selected.add(false);
+                          categorySelected.add(false);
                           print(matching_rooms.length);
                         } catch(e){
                           // Get.Dialog(errordialog);

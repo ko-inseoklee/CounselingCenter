@@ -2,7 +2,7 @@ import 'package:online_counseling_center/dummy/testUserData.dart';
 import 'package:online_counseling_center/model/match.dart';
 
 Match match1 = Match(
-    topic: '세대 차이',
+    topic: '세대차이',
     title: '할아버지와의 말이 안통해요..',
     chatId: '0',
     chatterId: user_me.uID,
@@ -11,7 +11,7 @@ Match match1 = Match(
     sexLimit: ['남자', '여자']);
 
 Match match2 = Match(
-    topic: '우정',
+    topic: '가족/육아',
     title: '나이차는 시누랑 어떻게 해야될지 모르게써요ㅠㅠㅠㅠ',
     chatId: '1',
     chatterId: user1.uID,
@@ -20,13 +20,21 @@ Match match2 = Match(
     sexLimit: ['남자']);
 
 Match match3 = Match(
-    topic: '취업/진로',
-    title: '대기업 면접 스터디 구해요~',
+    topic: '게임',
+    title: '롤 같이 하실분  구해요~',
     chatId: '2',
     chatterId: user2.uID,
     partnerId: '',
     ageLimit: ['20대', '30대'],
     sexLimit: ['남자', '여자']);
 
+Match match4 = Match(
+    topic: '세대차이',
+    title: '세대차이 어떻게 극복할까요?',
+    chatId: '0',
+    chatterId: user1.uID,
+    partnerId: '',
+    ageLimit: ['10대', '20대', '30대'],
+    sexLimit: ['남자', '여자']);
 
-List<Match> matching_rooms = [match1, match2, match3];
+List<Match> matching_rooms = [match1, match2, match3, match4];
