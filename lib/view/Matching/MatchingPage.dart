@@ -72,10 +72,10 @@ class _MatchingPageState extends State<MatchingPage> {
     listLength = newMatchingRooms.length;
     return Scaffold(
         body: Column(children: [
-      SizedBox(height: 15.h),
+      SizedBox(height: 15),
       Container(
         width: 288.w,
-        height: 33.h,
+        height: 33,
         child: Row(
           children: [
             Container(
@@ -85,7 +85,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         ? SecondaryDColor
                         : Color(0xffE0E0E0)),
                 width: 90.w,
-                height: 33.h,
+                height: 33,
                 child: TextButton(
                     onPressed: () {
                       setState(() {
@@ -113,7 +113,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         ? SecondaryDColor
                         : Color(0xffE0E0E0)),
                 width: 90.w,
-                height: 33.h,
+                height: 33,
                 child: TextButton(
                     onPressed: () {
                       setState(() {
@@ -121,7 +121,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         categorySelected[0] = false;
                         categorySelected[2] = false;
 
-                        showPopup('세대', 307.h);
+                        showPopup('세대', 307);
                       });
                     },
                     child: Text(
@@ -168,7 +168,7 @@ class _MatchingPageState extends State<MatchingPage> {
         ),
       ),
       Container(
-          padding: EdgeInsets.only(top: 22.h),
+          padding: EdgeInsets.only(top: 22),
           // height: 22.w,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -214,7 +214,7 @@ class _MatchingPageState extends State<MatchingPage> {
                       child: Image.asset(
                         'image/checkIcon_before.png',
                         width: 13.5.w,
-                        height: 13.5.h,
+                        height: 13.5,
                       ),
                       onPressed: () {
                         // TODO
@@ -236,7 +236,7 @@ class _MatchingPageState extends State<MatchingPage> {
       Expanded(
         child: Container(
           width: 288.w,
-          padding: EdgeInsets.only(top: 5.h),
+          padding: EdgeInsets.only(top: 5),
           child: ListView.separated(
             // physics: const AlwaysScrollableScrollPhysics(), // new
             // controller: _controller,
@@ -264,7 +264,7 @@ class _MatchingPageState extends State<MatchingPage> {
 
               return Container(
                   width: 288.w,
-                  padding: EdgeInsets.only(top: 13.h, bottom: 13.h),
+                  padding: EdgeInsets.only(top: 13, bottom: 13),
                   decoration: BoxDecoration(
                       color: (index % 2 == 1)
                           ? SecondaryDColor.withOpacity(0.75)
@@ -287,14 +287,14 @@ class _MatchingPageState extends State<MatchingPage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 3.h),
+                        SizedBox(height: 3),
                         Container(
-                            height: 22.h,
+                            height: 22,
                             child: Row(
                               children: [
                                 Container(
                                     width: 40.w,
-                                    height: 22.h,
+                                    height: 22,
                                     decoration: BoxDecoration(
                                         color: Color(0xffffffff),
                                         borderRadius:
@@ -308,7 +308,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                 SizedBox(width: 5.w),
                                 Container(
                                     width: 40.w,
-                                    height: 22.h,
+                                    height: 22,
                                     decoration: BoxDecoration(
                                         color: Color(0xffffffff),
                                         borderRadius:
@@ -323,7 +323,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                 Container(
                                     padding:
                                         EdgeInsets.only(left: 8.w, right: 8.w),
-                                    height: 22.h,
+                                    height: 22,
                                     decoration: BoxDecoration(
                                         color: Color(0xffffffff),
                                         borderRadius:
@@ -336,7 +336,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                             fontWeight: FontWeight.w500))),
                               ],
                             )),
-                        SizedBox(height: 3.h),
+                        SizedBox(height: 3),
                         Container(
                             child: Row(children: [
                           Text(
@@ -351,7 +351,7 @@ class _MatchingPageState extends State<MatchingPage> {
             },
             itemCount: listLength,
             separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(height: 11.h);
+              return SizedBox(height: 11);
             },
           ),
         ),

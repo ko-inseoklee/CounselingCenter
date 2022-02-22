@@ -42,7 +42,7 @@ class _SwipingCardsState extends State<SwipingCards> {
       //   ]
       // ),
       width: 288.w,
-      height: 158.h,
+      height: 158,
       padding: EdgeInsets.all(0),
       margin: EdgeInsets.only(left: 16.w),
       child: Column(
@@ -80,7 +80,7 @@ class _SwipingCardsState extends State<SwipingCards> {
         children: [
           Container(
             width: 288.w,
-            height: 49.h,
+            height: 49,
             decoration: BoxDecoration(
                 color: PrimaryVariant1Color,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
@@ -88,7 +88,7 @@ class _SwipingCardsState extends State<SwipingCards> {
                     image: AssetImage("image/topicCard.png"),
                     fit: BoxFit.contain,
                     alignment: Alignment.centerLeft)),
-            padding: EdgeInsets.only(left: 14.w, top: 9.h),
+            padding: EdgeInsets.only(left: 14.w, top: 9),
             child: Text(date,
                 style: TextStyle(
                     fontSize: 13.sp,
@@ -97,14 +97,14 @@ class _SwipingCardsState extends State<SwipingCards> {
           ),
           Container(
             color: PrimaryVariant1Color,
-            height: 66.h,
+            height: 66,
             width: 288.w,
             child: Row(
               children: [
                 Container(
                   alignment: Alignment.topCenter,
                   width: 35.w,
-                  height: 45.h,
+                  height: 45,
                   // padding: EdgeInsets.only(top: 44.01.h),
                   child: IconButton(
                     onPressed: () {
@@ -118,7 +118,7 @@ class _SwipingCardsState extends State<SwipingCards> {
                 ),
                 Container(
                   width: 215.w,
-                  height: 45.h,
+                  height: 45,
                   child: Text(
                     'Q. $question',
                     // text,
@@ -131,7 +131,7 @@ class _SwipingCardsState extends State<SwipingCards> {
                 Container(
                   alignment: Alignment.topCenter,
                   width: 35.w,
-                  height: 45.h,
+                  height: 45,
                   child: IconButton(
                       onPressed: () {
                         _controller.nextPage(
@@ -191,7 +191,7 @@ class _SwipingCardsState extends State<SwipingCards> {
           Center(
             child: Container(
               width: 22.w,
-              padding: EdgeInsets.only(top: 8.h),
+              padding: EdgeInsets.only(top: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

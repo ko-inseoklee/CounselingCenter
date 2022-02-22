@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:online_counseling_center/model/match.dart';
 import 'package:online_counseling_center/dummy/testUserData.dart';
-import 'package:online_counseling_center/dummy/testMatchingData.dart';
 
 class MatchController extends GetxController {
   Rx<Match> match;

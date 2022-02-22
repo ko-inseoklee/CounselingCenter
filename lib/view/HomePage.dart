@@ -30,25 +30,25 @@ class _HomePageState extends State<HomePage> {
     ScreenUtil().setSp(11);
     return ListView(children: [
       // SwipingCards(),
-      SizedBox(height: 14.h),
+      SizedBox(height: 14),
       KKCardWidget(
-        title: 'Today Toipic',
+        title: 'Today Topic',
         width: 288.w,
-        height: 221.h,
+        height: 221,
         isTodayTopic: true,
         hotPosts: hotboards,
         topics: topicData,
       ),
       KKCardWidget(
           width: 288.w,
-          height: 231.h,
+          height: 231,
           title: '핫한 게시글',
           isTodayTopic: false,
           topics: topicData,
           hotPosts: hotboards),
       MatchingListCards(
         width: 288.w,
-        height: 170.h,
+        height: 170,
         title: '현재 매칭 가능방',
         matchList: matching_rooms,
       ),

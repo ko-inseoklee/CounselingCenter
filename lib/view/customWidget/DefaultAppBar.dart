@@ -16,7 +16,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      (_pageIndex == 0) ? Size.fromHeight(53.h) : Size.fromHeight(99.45.h);
+      (_pageIndex == 0) ? Size.fromHeight(53) : Size.fromHeight(99.45);
 
   @override
   PreferredSizeWidget build(BuildContext context) {
@@ -67,7 +67,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                             fit: BoxFit.fill,
                             color: Color(0xffffffff),
                             width: 43.w,
-                            height: 25.01.h,
+                            height: 25.01,
                           ),
                         ),
                       SizedBox(width: 11.w),
@@ -75,7 +75,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                         Container(
                           constraints: BoxConstraints(minWidth: 177.w),
                           width: 177.w,
-                          height: 26.h,
+                          height: 26,
                           child: TextFormField(
                               decoration: InputDecoration(
                             // hintText: '키워드 입력',
@@ -103,7 +103,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                                     borderRadius: BorderRadius.circular(37),
                                   ),
                             contentPadding:
-                                EdgeInsets.only(left: 12.w, bottom: 4.h),
+                                EdgeInsets.only(left: 12.w, bottom: 4),
                             prefixIcon: IconButton(
                               icon: ImageIcon(
                                 AssetImage("image/searchIcon.png"),
@@ -192,7 +192,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ],
                 bottom: PreferredSize(
-                    preferredSize: isMain ? Size.zero : Size.fromHeight(59.h),
+                    preferredSize: isMain ? Size.zero : Size.fromHeight(59),
                     child: isMain
                         ? Container()
                         : Row(
@@ -200,7 +200,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                             children: [
                               Container(
                                 width: 160.w,
-                                height: 55.h,
+                                height: 55,
                                 child: Column(
                                   children: [
                                     TextButton(
@@ -223,7 +223,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                               ),
                               Container(
                                 width: 160.w,
-                                height: 55.h,
+                                height: 55,
                                 child: Column(
                                   children: [
                                     TextButton(

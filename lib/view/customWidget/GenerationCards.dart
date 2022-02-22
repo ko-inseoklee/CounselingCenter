@@ -15,7 +15,7 @@ class GenerationCards extends StatelessWidget {
         ? GridView.builder(
             itemCount: 6,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, crossAxisSpacing: 9.w, mainAxisSpacing: 12.h
+                crossAxisCount: 3, crossAxisSpacing: 9.w, mainAxisSpacing: 12
                 // childAspectRatio: 1,
                 ),
             itemBuilder: (BuildContext context, int index) {
@@ -35,7 +35,7 @@ class GenerationCards extends StatelessWidget {
   Widget generationCard(int idx) {
     return Container(
       width: isWrap ? 90.w : 78.w,
-      height: 78.h,
+      height: 78,
       margin: isWrap ? EdgeInsets.zero : EdgeInsets.only(right: 12.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +47,7 @@ class GenerationCards extends StatelessWidget {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: 1.h),
+            margin: EdgeInsets.only(top: 1),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

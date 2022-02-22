@@ -9,7 +9,7 @@ class TopicInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomSheet(onClosing: (){}, builder: (_){
       return Container(
-        height: 438.h,
+        height: 438,
         child: Text("good"),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
