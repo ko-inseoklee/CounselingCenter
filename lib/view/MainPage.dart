@@ -73,7 +73,7 @@ class _MainPageState extends State<MainPage> {
               label: '홈',
               icon: Container(
                 width: 16.w,
-                height: 18.h,
+                height: 18,
                 child: ImageIcon(
                   AssetImage("image/homeIcon.png"),
                   // size: ScreenUtil().setSp(24),
@@ -84,7 +84,7 @@ class _MainPageState extends State<MainPage> {
               label: '게시판',
               icon: Container(
                 width: 16.89.w,
-                height: 19.84.h,
+                height: 19.84,
                 child: ImageIcon(
                   AssetImage("image/boardIcon.png"),
                   // size: ScreenUtil().setSp(19.84),
@@ -95,7 +95,7 @@ class _MainPageState extends State<MainPage> {
               label: '매칭하기',
               icon: Container(
                 width: 19.98.w,
-                height: 17.65.h,
+                height: 17.65,
                 child: ImageIcon(
                   AssetImage("image/matchIcon.png"),
                   // size: 17.65.sp,
@@ -106,7 +106,7 @@ class _MainPageState extends State<MainPage> {
               label: '쪽지함',
               icon: Container(
                 width: 20.w,
-                height: 20.h,
+                height: 20,
                 child: ImageIcon(
                   AssetImage("image/messageIcon.png"),
                   // size: 20.sp,
@@ -117,7 +117,7 @@ class _MainPageState extends State<MainPage> {
             label: '꿀팁',
             icon: Container(
               width: 16.27.w,
-              height: 19.h,
+              height: 19,
               child: ImageIcon(
                 AssetImage("image/tipIcon.png"),
                 // size: 19.sp,

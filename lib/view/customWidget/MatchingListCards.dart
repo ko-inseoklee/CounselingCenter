@@ -75,7 +75,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
             ),
           ),
           Container(
-            height: 97.h,
+            height: 97,
             child: PageView(
               controller: _pageController,
               children: buildCards(),
@@ -89,7 +89,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
           Center(
             child: Container(
               width: 22.w,
-              padding: EdgeInsets.only(top: 8.h),
+              padding: EdgeInsets.only(top: 8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -159,7 +159,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                 Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 8.h),
+                      padding: EdgeInsets.only(top: 8),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -179,7 +179,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                                 color: PrimaryVariantLColor,
                                 borderRadius: BorderRadius.circular(43)),
                             width: 45.w,
-                            height: 13.h,
+                            height: 13,
                             child: Center(
                               child: Text('#${match.topic}',
                                   style: TextStyle(
@@ -195,7 +195,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                                 color: PrimaryVariantLColor,
                                 borderRadius: BorderRadius.circular(43)),
                             width: 45.w,
-                            height: 13.h,
+                            height: 13,
                             child: Center(
                               child: Text('#${match.topic}',
                                   style: TextStyle(
@@ -208,7 +208,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                       ),
                     ),
                     Container(
-                        padding: EdgeInsets.only(top: 14.h, bottom: 12.h),
+                        padding: EdgeInsets.only(top: 14, bottom: 12),
                         child: Center(
                             child: Text(
                           match.title,
@@ -220,7 +220,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                             color: PrimaryColor,
                             borderRadius: BorderRadius.circular(43)),
                         width: 236.w,
-                        height: 23.h,
+                        height: 23,
                         child: TextButton(
                           onPressed: () {},
                           child: Text(

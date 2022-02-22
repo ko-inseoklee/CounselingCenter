@@ -31,21 +31,21 @@ class _BoardPageState extends State<BoardPage> {
               ],
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(16.w, 18.h, 16.w, 0),
+              margin: EdgeInsets.fromLTRB(16.w, 18, 16.w, 0),
               // width: 288.w,
               height: 138.w,
               child: GenerationBoard(),
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(16.w, 17.h, 16.w, 0),
+              margin: EdgeInsets.fromLTRB(16.w, 17, 16.w, 0),
               width: 288.w,
-              height: 446.w,
+              height: 446,
               child: TodayTopicWithAnswer(topic: todayTopic,),
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(16.w, 15.h, 16.w, 0),
+              margin: EdgeInsets.fromLTRB(16.w, 15, 16.w, 0),
               width: 288.w,
-              height: 327.w,
+              height: 327,
               child: HotPost(),
             ),
 
@@ -57,8 +57,8 @@ class _BoardPageState extends State<BoardPage> {
     return Column(
       children: [
         Container(
-          height: 23.h,
-          margin: EdgeInsets.only(bottom: 10.h),
+          height: 23,
+          margin: EdgeInsets.only(bottom: 10),
           child: Row(
             children: [
               Text("핫한 게시글 ",style: TextStyle(color: Colors.black, fontSize: 14.sp, fontWeight: FontWeight.w700),),

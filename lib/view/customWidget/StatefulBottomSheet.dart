@@ -45,14 +45,14 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
         // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 11.h, right: 15.w),
-            height: 35.h,
+            padding: EdgeInsets.only(top: 11, right: 15.w),
+            height: 35,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   width: 24.w,
-                  height: 24.h,
+                  height: 24,
                   child: IconButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
@@ -67,10 +67,10 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
               ],
             ),
           ),
-          SizedBox(height: 10.h),
+          SizedBox(height: 10),
           Container(
               padding: EdgeInsets.only(left: isAgeCategory ? 17.w : 16.w),
-              height: 22.h,
+              height: 22,
               child: Row(
                 children: [
                   Text('$category선택',
@@ -80,25 +80,25 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                           fontWeight: FontWeight.w700)),
                 ],
               )),
-          SizedBox(height: isAgeCategory ? 19.h : 7.h),
+          SizedBox(height: isAgeCategory ? 19 : 7),
           isAgeCategory
               ? Container(
                   width: 320.w,
-                  height: 221.h,
+                  height: 221,
                   padding: EdgeInsets.only(left: 16.w, right: 16.w),
                   child: GenerationCards(idx: 6, isWrap: true))
               : Container(
                   width: 320.w,
-                  height: 416.h,
+                  height: 416,
                   padding:
-                      EdgeInsets.only(left: 17.w, right: 17.w, bottom: 68.h),
+                      EdgeInsets.only(left: 17.w, right: 17.w, bottom: 68),
                   child: GridView.builder(
                       itemCount: 18,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           crossAxisSpacing: 8.w,
-                          mainAxisSpacing: 12.h,
-                          mainAxisExtent: 48.h),
+                          mainAxisSpacing: 12,
+                          mainAxisExtent: 48),
                       itemBuilder: (BuildContext context, int index) {
                         // children: List.generate(18, (index) {
                         return Container(

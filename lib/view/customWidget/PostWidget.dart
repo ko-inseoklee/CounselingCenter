@@ -25,7 +25,7 @@ class HotPostWidget extends StatelessWidget implements PostWidget{
     return Container(
       width: 288.w,
       height: 68,
-      margin: EdgeInsets.only(bottom: 9.h),
+      margin: EdgeInsets.only(bottom: 9),
       decoration: BoxDecoration(
         color: backgroundColor.withOpacity(0.75),
         borderRadius: BorderRadius.circular(24)
@@ -43,13 +43,13 @@ class HotPostWidget extends StatelessWidget implements PostWidget{
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 19.h,
-                  margin: EdgeInsets.only(top: 13.h),
+                  height: 19,
+                  margin: EdgeInsets.only(top: 13),
 
                   child: Text(board.title,style: TextStyle(fontSize: 12.sp,fontWeight: FontWeight.w500),),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 6.h),
+                  margin: EdgeInsets.only(top: 6),
                   child: Row(
                     children: [
                       //TODO: board 데이터에 연령 추가.

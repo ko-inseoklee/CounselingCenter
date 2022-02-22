@@ -25,8 +25,8 @@ class TodayTopicWithAnswer extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 23.h,
-            margin: EdgeInsets.only(bottom: 10.h),
+            height: 23,
+            margin: EdgeInsets.only(bottom: 10),
             child: Row(
               children: [
                 Text("오늘의 주제",style: TextStyle(color: Colors.black, fontSize: 14.sp, fontWeight: FontWeight.w700),),
@@ -36,11 +36,11 @@ class TodayTopicWithAnswer extends StatelessWidget {
           ),
           Container(
             width: 288.w,
-            height: 328.h,
+            height: 328,
             child: Column(
               children: [
                 Container(
-                  height: 214.h,
+                  height: 214,
                   decoration: BoxDecoration(
                     color: PrimaryVariant1Color,
                     borderRadius: BorderRadius.vertical(top: Radius.circular(35))
@@ -48,7 +48,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: 49.h,
+                        height: 49,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -60,8 +60,8 @@ class TodayTopicWithAnswer extends StatelessWidget {
                                     alignment: Alignment.centerLeft,
                                   )),
                               width: 150.w,
-                              height: 49.h,
-                              padding: EdgeInsets.only(left: 14.w, top: 9.h),
+                              height: 49,
+                              padding: EdgeInsets.only(left: 14.w, top: 9),
                               child: Text(topic.date,
                                   style: TextStyle(
                                       fontSize: 13.sp,
@@ -69,7 +69,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                                       color: Color(0xffFFFFFF))),
                             ),
                             Container(
-                              padding: EdgeInsets.only(right: 18.w,top: 13.h),
+                              padding: EdgeInsets.only(right: 18.w,top: 13),
                               alignment: Alignment.topCenter,
                               child: Text("by producer"),
                             ),
@@ -77,9 +77,9 @@ class TodayTopicWithAnswer extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(top: 8.h),
+                        padding: EdgeInsets.only(top: 8),
                         width: 215.w,
-                        height: 45.h,
+                        height: 45,
                         child:Text(
                         '${topic.question}',
                         // text,
@@ -95,7 +95,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                             Container(
                               alignment: Alignment.topCenter,
                               width: 35.w,
-                              height: 45.h,
+                              height: 45,
                               child: IconButton(
                                 //TODO: move to the previous page.
                                 onPressed: () {
@@ -110,7 +110,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                             ),
                             Container(
                               width: 218.w,
-                              height: 93.h,
+                              height: 93,
                               padding: EdgeInsets.only(left: 11.w),
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -138,7 +138,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                             Container(
                               alignment: Alignment.topCenter,
                               width: 35.w,
-                              height: 45.h,
+                              height: 45,
                               child: IconButton(
                                 //TODO: move to the next page.
                                   onPressed: () {
@@ -158,7 +158,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                   )
                 ),
                 Container(
-                  height: 114.h,
+                  height: 114,
                   decoration: BoxDecoration(
                     color: Colors.white,
                       borderRadius: BorderRadius.vertical(bottom: Radius.circular(35))
@@ -166,8 +166,8 @@ class TodayTopicWithAnswer extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: 36.h,
-                        padding: EdgeInsets.only(top: 11.h, left: 16.w),
+                        height: 36,
+                        padding: EdgeInsets.only(top: 11, left: 16.w),
                         child: Row(
                           children: [
                             Text("BEST", style: TextStyle(color: PrimaryVariant1Color, fontWeight: FontWeight.w700, fontSize: 13.sp),),
@@ -181,8 +181,8 @@ class TodayTopicWithAnswer extends StatelessWidget {
                       ),
                       Divider(indent: 16.w,endIndent: 14.w,),
                       Container(
-                        height: 50.h,
-                        padding: EdgeInsets.only(left: 16.w,top: 4.h,bottom: 10.h),
+                        height: 50,
+                        padding: EdgeInsets.only(left: 16.w,top: 4,bottom: 10),
                         alignment: Alignment.centerLeft,
                         child: Text(topic.comments![0].contents,style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 12.sp),),
                       ),
