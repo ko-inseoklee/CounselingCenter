@@ -47,6 +47,7 @@ class _MatchingPageState extends State<MatchingPage> {
   // ];
 
   List<bool> topicSelected = List.filled(18, false);
+  List<bool> generationSelected = List.filled(6, false);
   late String tabName;
   List<Match> newMatchingRooms = matching_rooms;
   late int listLength;
@@ -102,7 +103,7 @@ class _MatchingPageState extends State<MatchingPage> {
                           color: categorySelected[0]
                               ? Color(0xffffffff)
                               : Color(0xff939393),
-                          fontSize: 12.sp,
+                          fontSize: 11.sp,
                           fontWeight: FontWeight.w500),
                     ))),
             SizedBox(width: 9.w),
@@ -121,7 +122,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         categorySelected[0] = false;
                         categorySelected[2] = false;
 
-                        showPopup('세대', 307);
+                        showPopup('세대', 307.h);
                       });
                     },
                     child: Text(
@@ -130,7 +131,7 @@ class _MatchingPageState extends State<MatchingPage> {
                           color: categorySelected[1]
                               ? Color(0xffffffff)
                               : Color(0xff939393),
-                          fontSize: 12.sp,
+                          fontSize: 11.sp,
                           fontWeight: FontWeight.w400),
                     ))),
             SizedBox(width: 9.w),
@@ -141,7 +142,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         ? SecondaryDColor
                         : Color(0xffE0E0E0)),
                 width: 90.w,
-                height: 33.h,
+                height: 33,
                 child: TextButton(
                     onPressed: () {
                       setState(() {
@@ -161,7 +162,7 @@ class _MatchingPageState extends State<MatchingPage> {
                           color: categorySelected[2]
                               ? Color(0xffffffff)
                               : Color(0xff939393),
-                          fontSize: 12.sp,
+                          fontSize: 11.sp,
                           fontWeight: FontWeight.w400),
                     )))
           ],
@@ -175,7 +176,7 @@ class _MatchingPageState extends State<MatchingPage> {
             children: [
               Container(
                   padding: EdgeInsets.only(
-                    left: 16.w,
+                    left: 16.w
                   ),
                   child: Row(
                     children: [
@@ -393,6 +394,7 @@ class _MatchingPageState extends State<MatchingPage> {
             tabName: tabName,
             isAgeCategory: isAgeCategory,
             topicSelected: topicSelected,
+            generationSelected: generationSelected,
             changedIndex: changeTopic,
           changeMatchingList: changeMatchingList,
         );
