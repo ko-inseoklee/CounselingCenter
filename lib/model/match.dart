@@ -30,7 +30,6 @@ class Match {
   });
 }
 
-
 final List<String> topicList = [
   '세대차이',
   '만화/애니',
@@ -51,3 +50,5 @@ final List<String> topicList = [
   '일상생활',
   '기타'
 ];
+
+final List<String> ageList = ['10대', '20대', '30대', '40대', '50대', '60대 이상'];

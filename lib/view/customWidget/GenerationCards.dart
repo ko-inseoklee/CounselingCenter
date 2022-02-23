@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_counseling_center/dummy/testMatchingData.dart';
+import 'package:online_counseling_center/model/match.dart';
 
-import '../../color.dart';
+import 'package:online_counseling_center/color.dart';
 
 class GenerationCards extends StatefulWidget {
   int idx;
   bool isGridview;
   List<bool> generationSelected;
+  // final ValueChanged<int> changedIndex;
+  // final ValueChanged<List<Match>> changeMatchingList;
   GenerationCards(
       {Key? key,
       required this.idx,
       required this.isGridview,
-      required this.generationSelected})
+      required this.generationSelected,
+      // required this.changedIndex,
+      // required this.changeMatchingList
+      })
       : super(key: key);
 
   @override
@@ -19,6 +26,8 @@ class GenerationCards extends StatefulWidget {
 }
 
 class _GenerationCardsState extends State<GenerationCards> {
+  List<Match> newMatchingList = [];
+
   @override
   Widget build(BuildContext context) {
     return widget.isGridview
@@ -49,8 +58,7 @@ class _GenerationCardsState extends State<GenerationCards> {
     return Container(
       width: isGridview ? 90.w : 78.w,
       height: 78.h,
-      margin:
-          widget.isGridview ? EdgeInsets.zero : EdgeInsets.only(right: 12.w),
+      margin: isGridview ? EdgeInsets.zero : EdgeInsets.only(right: 12.w),
       child: TextButton(
         style: TextButton.styleFrom(
           primary: Colors.black, // Text Color
@@ -65,6 +73,7 @@ class _GenerationCardsState extends State<GenerationCards> {
                 else
                   generationSelected[i] = false;
               }
+              // widget.changedIndex(idx);
             });
           }
         },
@@ -114,4 +123,6 @@ class _GenerationCardsState extends State<GenerationCards> {
           borderRadius: BorderRadius.circular(24.sp)),
     );
   }
+
+
 }

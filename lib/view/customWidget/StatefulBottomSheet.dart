@@ -89,7 +89,20 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                   width: 320.w,
                   height: 221.h,
                   padding: EdgeInsets.only(left: 16.w, right: 16.w),
-                  child: GenerationCards(idx: 6, isGridview: true, generationSelected: generationSelected,))
+                  child:
+                      // GenerationCards(idx: 6, isGridview: true, generationSelected: generationSelected,)
+                      GridView.builder(
+                    itemCount: 6,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 9.w,
+                        mainAxisSpacing: 12.h
+                        // childAspectRatio: 1,
+                        ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return generationCard_match(index);
+                    },
+                  ))
               : Container(
                   width: 320.w,
                   height: 416.h,
@@ -144,11 +157,101 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
     );
   }
 
+  List<Widget> generationCards_match(int length) {
+    return List<Widget>.generate(length, (index) => generationCard_match(index));
+  }
+
+  Widget generationCard_match(int idx) {
+    List<bool> generationSelected = widget.generationSelected;
+    // bool isGridview = widget.isGridview;
+    List<Match> newMatchingList = [];
+
+    return Container(
+      width: 90.w,
+      height: 78.h,
+      margin: EdgeInsets.zero,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          primary: Colors.black, // Text Color
+        ),
+        onPressed: () {
+          print(idx);
+
+          setState(() {
+            for (int i = 0; i < 6; i++) {
+              if (i == idx)
+                generationSelected[i] = true;
+              else
+                generationSelected[i] = false;
+            }
+            widget.changedIndex(idx);
+            newMatchingList =
+                filterAge(age: ageList[idx]);
+            widget.changeMatchingList(newMatchingList);
+          });
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: ImageIcon(
+                AssetImage("image/generations/${idx + 1}.png"),
+                size: 50.sp,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 1.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '${(idx + 1) * 10}대',
+                    style: TextStyle(
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w700,
+                        color: (!generationSelected[idx])
+                            ? Gray1Color
+                            : WhiteColor),
+                  ),
+                  if (idx == 5)
+                    Text(
+                      ' 이상',
+                      style: TextStyle(
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w700,
+                          color: (!generationSelected[idx])
+                              ? Gray1Color
+                              : WhiteColor),
+                    )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+      decoration: BoxDecoration(
+          color: (!generationSelected[idx])
+              ? PrimaryColor.withOpacity(0.3)
+              : PrimaryColor,
+          borderRadius: BorderRadius.circular(24.sp)),
+    );
+  }
+
   filterCategory({required String tabName}) {
     List<Match> newMatchingRooms = [];
 
     for (int i = 0; i < matching_rooms.length; i++) {
       if (matching_rooms[i].topic == tabName)
+        newMatchingRooms.add(matching_rooms[i]);
+    }
+    return newMatchingRooms;
+  }
+
+  filterAge({required String age}) {
+    List<Match> newMatchingRooms = [];
+
+    for (int i = 0; i < matching_rooms.length; i++) {
+      if (matching_rooms[i].ageLimit.contains(age))
         newMatchingRooms.add(matching_rooms[i]);
     }
     return newMatchingRooms;
