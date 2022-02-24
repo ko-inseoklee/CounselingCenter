@@ -47,6 +47,7 @@ class _MatchingPageState extends State<MatchingPage> {
   // ];
 
   List<bool> topicSelected = List.filled(18, false);
+  List<bool> generationSelected = List.filled(6, false);
   late String tabName;
   List<Match> newMatchingRooms = matching_rooms;
   late int listLength;
@@ -58,7 +59,6 @@ class _MatchingPageState extends State<MatchingPage> {
     super.initState();
     matchingRooms = matching_rooms;
     tabName = '전체';
-
   }
 
   // SnackBar snackbar_age = SnackBar(
@@ -66,16 +66,15 @@ class _MatchingPageState extends State<MatchingPage> {
   //   duration: Duration(days: 1),
   // );
 
-
   @override
   Widget build(BuildContext context) {
     listLength = newMatchingRooms.length;
     return Scaffold(
         body: Column(children: [
-      SizedBox(height: 15),
+      SizedBox(height: 15.h),
       Container(
         width: 288.w,
-        height: 33,
+        height: 33.h,
         child: Row(
           children: [
             Container(
@@ -85,7 +84,7 @@ class _MatchingPageState extends State<MatchingPage> {
                         ? SecondaryDColor
                         : Color(0xffE0E0E0)),
                 width: 90.w,
-                height: 33,
+                height: 33.h,
                 child: TextButton(
                     onPressed: () {
                       setState(() {
@@ -103,7 +102,9 @@ class _MatchingPageState extends State<MatchingPage> {
                               ? Color(0xffffffff)
                               : Color(0xff939393),
                           fontSize: 12.sp,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: categorySelected[0]
+                              ? FontWeight.w500
+                              : FontWeight.w400),
                     ))),
             SizedBox(width: 9.w),
             Container(
@@ -113,25 +114,29 @@ class _MatchingPageState extends State<MatchingPage> {
                         ? SecondaryDColor
                         : Color(0xffE0E0E0)),
                 width: 90.w,
-                height: 33,
+                height: 33.h,
                 child: TextButton(
                     onPressed: () {
                       setState(() {
+                        if (!categorySelected[1]) tabName = '세대별';
+
                         categorySelected[1] = true;
                         categorySelected[0] = false;
                         categorySelected[2] = false;
 
-                        showPopup('세대', 307);
+                        showPopup('세대', 307.h);
                       });
                     },
                     child: Text(
-                      '세대별',
+                      categorySelected[1] ? '$tabName 매칭방' : '세대별',
                       style: TextStyle(
                           color: categorySelected[1]
                               ? Color(0xffffffff)
                               : Color(0xff939393),
                           fontSize: 12.sp,
-                          fontWeight: FontWeight.w400),
+                          fontWeight: categorySelected[1]
+                              ? FontWeight.w500
+                              : FontWeight.w400),
                     ))),
             SizedBox(width: 9.w),
             Container(
@@ -145,8 +150,7 @@ class _MatchingPageState extends State<MatchingPage> {
                 child: TextButton(
                     onPressed: () {
                       setState(() {
-                        if (!categorySelected[2])
-                          tabName = '주제별';
+                        if (!categorySelected[2]) tabName = '주제별';
 
                         categorySelected[2] = true;
                         categorySelected[0] = false;
@@ -162,21 +166,21 @@ class _MatchingPageState extends State<MatchingPage> {
                               ? Color(0xffffffff)
                               : Color(0xff939393),
                           fontSize: 12.sp,
-                          fontWeight: FontWeight.w400),
+                          fontWeight: categorySelected[2]
+                              ? FontWeight.w500
+                              : FontWeight.w400),
                     )))
           ],
         ),
       ),
       Container(
-          padding: EdgeInsets.only(top: 22),
+          padding: EdgeInsets.only(top: 22.h),
           // height: 22.w,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                  padding: EdgeInsets.only(
-                    left: 16.w,
-                  ),
+                  padding: EdgeInsets.only(left: 16.w),
                   child: Row(
                     children: [
                       Text(categorySelected[0] ? '전체' : tabName,
@@ -236,7 +240,7 @@ class _MatchingPageState extends State<MatchingPage> {
       Expanded(
         child: Container(
           width: 288.w,
-          padding: EdgeInsets.only(top: 5),
+          padding: EdgeInsets.only(top: 5.h),
           child: ListView.separated(
             // physics: const AlwaysScrollableScrollPhysics(), // new
             // controller: _controller,
@@ -282,61 +286,118 @@ class _MatchingPageState extends State<MatchingPage> {
                               child: Text(
                                 match.title,
                                 style: TextStyle(
-                                    fontSize: 14.sp, fontWeight: FontWeight.w700),
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w700),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 3),
+                        SizedBox(height: 3.h),
                         Container(
-                            height: 22,
-                            child: Row(
-                              children: [
-                                Container(
-                                    width: 40.w,
-                                    height: 22,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffffffff),
-                                        borderRadius:
-                                            BorderRadius.circular(21.sp)),
-                                    alignment: Alignment.center,
-                                    child: Text('#${match.ageLimit[0]}',
-                                        style: TextStyle(
-                                            color: Color(0xff0098D1),
-                                            fontSize: 9.sp,
-                                            fontWeight: FontWeight.w500))),
-                                SizedBox(width: 5.w),
-                                Container(
-                                    width: 40.w,
-                                    height: 22,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffffffff),
-                                        borderRadius:
-                                            BorderRadius.circular(21.sp)),
-                                    alignment: Alignment.center,
-                                    child: Text('#${match.ageLimit[1]}',
-                                        style: TextStyle(
-                                            color: Color(0xff0098D1),
-                                            fontSize: 9.sp,
-                                            fontWeight: FontWeight.w500))),
-                                SizedBox(width: 5.w),
-                                Container(
-                                    padding:
-                                        EdgeInsets.only(left: 8.w, right: 8.w),
-                                    height: 22,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffffffff),
-                                        borderRadius:
-                                            BorderRadius.circular(21.sp)),
-                                    alignment: Alignment.center,
-                                    child: Text('#주제_${match.topic}',
-                                        style: TextStyle(
-                                            color: Color(0xff0098D1),
-                                            fontSize: 9.sp,
-                                            fontWeight: FontWeight.w500))),
-                              ],
-                            )),
-                        SizedBox(height: 3),
+                            height: 22.h,
+                            child: (match.ageLimit.length == 7)
+                                ? Row(
+                                    children: [
+                                      Container(
+                                          width: 55.w,
+                                          height: 22.h,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xffffffff),
+                                              borderRadius:
+                                                  BorderRadius.circular(21.sp)),
+                                          alignment: Alignment.center,
+                                          child: Text('#모든 연령',
+                                              style: TextStyle(
+                                                  color: Color(0xff0098D1),
+                                                  fontSize: 9.sp,
+                                                  fontWeight:
+                                                      FontWeight.w500))),
+                                      SizedBox(width: 5.w),
+                                      Container(
+                                          padding:
+                                          EdgeInsets.only(left: 8.w, right: 8.w),
+                                          height: 22.h,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xffffffff),
+                                              borderRadius:
+                                              BorderRadius.circular(21.sp)),
+                                          alignment: Alignment.center,
+                                          child: Text('#주제_${match.topic}',
+                                              style: TextStyle(
+                                                  color: Color(0xff0098D1),
+                                                  fontSize: 9.sp,
+                                                  fontWeight: FontWeight.w500))),
+                                    ],
+                                  )
+                                : Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      for (int i = 0;
+                                          i < match.ageLimit.length;
+                                          i++)
+                                        Row(
+                                          children: [
+                                            Container(
+                                                width: 40.w,
+                                                height: 22.h,
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xffffffff),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            21.sp)),
+                                                alignment: Alignment.center,
+                                                child: Text(
+                                                    '#${match.ageLimit[i]}',
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xff0098D1),
+                                                        fontSize: 9.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500))),
+                                            SizedBox(width: 5.w),
+
+                                          ],
+                                        ),
+                                      Container(
+                                          padding:
+                                          EdgeInsets.only(left: 8.w, right: 8.w),
+                                          height: 22.h,
+                                          decoration: BoxDecoration(
+                                              color: Color(0xffffffff),
+                                              borderRadius:
+                                              BorderRadius.circular(21.sp)),
+                                          alignment: Alignment.center,
+                                          child: Text('#주제_${match.topic}',
+                                              style: TextStyle(
+                                                  color: Color(0xff0098D1),
+                                                  fontSize: 9.sp,
+                                                  fontWeight: FontWeight.w500))),
+                                    ],
+                                  ),
+
+                        ),
+                        if (match.ageLimit.length > 3 && match.ageLimit.length != 7)
+                          Column(
+                            children: [
+                              SizedBox(height: 3.h),
+                              Container(
+                                  padding:
+                                      EdgeInsets.only(left: 8.w, right: 8.w),
+                                  width: 90.w,
+                                  height: 22.h,
+                                  decoration: BoxDecoration(
+                                      color: Color(0xffffffff),
+                                      borderRadius:
+                                          BorderRadius.circular(21.sp)),
+                                  alignment: Alignment.center,
+                                  child: Text('#주제_${match.topic}',
+                                      style: TextStyle(
+                                          color: Color(0xff0098D1),
+                                          fontSize: 9.sp,
+                                          fontWeight: FontWeight.w500))),
+                            ],
+                          ),
+                        SizedBox(height: 3.h),
                         Container(
                             child: Row(children: [
                           Text(
@@ -351,7 +412,7 @@ class _MatchingPageState extends State<MatchingPage> {
             },
             itemCount: listLength,
             separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(height: 11);
+              return SizedBox(height: 11.h);
             },
           ),
         ),
@@ -365,12 +426,17 @@ class _MatchingPageState extends State<MatchingPage> {
     });
   }
 
+  changeAge(int index) {
+    setState(() {
+      tabName = '${ageList[index]}';
+    });
+  }
+
   changeMatchingList(List<Match> matchingList) {
     setState(() {
       newMatchingRooms = matchingList;
     });
   }
-
 
   showPopup(String category, double height) {
     bool isAgeCategory = (category == '세대');
@@ -388,12 +454,13 @@ class _MatchingPageState extends State<MatchingPage> {
       context: context,
       builder: (BuildContext context) {
         return StatefulBottomSheet(
-            height: height,
-            category: category,
-            tabName: tabName,
-            isAgeCategory: isAgeCategory,
-            topicSelected: topicSelected,
-            changedIndex: changeTopic,
+          height: height,
+          category: category,
+          tabName: tabName,
+          isAgeCategory: isAgeCategory,
+          topicSelected: topicSelected,
+          generationSelected: generationSelected,
+          changedIndex: isAgeCategory ? changeAge : changeTopic,
           changeMatchingList: changeMatchingList,
         );
         // return StatefulBuilder(

@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/view/customWidget/GenerationCards.dart';
+import 'package:online_counseling_center/model/match.dart';
 
 import '../../color.dart';
 
-class GenerationBoard extends StatelessWidget {
-
+class GenerationBoard extends StatefulWidget {
   const GenerationBoard({Key? key}) : super(key: key);
 
+  @override
+  _GenerationBoardState createState() => _GenerationBoardState();
+}
+
+class _GenerationBoardState extends State<GenerationBoard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,64 +24,45 @@ class GenerationBoard extends StatelessWidget {
             margin: EdgeInsets.only(bottom: 10),
             child: Row(
               children: [
-                Text("세대별 게시판", style: TextStyle(color: Colors.black,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w700),),
-                Icon(Icons.arrow_forward_ios_outlined, size: 14.sp,)
+                Text(
+                  "세대별 게시판",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w700),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  size: 14.sp,
+                )
               ],
             ),
           ),
           Container(
             width: ScreenUtil.defaultSize.width,
-            height: 78,
+            height: 78.h,
             // child: ListView(
             //   scrollDirection: Axis.horizontal,
             //   children: generationCards(6),
             // ),
-            child: GenerationCards(idx: 6, isWrap: false),
+            child: GenerationCards(
+              idx: 6,
+              isGridview: false,
+              generationSelected: [],
+              // changedIndex: printAge,
+              // changeMatchingList: printAgeMatchingList,
+            ),
           ),
         ],
       ),
     );
   }
 
-
-  List<Widget> generationCards(int length){
-    return List<Widget>.generate(length, (index) => generationCard(index));
+  printAge(int index) {
+    print(index);
   }
 
-  Widget generationCard(int idx){
-    return Container(
-      width: 78.w,
-      height: 78,
-      margin: EdgeInsets.only(right: 12.w),
-      child: TextButton(
-        onPressed: (){
-          print(idx);
-        },
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: ImageIcon(
-                  AssetImage("image/generations/${idx + 1}.png"),size: 30.sp, color: Colors.black,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 1),
-              child: Text('${(idx+1) * 10}대',style: TextStyle(
-                color: Colors.white,
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.w700),),
-            )
-
-          ],
-        ),
-      ),
-      decoration: BoxDecoration(
-        color: PrimaryColor,
-        borderRadius: BorderRadius.circular(35)
-      ),
-    );
+  printAgeMatchingList(List<Match> matchingList) {
+    print(matchingList[0]);
   }
 }

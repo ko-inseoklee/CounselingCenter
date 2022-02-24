@@ -8,7 +8,6 @@ class Match {
 
   // 참여 제한
   List<String> ageLimit;
-  List<String> sexLimit;
 
   // Match.init()
   //     : this.topic = ' ',
@@ -17,7 +16,6 @@ class Match {
   //       this.chatterId = ' ',
   //       this.partnerId = ' ',
   //       this.ageLimit = [],
-  //       this.sexLimit = [];
 
   Match({
     required this.topic,
@@ -26,10 +24,8 @@ class Match {
     required this.chatterId,
     required this.partnerId,
     required this.ageLimit,
-    required this.sexLimit,
   });
 }
-
 
 final List<String> topicList = [
   '세대차이',
@@ -51,3 +47,5 @@ final List<String> topicList = [
   '일상생활',
   '기타'
 ];
+
+final List<String> ageList = ['10대', '20대', '30대', '40대', '50대', '60대 이상'];
