@@ -29,7 +29,7 @@ class _BoardPageState extends State<BoardPage> {
               margin: EdgeInsets.fromLTRB(16.w, 16, 16.w, 0),
               width: 288.w,
               height: 130,
-              child: GenerationBoard(root: "board",),
+              child: GenerationBoard(),
             ),
             Container(
               margin: EdgeInsets.fromLTRB(16.w, 22, 16.w, 0),
