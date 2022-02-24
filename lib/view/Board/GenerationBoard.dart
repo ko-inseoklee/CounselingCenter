@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_counseling_center/view/customWidget/GenerationCards.dart';
-import 'package:online_counseling_center/model/match.dart';
 
 import '../../color.dart';
 
-class GenerationBoard extends StatelessWidget {
-  final String root;
+class GenerationBoard extends StatefulWidget {
 
-  const GenerationBoard({Key? key,required this.root}) : super(key: key);
-
+  const GenerationBoard({Key? key}) : super(key: key);
 
   @override
   _GenerationBoardState createState() => _GenerationBoardState();
 }
 
 class _GenerationBoardState extends State<GenerationBoard> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,9 +41,9 @@ class _GenerationBoardState extends State<GenerationBoard> {
           Container(
             width: ScreenUtil.defaultSize.width,
             height: 97,
-            child: root == "board" ? ListView(
-              scrollDirection: Axis.horizontal,
-              children: generationCards(length: 6)) : GenerationCards(idx: 6, isWrap: false),
+            child:  ListView(
+                scrollDirection: Axis.horizontal,
+                children: generationCards(length: 6)),
           ),
         ],
       ),
@@ -74,14 +70,14 @@ class _GenerationBoardState extends State<GenerationBoard> {
               width: 30.w,
               height: 56,
               child: ImageIcon(
-                  AssetImage("image/generations/${idx + 1}.png"),size: 20.sp, color: Colors.black, semanticLabel: "10대",
+                AssetImage("image/generations/${idx + 1}.png"),size: 20.sp, color: Colors.black, semanticLabel: "10대",
               ),
             ),
             Container(
               height: 24,
               margin: EdgeInsets.only(top: 1),
               child: Text('${(idx+1) * 10}대',style: TextStyle(
-                color: Colors.white,
+                  color: Colors.white,
                   fontSize: 13.sp,
                   fontWeight: FontWeight.w700),),
             )
@@ -90,8 +86,8 @@ class _GenerationBoardState extends State<GenerationBoard> {
         ),
       ),
       decoration: BoxDecoration(
-        color: PrimaryColor,
-        borderRadius: BorderRadius.circular(24)
+          color: PrimaryColor,
+          borderRadius: BorderRadius.circular(24)
       ),
     );
   }
