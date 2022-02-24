@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/color.dart';
+import 'package:online_counseling_center/model/board/comment.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/view/Board/TopicInput.dart';
 
-class TodayTopicWithAnswer extends StatelessWidget {
+class TodayTopicWithAnswer extends StatefulWidget {
   final TodayTopic topic;
 
   const TodayTopicWithAnswer({Key? key, required this.topic}) : super(key: key);
 
   @override
+  _TodayTopicWithAnswerState createState() => _TodayTopicWithAnswerState();
+}
+
+class _TodayTopicWithAnswerState extends State<TodayTopicWithAnswer> {
+  Comment? topicComment;
+  topicCommentState(Comment c){
+    setState(() {
+      topicComment = c;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 6.0),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(24),
           boxShadow: [
             BoxShadow(
                 color: Color(0xff000000).withOpacity(0.08),
@@ -36,14 +49,14 @@ class TodayTopicWithAnswer extends StatelessWidget {
           ),
           Container(
             width: 288.w,
-            height: 328,
+            height: 341,
             child: Column(
               children: [
                 Container(
                   height: 214,
                   decoration: BoxDecoration(
                     color: PrimaryVariant1Color,
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(35))
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(24))
                   ),
                   child: Column(
                     children: [
@@ -58,11 +71,13 @@ class TodayTopicWithAnswer extends StatelessWidget {
                                     image: AssetImage("image/Intersect_0.png"),
                                     fit: BoxFit.cover,
                                     alignment: Alignment.centerLeft,
-                                  )),
+                                  ),
+                                borderRadius: BorderRadius.vertical(top: Radius.circular(24))
+                              ),
                               width: 150.w,
                               height: 49,
                               padding: EdgeInsets.only(left: 14.w, top: 9),
-                              child: Text(topic.date,
+                              child: Text(widget.topic.date,
                                   style: TextStyle(
                                       fontSize: 13.sp,
                                       fontWeight: FontWeight.w700,
@@ -81,7 +96,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                         width: 215.w,
                         height: 45,
                         child:Text(
-                        '${topic.question}',
+                        '${widget.topic.question}',
                         // text,
                         style: TextStyle(
                             fontSize: 12.sp,
@@ -119,7 +134,12 @@ class TodayTopicWithAnswer extends StatelessWidget {
                               alignment: Alignment.topLeft,
                               child:
                                 TextButton(onPressed: () {
-                                  Get.bottomSheet(TopicInput());
+                                  showModalBottomSheet(shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                  ),
+                                      context: context, builder: (context){
+                                    return TopicInput(valueChanged: topicCommentState,topic: widget.topic,);
+                                  });
                                 },
                                   child: Text("답변하기",style: TextStyle(color: Color(0xffAAAAAA)),),
                                 ),
@@ -158,35 +178,42 @@ class TodayTopicWithAnswer extends StatelessWidget {
                   )
                 ),
                 Container(
-                  height: 114,
+                  height: 121,
+                  padding: EdgeInsets.fromLTRB(16.w, 11, 14.w, 7),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(35))
+                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(24))
                   ),
                   child: Column(
                     children: [
                       Container(
-                        height: 36,
-                        padding: EdgeInsets.only(top: 11, left: 16.w),
-                        child: Row(
+                        height: 28,
+                        child: Column(
                           children: [
-                            Text("BEST", style: TextStyle(color: PrimaryVariant1Color, fontWeight: FontWeight.w700, fontSize: 13.sp),),
                             Container(
-                              padding: EdgeInsets.only(left: 10.w),
-                              child: Text(topic.comments![0].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13.sp)),
-                            ),
+                                padding: EdgeInsets.only(left: 10.w),
+                                margin: EdgeInsets.only(bottom: 7),
+                                child:Row(
+                                  children: [
+                                    Container(child: Text("BEST", style: TextStyle(color: PrimaryVariant1Color, fontWeight: FontWeight.w700, fontSize: 13.sp),)),
 
+                                    Container(padding: EdgeInsets.only(left: 10.w),child: Text(widget.topic.comments![0].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13.sp))),
+                                  ],
+                                ),
+                            ),
+                            Divider(height: 0.1),
                           ],
                         ),
                       ),
-                      Divider(indent: 16.w,endIndent: 14.w,),
                       Container(
                         height: 50,
-                        padding: EdgeInsets.only(left: 16.w,top: 4,bottom: 10),
+                        padding: EdgeInsets.only(left: 16.w,top: 4,bottom: 4),
                         alignment: Alignment.centerLeft,
-                        child: Text(topic.comments![0].contents,style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 12.sp),),
+                        child: Text(widget.topic.comments![0].contents,style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 12.sp),),
                       ),
                       Container(
+                        height: 24,
+                        // padding: EdgeInsets.only(bottom: 14),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -194,11 +221,11 @@ class TodayTopicWithAnswer extends StatelessWidget {
                               children: [
                                 Container(
                                   child: Text('20대', style: TextStyle(color: Color(0xffAAAAAA)),),
-                                  margin: EdgeInsets.only(left: 16.w, right: 8.w),
+                                  margin: EdgeInsets.only(left: 16.w, right: 6.w),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(right: 10.w),
-                                  child: Text(topic.writerID, style: TextStyle(color: Color(0xffAAAAAA)),),
+                                  margin: EdgeInsets.only(right: 8.w),
+                                  child: Text(widget.topic.writerID, style: TextStyle(color: Color(0xffAAAAAA)),),
                                   constraints: BoxConstraints(
                                       minWidth: 131.w
                                   ),
@@ -213,7 +240,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(right: 16.w),
-                                  child: Text(topic.likes.toString(),  style: TextStyle(color: Colors.black,),),
+                                  child: Text(widget.topic.likes.toString(),  style: TextStyle(color: Colors.black,),),
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(right: 2.w),
@@ -222,7 +249,7 @@ class TodayTopicWithAnswer extends StatelessWidget {
                                 ),
                                 Container(
                                   padding: EdgeInsets.only(right: 16.w),
-                                  child: Text(topic.comments![0].re.length.toString(),  style: TextStyle(color: Colors.black,),),
+                                  child: Text(widget.topic.comments![0].re.length.toString(),  style: TextStyle(color: Colors.black,),),
                                 ),
                               ],
                             ),

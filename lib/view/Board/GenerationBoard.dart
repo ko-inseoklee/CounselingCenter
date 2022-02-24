@@ -6,8 +6,11 @@ import 'package:online_counseling_center/model/match.dart';
 
 import '../../color.dart';
 
-class GenerationBoard extends StatefulWidget {
-  const GenerationBoard({Key? key}) : super(key: key);
+class GenerationBoard extends StatelessWidget {
+  final String root;
+
+  const GenerationBoard({Key? key,required this.root}) : super(key: key);
+
 
   @override
   _GenerationBoardState createState() => _GenerationBoardState();
@@ -17,6 +20,7 @@ class _GenerationBoardState extends State<GenerationBoard> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 130,
       child: Column(
         children: [
           Container(
@@ -40,29 +44,55 @@ class _GenerationBoardState extends State<GenerationBoard> {
           ),
           Container(
             width: ScreenUtil.defaultSize.width,
-            height: 78.h,
-            // child: ListView(
-            //   scrollDirection: Axis.horizontal,
-            //   children: generationCards(6),
-            // ),
-            child: GenerationCards(
-              idx: 6,
-              isGridview: false,
-              generationSelected: [],
-              // changedIndex: printAge,
-              // changeMatchingList: printAgeMatchingList,
-            ),
+            height: 97,
+            child: root == "board" ? ListView(
+              scrollDirection: Axis.horizontal,
+              children: generationCards(length: 6)) : GenerationCards(idx: 6, isWrap: false),
           ),
         ],
       ),
     );
   }
 
-  printAge(int index) {
-    print(index);
+  List<Widget> generationCards({required int length}){
+    return List<Widget>.generate(length, (index) => generationCard(index));
   }
 
-  printAgeMatchingList(List<Match> matchingList) {
-    print(matchingList[0]);
+  Widget generationCard(int idx){
+    return Container(
+      width: 78.w,
+      height: 97,
+      margin: EdgeInsets.only(right: 12.w),
+      child: TextButton(
+        onPressed: (){
+          print(idx);
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 30.w,
+              height: 56,
+              child: ImageIcon(
+                  AssetImage("image/generations/${idx + 1}.png"),size: 20.sp, color: Colors.black, semanticLabel: "10대",
+              ),
+            ),
+            Container(
+              height: 24,
+              margin: EdgeInsets.only(top: 1),
+              child: Text('${(idx+1) * 10}대',style: TextStyle(
+                color: Colors.white,
+                  fontSize: 13.sp,
+                  fontWeight: FontWeight.w700),),
+            )
+
+          ],
+        ),
+      ),
+      decoration: BoxDecoration(
+        color: PrimaryColor,
+        borderRadius: BorderRadius.circular(24)
+      ),
+    );
   }
 }
