@@ -25,21 +25,16 @@ class _BoardPageState extends State<BoardPage> {
         // appBar: AppBar(title: Text('소통 게시판')),
         body: ListView(
           children: [
-            Row(
-              children: [
-                Container(width: 100.w,),
-              ],
-            ),
             Container(
-              margin: EdgeInsets.fromLTRB(16.w, 18, 16.w, 0),
-              // width: 288.w,
-              height: 138.w,
-              child: GenerationBoard(),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(16.w, 17, 16.w, 0),
+              margin: EdgeInsets.fromLTRB(16.w, 16, 16.w, 0),
               width: 288.w,
-              height: 446,
+              height: 130,
+              child: GenerationBoard(root: "board",),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(16.w, 22, 16.w, 0),
+              width: 288.w,
+              height: 380,
               child: TodayTopicWithAnswer(topic: todayTopic,),
             ),
             Container(

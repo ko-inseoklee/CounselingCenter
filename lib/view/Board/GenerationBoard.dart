@@ -6,12 +6,14 @@ import 'package:online_counseling_center/view/customWidget/GenerationCards.dart'
 import '../../color.dart';
 
 class GenerationBoard extends StatelessWidget {
+  final String root;
 
-  const GenerationBoard({Key? key}) : super(key: key);
+  const GenerationBoard({Key? key,required this.root}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 130,
       child: Column(
         children: [
           Container(
@@ -28,12 +30,10 @@ class GenerationBoard extends StatelessWidget {
           ),
           Container(
             width: ScreenUtil.defaultSize.width,
-            height: 78,
-            // child: ListView(
-            //   scrollDirection: Axis.horizontal,
-            //   children: generationCards(6),
-            // ),
-            child: GenerationCards(idx: 6, isWrap: false),
+            height: 97,
+            child: root == "board" ? ListView(
+              scrollDirection: Axis.horizontal,
+              children: generationCards(length: 6)) : GenerationCards(idx: 6, isWrap: false),
           ),
         ],
       ),
@@ -41,14 +41,14 @@ class GenerationBoard extends StatelessWidget {
   }
 
 
-  List<Widget> generationCards(int length){
+  List<Widget> generationCards({required int length}){
     return List<Widget>.generate(length, (index) => generationCard(index));
   }
 
   Widget generationCard(int idx){
     return Container(
       width: 78.w,
-      height: 78,
+      height: 97,
       margin: EdgeInsets.only(right: 12.w),
       child: TextButton(
         onPressed: (){
@@ -58,11 +58,14 @@ class GenerationBoard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
+              width: 30.w,
+              height: 56,
               child: ImageIcon(
-                  AssetImage("image/generations/${idx + 1}.png"),size: 30.sp, color: Colors.black,
+                  AssetImage("image/generations/${idx + 1}.png"),size: 20.sp, color: Colors.black, semanticLabel: "10대",
               ),
             ),
             Container(
+              height: 24,
               margin: EdgeInsets.only(top: 1),
               child: Text('${(idx+1) * 10}대',style: TextStyle(
                 color: Colors.white,
@@ -75,7 +78,7 @@ class GenerationBoard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: PrimaryColor,
-        borderRadius: BorderRadius.circular(35)
+        borderRadius: BorderRadius.circular(24)
       ),
     );
   }

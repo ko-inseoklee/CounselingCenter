@@ -16,7 +16,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      (_pageIndex == 0) ? Size.fromHeight(53) : Size.fromHeight(99.45);
+      (_pageIndex == 0 || _pageIndex == 1) ? Size.fromHeight(53) : Size.fromHeight(99.45);
 
   @override
   PreferredSizeWidget build(BuildContext context) {
@@ -192,8 +192,8 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ],
                 bottom: PreferredSize(
-                    preferredSize: isMain ? Size.zero : Size.fromHeight(59),
-                    child: isMain
+                    preferredSize: (isMain || _pageIndex == 1) ? Size.zero : Size.fromHeight(59),
+                    child: (isMain || _pageIndex == 1)
                         ? Container()
                         : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
