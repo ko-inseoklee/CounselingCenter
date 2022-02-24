@@ -8,7 +8,6 @@ class Match {
 
   // 참여 제한
   List<String> ageLimit;
-  List<String> sexLimit;
 
   // Match.init()
   //     : this.topic = ' ',
@@ -17,7 +16,6 @@ class Match {
   //       this.chatterId = ' ',
   //       this.partnerId = ' ',
   //       this.ageLimit = [],
-  //       this.sexLimit = [];
 
   Match({
     required this.topic,
@@ -26,7 +24,6 @@ class Match {
     required this.chatterId,
     required this.partnerId,
     required this.ageLimit,
-    required this.sexLimit,
   });
 }
 

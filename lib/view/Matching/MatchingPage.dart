@@ -118,7 +118,7 @@ class _MatchingPageState extends State<MatchingPage> {
                 child: TextButton(
                     onPressed: () {
                       setState(() {
-                        if (!categorySelected[2]) tabName = '세대별';
+                        if (!categorySelected[1]) tabName = '세대별';
 
                         categorySelected[1] = true;
                         categorySelected[0] = false;

@@ -93,7 +93,7 @@ class _NewMatchingPageState extends State<NewMatchingPage> {
                     style: ElevatedButton.styleFrom(
                         primary: Colors.deepPurple[400]),
                     onPressed: () {
-                      Match match = new Match(topic: selected_topic, title: titleTextBox.getText(), chatId: '', chatterId: "uid_1"/* _userController.user.value.ID*/, partnerId: '', ageLimit: [], sexLimit: []);
+                      Match match = new Match(topic: selected_topic, title: titleTextBox.getText(), chatId: '', chatterId: "uid_1"/* _userController.user.value.ID*/, partnerId: '', ageLimit: []);
                       setState(() {
                         try{
                           // makeMathcing(match);  :  POST method 이용하여 DB에 올리는 작업.
