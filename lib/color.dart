@@ -16,3 +16,4 @@ const TextBodyColor = Color(0xff333333);
 const Gray1Color = Color(0xffCCCCCC);
 
 const DisabledColor = Color(0xffC4C4C4);
+const WhiteColor = Color(0xffffffff);

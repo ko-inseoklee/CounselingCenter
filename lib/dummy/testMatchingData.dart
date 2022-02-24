@@ -8,7 +8,7 @@ Match match1 = Match(
     chatterId: user_me.uID,
     partnerId: '',
     ageLimit: ['50대', '60대', '70대'],
-    sexLimit: ['남자', '여자']);
+ );
 
 Match match2 = Match(
     topic: '가족/육아',
@@ -17,7 +17,7 @@ Match match2 = Match(
     chatterId: user1.uID,
     partnerId: '',
     ageLimit: ['10대', '20대', '30대', '50대', '60대', '70대', '40대'],
-    sexLimit: ['남자']);
+    );
 
 Match match3 = Match(
     topic: '게임',
@@ -25,8 +25,8 @@ Match match3 = Match(
     chatId: '2',
     chatterId: user2.uID,
     partnerId: '',
-    ageLimit: ['20대', '30대'],
-    sexLimit: ['남자', '여자']);
+    ageLimit: ['10대', '20대', '30대'],
+    );
 
 Match match4 = Match(
     topic: '세대차이',
@@ -35,6 +35,6 @@ Match match4 = Match(
     chatterId: user1.uID,
     partnerId: '',
     ageLimit: ['10대', '20대', '30대'],
-    sexLimit: ['남자', '여자']);
+    );
 
 List<Match> matching_rooms = [match1, match2, match3, match4];

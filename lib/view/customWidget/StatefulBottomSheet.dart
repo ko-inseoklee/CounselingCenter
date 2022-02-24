@@ -13,6 +13,7 @@ class StatefulBottomSheet extends StatefulWidget {
   final ValueChanged<int> changedIndex;
   final bool isAgeCategory;
   List<bool> topicSelected;
+  List<bool> generationSelected;
   final ValueChanged<List<Match>> changeMatchingList;
   StatefulBottomSheet({
     Key? key,
@@ -21,6 +22,7 @@ class StatefulBottomSheet extends StatefulWidget {
     required this.tabName,
     required this.isAgeCategory,
     required this.topicSelected,
+    required this.generationSelected,
     required this.changedIndex,
     required this.changeMatchingList,
   }) : super(key: key);
@@ -35,6 +37,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
     bool isAgeCategory = widget.isAgeCategory;
     String category = widget.category;
     List<bool> topicSelected = widget.topicSelected;
+    List<bool> generationSelected = widget.generationSelected;
     List<Match> newMatchingList = [];
 
     return Container(
@@ -45,14 +48,14 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
         // mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 11, right: 15.w),
-            height: 35,
+            padding: EdgeInsets.only(top: 11.h, right: 15.w),
+            height: 35.h,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                   width: 24.w,
-                  height: 24,
+                  height: 24.h,
                   child: IconButton(
                       padding: EdgeInsets.zero,
                       onPressed: () {
@@ -67,10 +70,10 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
               ],
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 10.h),
           Container(
               padding: EdgeInsets.only(left: isAgeCategory ? 17.w : 16.w),
-              height: 22,
+              height: 22.h,
               child: Row(
                 children: [
                   Text('$category선택',
@@ -80,25 +83,38 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                           fontWeight: FontWeight.w700)),
                 ],
               )),
-          SizedBox(height: isAgeCategory ? 19 : 7),
+          SizedBox(height: isAgeCategory ? 19.h : 7.h),
           isAgeCategory
               ? Container(
                   width: 320.w,
-                  height: 221,
+                  height: 221.h,
                   padding: EdgeInsets.only(left: 16.w, right: 16.w),
-                  child: GenerationCards(idx: 6, isWrap: true))
+                  child:
+                      // GenerationCards(idx: 6, isGridview: true, generationSelected: generationSelected,)
+                      GridView.builder(
+                    itemCount: 6,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 9.w,
+                        mainAxisSpacing: 12.h
+                        // childAspectRatio: 1,
+                        ),
+                    itemBuilder: (BuildContext context, int index) {
+                      return generationCard_match(index);
+                    },
+                  ))
               : Container(
                   width: 320.w,
-                  height: 416,
+                  height: 416.h,
                   padding:
-                      EdgeInsets.only(left: 17.w, right: 17.w, bottom: 68),
+                      EdgeInsets.only(left: 17.w, right: 17.w, bottom: 68.h),
                   child: GridView.builder(
                       itemCount: 18,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 3,
                           crossAxisSpacing: 8.w,
-                          mainAxisSpacing: 12,
-                          mainAxisExtent: 48),
+                          mainAxisSpacing: 12.h,
+                          mainAxisExtent: 48.h),
                       itemBuilder: (BuildContext context, int index) {
                         // children: List.generate(18, (index) {
                         return Container(
@@ -141,11 +157,101 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
     );
   }
 
+  List<Widget> generationCards_match(int length) {
+    return List<Widget>.generate(length, (index) => generationCard_match(index));
+  }
+
+  Widget generationCard_match(int idx) {
+    List<bool> generationSelected = widget.generationSelected;
+    // bool isGridview = widget.isGridview;
+    List<Match> newMatchingList = [];
+
+    return Container(
+      width: 90.w,
+      height: 78.h,
+      margin: EdgeInsets.zero,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          primary: Colors.black, // Text Color
+        ),
+        onPressed: () {
+          print(idx);
+
+          setState(() {
+            for (int i = 0; i < 6; i++) {
+              if (i == idx)
+                generationSelected[i] = true;
+              else
+                generationSelected[i] = false;
+            }
+            widget.changedIndex(idx);
+            newMatchingList =
+                filterAge(age: ageList[idx]);
+            widget.changeMatchingList(newMatchingList);
+          });
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: ImageIcon(
+                AssetImage("image/generations/${idx + 1}.png"),
+                size: 50.sp,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 1.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '${(idx + 1) * 10}대',
+                    style: TextStyle(
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w700,
+                        color: (!generationSelected[idx])
+                            ? Gray1Color
+                            : WhiteColor),
+                  ),
+                  if (idx == 5)
+                    Text(
+                      ' 이상',
+                      style: TextStyle(
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w700,
+                          color: (!generationSelected[idx])
+                              ? Gray1Color
+                              : WhiteColor),
+                    )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+      decoration: BoxDecoration(
+          color: (!generationSelected[idx])
+              ? PrimaryColor.withOpacity(0.3)
+              : PrimaryColor,
+          borderRadius: BorderRadius.circular(24.sp)),
+    );
+  }
+
   filterCategory({required String tabName}) {
     List<Match> newMatchingRooms = [];
 
     for (int i = 0; i < matching_rooms.length; i++) {
       if (matching_rooms[i].topic == tabName)
+        newMatchingRooms.add(matching_rooms[i]);
+    }
+    return newMatchingRooms;
+  }
+
+  filterAge({required String age}) {
+    List<Match> newMatchingRooms = [];
+
+    for (int i = 0; i < matching_rooms.length; i++) {
+      if (matching_rooms[i].ageLimit.contains(age))
         newMatchingRooms.add(matching_rooms[i]);
     }
     return newMatchingRooms;
