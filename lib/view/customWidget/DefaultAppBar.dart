@@ -16,7 +16,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      (_pageIndex == 0 || _pageIndex == 1) ? Size.fromHeight(53) : Size.fromHeight(99.45);
+      (_pageIndex == 0 || _pageIndex == 1) ? Size.fromHeight(53.h) : Size.fromHeight(99.45.h);
 
   @override
   PreferredSizeWidget build(BuildContext context) {
@@ -67,7 +67,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                             fit: BoxFit.fill,
                             color: Color(0xffffffff),
                             width: 43.w,
-                            height: 25.01,
+                            height: 25.01.h,
                           ),
                         ),
                       SizedBox(width: 11.w),
@@ -75,7 +75,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                         Container(
                           constraints: BoxConstraints(minWidth: 177.w),
                           width: 177.w,
-                          height: 26,
+                          height: 26.h,
                           child: TextFormField(
                               decoration: InputDecoration(
                             // hintText: '키워드 입력',
@@ -93,17 +93,17 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 : OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: PrimaryColor, width: 2.0),
-                                    borderRadius: BorderRadius.circular(37),
+                                    borderRadius: BorderRadius.circular(37.sp),
                                   ),
                             enabledBorder: isMain
                                 ? InputBorder.none
                                 : OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: PrimaryColor, width: 2.0),
-                                    borderRadius: BorderRadius.circular(37),
+                                    borderRadius: BorderRadius.circular(37.sp),
                                   ),
                             contentPadding:
-                                EdgeInsets.only(left: 12.w, bottom: 4),
+                                EdgeInsets.only(left: 12.w, bottom: 4.h),
                             prefixIcon: IconButton(
                               icon: ImageIcon(
                                 AssetImage("image/searchIcon.png"),
@@ -200,7 +200,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                             children: [
                               Container(
                                 width: 160.w,
-                                height: 55,
+                                height: 55.h,
                                 child: Column(
                                   children: [
                                     TextButton(
@@ -223,7 +223,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                               ),
                               Container(
                                 width: 160.w,
-                                height: 55,
+                                height: 55.h,
                                 child: Column(
                                   children: [
                                     TextButton(

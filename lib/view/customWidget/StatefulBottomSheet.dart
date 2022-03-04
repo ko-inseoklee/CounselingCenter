@@ -175,7 +175,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
           primary: Colors.black, // Text Color
         ),
         onPressed: () {
-          print(idx);
+          // print(idx);
 
           setState(() {
             for (int i = 0; i < 6; i++) {
