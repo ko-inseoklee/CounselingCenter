@@ -305,7 +305,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       for (int i = 0;
-                                          i < match.ageLimit.length;
+                                      (i < match.ageLimit.length && i < 3);
                                           i++)
                                         Row(
                                           children: [
@@ -329,6 +329,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                             SizedBox(width: 5.w),
                                           ],
                                         ),
+                                      if (match.ageLimit.length <= 3)
                                       Container(
                                           padding: EdgeInsets.only(
                                               left: 8.w, right: 8.w),
@@ -352,21 +353,49 @@ class _MatchingPageState extends State<MatchingPage> {
                             Column(
                               children: [
                                 SizedBox(height: 3.h),
-                                Container(
-                                    padding:
-                                        EdgeInsets.only(left: 8.w, right: 8.w),
-                                    width: 90.w,
-                                    height: 22.h,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xffffffff),
-                                        borderRadius:
-                                            BorderRadius.circular(21.sp)),
-                                    alignment: Alignment.center,
-                                    child: Text('#주제_${match.topic}',
-                                        style: TextStyle(
-                                            color: Color(0xff0098D1),
-                                            fontSize: 9.sp,
-                                            fontWeight: FontWeight.w500))),
+                                Row(
+                                  children: [
+                                    for (int i = 3;
+                                    (i < match.ageLimit.length);
+                                    i++)
+                                      Row(
+                                        children: [
+                                          Container(
+                                              width: (match.ageLimit[i] == '60대 이상') ? 59.w : 40.w,
+                                              height: 22.h,
+                                              decoration: BoxDecoration(
+                                                  color: Color(0xffffffff),
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      21.sp)),
+                                              alignment: Alignment.center,
+                                              child: Text(
+                                                  '#${match.ageLimit[i]}',
+                                                  style: TextStyle(
+                                                      color:
+                                                      Color(0xff0098D1),
+                                                      fontSize: 9.sp,
+                                                      fontWeight:
+                                                      FontWeight.w500))),
+                                          SizedBox(width: 5.w),
+                                        ],
+                                      ),
+                                    Container(
+                                        padding:
+                                            EdgeInsets.only(left: 8.w, right: 8.w),
+                                        height: 22.h,
+                                        decoration: BoxDecoration(
+                                            color: Color(0xffffffff),
+                                            borderRadius:
+                                                BorderRadius.circular(21.sp)),
+                                        alignment: Alignment.center,
+                                        child: Text('#주제_${match.topic}',
+                                            style: TextStyle(
+                                                color: Color(0xff0098D1),
+                                                fontSize: 9.sp,
+                                                fontWeight: FontWeight.w500))),
+                                  ],
+                                ),
                               ],
                             ),
                           SizedBox(height: 3.h),

@@ -25,7 +25,7 @@ Match match3 = Match(
     chatId: '2',
     chatterId: user2.uID,
     partnerId: '',
-    ageLimit: ['10대', '20대', '30대'],
+    ageLimit: ['10대', '20대', '30대', '40대'],
     );
 
 Match match4 = Match(
