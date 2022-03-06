@@ -7,7 +7,7 @@ Match match1 = Match(
     chatId: '0',
     chatterId: user_me.uID,
     partnerId: '',
-    ageLimit: ['50대', '60대', '70대'],
+    ageLimit: ['50대', '60대 이상'],
  );
 
 Match match2 = Match(
@@ -16,7 +16,7 @@ Match match2 = Match(
     chatId: '1',
     chatterId: user1.uID,
     partnerId: '',
-    ageLimit: ['10대', '20대', '30대', '50대', '60대', '70대', '40대'],
+    ageLimit: ['10대', '20대', '30대', '50대', '60대 이상','40대'],
     );
 
 Match match3 = Match(
@@ -25,7 +25,7 @@ Match match3 = Match(
     chatId: '2',
     chatterId: user2.uID,
     partnerId: '',
-    ageLimit: ['10대', '20대', '30대'],
+    ageLimit: ['10대', '20대', '30대', '40대'],
     );
 
 Match match4 = Match(

@@ -49,3 +49,5 @@ final List<String> topicList = [
 ];
 
 final List<String> ageList = ['10대', '20대', '30대', '40대', '50대', '60대 이상'];
+
+bool matchTab1 = true;  // 전체 매칭방 tab 선택 시 true, 참여 매칭방 tab 선택 시 false

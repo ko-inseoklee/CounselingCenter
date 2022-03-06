@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/color.dart';
+import 'package:online_counseling_center/model/match.dart';
 
-class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
+class DefaultAppBar extends StatefulWidget implements PreferredSizeWidget {
   int _pageIndex = 0;
-  bool isExpanded = false;
-  String pageTitle = '';
-  // final string title;
-  // final perff bot;
 
   DefaultAppBar({Key? key, required int pageIndex, bool? isExpanded}) {
     _pageIndex = pageIndex;
@@ -15,18 +12,31 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize =>
-      (_pageIndex == 0 || _pageIndex == 1) ? Size.fromHeight(53) : Size.fromHeight(99.45);
+  _DefaultAppBarState createState() => _DefaultAppBarState();
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => (_pageIndex == 0 || _pageIndex == 1) ? Size.fromHeight(53.h) : Size.fromHeight(99.45.h);
+}
+
+class _DefaultAppBarState extends State<DefaultAppBar> {
+  bool isExpanded = false;
+
+  String pageTitle = '';
+
+  // @override
+  // Size get preferredSize =>
+  //     (widget._pageIndex == 0 || widget._pageIndex == 1) ? Size.fromHeight(53.h) : Size.fromHeight(99.45.h);
 
   @override
   PreferredSizeWidget build(BuildContext context) {
-    bool isMain = (_pageIndex == 0);
-    pageTitle = (_pageIndex == 1
+    bool isMain = (widget._pageIndex == 0);
+    pageTitle = (widget._pageIndex == 1
         ? '게시판'
-        : (_pageIndex == 2 ? '매칭하기' : (_pageIndex == 4 ? '꿀팁' : '')));
+        : (widget._pageIndex == 2 ? '매칭하기' : (widget._pageIndex == 4 ? '꿀팁' : '')));
 
     return PreferredSize(
-        preferredSize: preferredSize,
+        preferredSize: widget.preferredSize,
         child: Container(
             decoration: BoxDecoration(boxShadow: [
               BoxShadow(
@@ -67,7 +77,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                             fit: BoxFit.fill,
                             color: Color(0xffffffff),
                             width: 43.w,
-                            height: 25.01,
+                            height: 25.01.h,
                           ),
                         ),
                       SizedBox(width: 11.w),
@@ -75,7 +85,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                         Container(
                           constraints: BoxConstraints(minWidth: 177.w),
                           width: 177.w,
-                          height: 26,
+                          height: 26.h,
                           child: TextFormField(
                               decoration: InputDecoration(
                             // hintText: '키워드 입력',
@@ -93,17 +103,17 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                                 : OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: PrimaryColor, width: 2.0),
-                                    borderRadius: BorderRadius.circular(37),
+                                    borderRadius: BorderRadius.circular(37.sp),
                                   ),
                             enabledBorder: isMain
                                 ? InputBorder.none
                                 : OutlineInputBorder(
                                     borderSide: BorderSide(
                                         color: PrimaryColor, width: 2.0),
-                                    borderRadius: BorderRadius.circular(37),
+                                    borderRadius: BorderRadius.circular(37.sp),
                                   ),
                             contentPadding:
-                                EdgeInsets.only(left: 12.w, bottom: 4),
+                                EdgeInsets.only(left: 12.w, bottom: 4.h),
                             prefixIcon: IconButton(
                               icon: ImageIcon(
                                 AssetImage("image/searchIcon.png"),
@@ -192,19 +202,24 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ],
                 bottom: PreferredSize(
-                    preferredSize: (isMain || _pageIndex == 1) ? Size.zero : Size.fromHeight(59),
-                    child: (isMain || _pageIndex == 1)
+                    preferredSize: (isMain || widget._pageIndex == 1) ? Size.zero : Size.fromHeight(59),
+                    child: (isMain || widget._pageIndex == 1)
                         ? Container()
                         : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 width: 160.w,
-                                height: 55,
+                                height: 55.h,
                                 child: Column(
                                   children: [
                                     TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          setState(() {
+                                            matchTab1 = true;
+                                            print(matchTab1);
+                                          });
+                                        },
                                         child: Text('전체 매칭방',
                                             style: TextStyle(
                                                 fontSize: 12.sp,
@@ -214,7 +229,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                                         child: Divider(
                                       thickness: 3.sp,
                                       height: 0,
-                                      color: PrimaryColor,
+                                      color: matchTab1 ? PrimaryColor : Colors.white,
                                       indent: 65.w,
                                       endIndent: 65.w,
                                     )),
@@ -223,11 +238,16 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                               ),
                               Container(
                                 width: 160.w,
-                                height: 55,
+                                height: 55.h,
                                 child: Column(
                                   children: [
                                     TextButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          setState(() {
+                                            matchTab1 = false;
+                                            print(matchTab1);
+                                          });
+                                        },
                                         child: Text('참여 매칭방',
                                             style: TextStyle(
                                                 fontSize: 12.sp,
@@ -235,13 +255,12 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
                                                 color: Color(0xff333333)))),
                                     Center(
                                         child: Divider(
-                                      thickness: 3.sp,
-                                      height: 0,
-                                      // color: PrimaryColor,
-                                      color: Colors.white,
-                                      indent: 65.w,
-                                      endIndent: 65.w,
-                                    )),
+                                          thickness: 3.sp,
+                                          height: 0,
+                                          color: matchTab1 ? Colors.white : PrimaryColor,
+                                          indent: 65.w,
+                                          endIndent: 65.w,
+                                        )),
                                   ],
                                 ),
                               )
