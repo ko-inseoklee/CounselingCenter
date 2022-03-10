@@ -63,7 +63,7 @@ class _MainPageState extends State<MainPage> {
               label: '홈',
               icon: Container(
                 decoration: BoxDecoration(
-                  color: Colors.yellow,
+                  // color: Colors.yellow,
                   // image: DecorationImage(
                   //   image: AssetImage(
                   //     "image/homeIcon.png",
@@ -83,7 +83,7 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
               label: '게시판',
               icon: Container(
-                decoration: BoxDecoration(color: Colors.yellow),
+                // decoration: BoxDecoration(color: Colors.yellow),
                 width: 24.w,
                 height: 24.h,
                 // margin: EdgeInsets.zero,
@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> {
               icon: Container(
                 width: 24.w,
                 height: 24.h,
-                decoration: BoxDecoration(color: Colors.yellow),
+                // decoration: BoxDecoration(color: Colors.yellow),
                 child: ImageIcon(
                   AssetImage("image/matchIcon.png"),
                   color:
@@ -116,7 +116,7 @@ class _MainPageState extends State<MainPage> {
                   Container(
                     width: 24.w,
                     height: 24.h,
-                    decoration: BoxDecoration(color: Colors.yellow),
+                    // decoration: BoxDecoration(color: Colors.yellow),
                     padding: EdgeInsets.only(
                         left: 2.w, right: 2.w, top: 2.h, bottom: 2.h),
                     child: ImageIcon(
@@ -135,7 +135,7 @@ class _MainPageState extends State<MainPage> {
             icon: Container(
               width: 24.w,
               height: 24.h,
-              decoration: BoxDecoration(color: Colors.yellow),
+              // decoration: BoxDecoration(color: Colors.yellow),
               child: ImageIcon(
                 AssetImage("image/tipIcon.png"),
                 color: (_currentIndex == 4) ? PrimaryColor : Color(0xff333333),

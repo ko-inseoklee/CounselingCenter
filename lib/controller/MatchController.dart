@@ -58,6 +58,5 @@ class MatchController extends GetxController {
     return sex;
   }
 
-
-
 }
+

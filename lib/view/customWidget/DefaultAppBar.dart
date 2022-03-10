@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/color.dart';
+import 'package:online_counseling_center/controller/MatchTabController.dart';
 import 'package:online_counseling_center/model/match.dart';
+import 'package:get/get.dart';
 
 class DefaultAppBar extends StatefulWidget implements PreferredSizeWidget {
   int _pageIndex = 0;
@@ -16,13 +18,17 @@ class DefaultAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => (_pageIndex == 0 || _pageIndex == 1) ? Size.fromHeight(53.h) : Size.fromHeight(99.45.h);
+  Size get preferredSize => (_pageIndex == 0 || _pageIndex == 1)
+      ? Size.fromHeight(53.h)
+      : Size.fromHeight(99.45.h);
 }
 
 class _DefaultAppBarState extends State<DefaultAppBar> {
   bool isExpanded = false;
 
   String pageTitle = '';
+
+  final tabController = Get.put(MatchTabController());
 
   // @override
   // Size get preferredSize =>
@@ -33,14 +39,18 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
     bool isMain = (widget._pageIndex == 0);
     pageTitle = (widget._pageIndex == 1
         ? '게시판'
-        : (widget._pageIndex == 2 ? '매칭하기' : (widget._pageIndex == 4 ? '꿀팁' : '')));
+        : (widget._pageIndex == 2
+            ? '매칭하기'
+            : (widget._pageIndex == 4 ? '꿀팁' : '')));
 
     return PreferredSize(
         preferredSize: widget.preferredSize,
         child: Container(
             decoration: BoxDecoration(boxShadow: [
               BoxShadow(
-                color: isMain ? Color(0xffBC9A31).withOpacity(0.25): Color(0xff000000).withOpacity(0.04),
+                color: isMain
+                    ? Color(0xffBC9A31).withOpacity(0.25)
+                    : Color(0xff000000).withOpacity(0.04),
                 offset: Offset(0, 4.sp),
                 blurRadius: isMain ? 4.sp : 10.sp,
               )
@@ -149,10 +159,12 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                       height: 16.sp,
                                       color: PrimaryColor,
                                     ),
-                                      style: TextButton.styleFrom(
-                                        minimumSize: Size.zero,
-                                        padding: EdgeInsets.zero,
-                                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
+                                    style: TextButton.styleFrom(
+                                      minimumSize: Size.zero,
+                                      padding: EdgeInsets.zero,
+                                      tapTargetSize:
+                                          MaterialTapTargetSize.shrinkWrap,
+                                    ),
                                     onPressed: () {},
                                   ))
                                 : Container(),
@@ -171,7 +183,9 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                 style: TextButton.styleFrom(
                                   minimumSize: Size.zero,
                                   padding: EdgeInsets.zero,
-                                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
                                 onPressed: () {},
                               ),
                             ),
@@ -191,7 +205,9 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                 style: TextButton.styleFrom(
                                   minimumSize: Size.zero,
                                   padding: EdgeInsets.zero,
-                                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,),
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
                                 onPressed: () {},
                               ),
                             ),
@@ -202,71 +218,78 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                   ),
                 ],
                 bottom: PreferredSize(
-                    preferredSize: (isMain || widget._pageIndex == 1) ? Size.zero : Size.fromHeight(59),
+                    preferredSize: (isMain || widget._pageIndex == 1)
+                        ? Size.zero
+                        : Size.fromHeight(59),
                     child: (isMain || widget._pageIndex == 1)
                         ? Container()
-                        : Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 160.w,
-                                height: 55.h,
-                                child: Column(
+                        : GetX<MatchTabController>(
+                            builder: (_) => Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    TextButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            matchTab1 = true;
-                                            print(matchTab1);
-                                          });
-                                        },
-                                        child: Text('전체 매칭방',
-                                            style: TextStyle(
-                                                fontSize: 12.sp,
-                                                fontWeight: FontWeight.w700,
-                                                color: Color(0xff333333)))),
-                                    Center(
-                                        child: Divider(
-                                      thickness: 3.sp,
-                                      height: 0,
-                                      color: matchTab1 ? PrimaryColor : Colors.white,
-                                      indent: 65.w,
-                                      endIndent: 65.w,
-                                    )),
+                                    Container(
+                                      width: 160.w,
+                                      height: 55.h,
+                                      child: Column(
+                                        children: [
+                                          TextButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  tabController.toggleTab();
+                                                });
+                                              },
+                                              child: Text('전체 매칭방',
+                                                  style: TextStyle(
+                                                      fontSize: 12.sp,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color:
+                                                          Color(0xff333333)))),
+                                          Center(
+                                              child: Divider(
+                                            thickness: 3.sp,
+                                            height: 0,
+                                            color: (_.isTab1.value)
+                                                ? PrimaryColor
+                                                : Colors.white,
+                                            indent: 65.w,
+                                            endIndent: 65.w,
+                                          )),
+                                        ],
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 160.w,
+                                      height: 55.h,
+                                      child: Column(
+                                        children: [
+                                          TextButton(
+                                              onPressed: () {
+                                                setState(() {
+                                                  tabController.toggleTab();
+                                                });
+                                              },
+                                              child: Text('참여 매칭방',
+                                                  style: TextStyle(
+                                                      fontSize: 12.sp,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color:
+                                                          Color(0xff333333)))),
+                                          Center(
+                                              child: Divider(
+                                            thickness: 3.sp,
+                                            height: 0,
+                                            color: (_.isTab1.value)
+                                                ? Colors.white
+                                                : PrimaryColor,
+                                            indent: 65.w,
+                                            endIndent: 65.w,
+                                          )),
+                                        ],
+                                      ),
+                                    )
                                   ],
-                                ),
-                              ),
-                              Container(
-                                width: 160.w,
-                                height: 55.h,
-                                child: Column(
-                                  children: [
-                                    TextButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            matchTab1 = false;
-                                            print(matchTab1);
-                                          });
-                                        },
-                                        child: Text('참여 매칭방',
-                                            style: TextStyle(
-                                                fontSize: 12.sp,
-                                                fontWeight: FontWeight.w700,
-                                                color: Color(0xff333333)))),
-                                    Center(
-                                        child: Divider(
-                                          thickness: 3.sp,
-                                          height: 0,
-                                          color: matchTab1 ? Colors.white : PrimaryColor,
-                                          indent: 65.w,
-                                          endIndent: 65.w,
-                                        )),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )))));
+                                ))))));
   }
 }
-
-
