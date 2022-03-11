@@ -33,8 +33,6 @@ class _MatchingPageState extends State<MatchingPage> {
   late int listLength;
   ScrollController _controller = new ScrollController();
 
-
-
   @override
   void initState() {
     // TODO: implement initState
@@ -510,181 +508,185 @@ class _MatchingPageState extends State<MatchingPage> {
             // 참여 매칭방
             Scaffold(
                 body: Column(
-                children: [
-                  SizedBox(height: 13.h),
-                  Container(
-                      width: 320.w,
+                  children: [
+                    SizedBox(height: 13.h),
+                    Container(
                       padding: EdgeInsets.only(left: 16.w, right: 16.w),
-                      child: Column(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Container(
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      '전체읽음',
-                                      style: TextStyle(
-                                          color: TextBodyColor,
-                                          fontSize: 9.sp,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    style: TextButton.styleFrom(
-                                      minimumSize: Size.zero,
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 10.w),
-                                Container(
-                                  child: TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      '편집',
-                                      style: TextStyle(
-                                          color: TextBodyColor,
-                                          fontSize: 9.sp,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                    style: TextButton.styleFrom(
-                                      minimumSize: Size.zero,
-                                      padding: EdgeInsets.zero,
-                                      tapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                '전체읽음',
+                                style: TextStyle(
+                                    color: TextBodyColor,
+                                    fontSize: 9.sp,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
                             ),
                           ),
-                          SizedBox(height: 13.h),
+                          SizedBox(width: 10.w),
                           Container(
-                            width: 320.w,
-                            child: ListView.separated(
-                                shrinkWrap: true,
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                      width: 320.w,
-                                      height: 97.h,
-                                      padding: EdgeInsets.only(
-                                          left: 9.w, right: 13.w),
-                                      decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: Color(0xffffffff)
-                                                    .withOpacity(0.08),
-                                                offset: Offset(4, 4),
-                                                blurRadius: 10.sp)
-                                          ],
-                                          color: WhiteColor,
-                                          borderRadius:
-                                              BorderRadius.circular(24.sp)),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: 50.sp,
-                                            height: 50.sp,
-                                            decoration: BoxDecoration(
-                                                border: Border.all()),
-                                          ),
-                                          Container(
-                                            width: 213.w,
-                                            height: 97.h,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Container(
-                                                    height: 97.h,
-                                                    padding: EdgeInsets.only(
-                                                        top: 7.h,
-                                                        bottom: 9.h,
-                                                        left: 7.w),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text('매칭방 제목',
-                                                            style: TextStyle(
-                                                                fontSize: 13.sp,
-                                                                color:
-                                                                    TextBodyColor,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700)),
-                                                        SizedBox(height: 11.h),
-                                                        Text(
-                                                          '최근 대화 내역',
-                                                          style: TextStyle(
-                                                              color: Gray1Color,
-                                                              fontSize: 12.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400),
-                                                        ),
-                                                        SizedBox(height: 16.h),
-                                                        Text(
-                                                          '상대 닉네임',
-                                                          style: TextStyle(
-                                                              color:
-                                                                  SecondaryLColor,
-                                                              fontSize: 9.sp,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
-                                                        )
-                                                      ],
-                                                    )),
-                                                Container(
-                                                  height: 97.h,
-                                                  padding: EdgeInsets.only(
-                                                      top: 12.h),
-                                                  child: Column(
-                                                    children: [
-                                                      Text(
-                                                        '?분전',
+                            child: TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                '편집',
+                                style: TextStyle(
+                                    color: TextBodyColor,
+                                    fontSize: 9.sp,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 13.h),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.only(left: 16.w, right: 16.w),
+                        child: ListView.separated(
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                  width: 320.w,
+                                  height: 97.h,
+                                  padding:
+                                      EdgeInsets.only(left: 9.w, right: 13.w),
+                                  decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0xffffffff)
+                                                .withOpacity(0.08),
+                                            offset: Offset(4, 4),
+                                            blurRadius: 10.sp)
+                                      ],
+                                      color: WhiteColor,
+                                      borderRadius:
+                                          BorderRadius.circular(24.sp)),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 50.sp,
+                                        height: 50.sp,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                width: 1.5.sp,
+                                                color: PrimaryColor),
+                                            shape: BoxShape.circle),
+                                      ),
+                                      Container(
+                                        width: 213.w,
+                                        height: 97.h,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                                height: 97.h,
+                                                padding: EdgeInsets.only(
+                                                    top: 7.h,
+                                                    bottom: 9.h,
+                                                    left: 7.w),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text('매칭방 제목',
                                                         style: TextStyle(
-                                                            color: Gray1Color,
-                                                            fontSize: 9.sp,
+                                                            fontSize: 13.sp,
+                                                            color:
+                                                                TextBodyColor,
                                                             fontWeight:
                                                                 FontWeight
-                                                                    .w500),
-                                                      ),
-                                                      SizedBox(height: 13.h),
-                                                      Container(
-                                                        width: 21.sp,
-                                                        height: 21.sp,
-                                                        decoration: BoxDecoration(
-                                                            color:
-                                                                PrimaryColor),
-                                                      )
-                                                    ],
+                                                                    .w700)),
+                                                    SizedBox(height: 11.h),
+                                                    Text(
+                                                      '최근 대화 내역',
+                                                      style: TextStyle(
+                                                          color: Gray1Color,
+                                                          fontSize: 12.sp,
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                    SizedBox(height: 16.h),
+                                                    Text(
+                                                      '상대 닉네임',
+                                                      style: TextStyle(
+                                                          color:
+                                                              SecondaryLColor,
+                                                          fontSize: 9.sp,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    )
+                                                  ],
+                                                )),
+                                            Container(
+                                              height: 97.h,
+                                              padding:
+                                                  EdgeInsets.only(top: 12.h),
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    '?분전',
+                                                    style: TextStyle(
+                                                        color: Gray1Color,
+                                                        fontSize: 9.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500),
                                                   ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ));
-                                },
-                                separatorBuilder:
-                                    (BuildContext context, int index) {
-                                  return SizedBox(height: 13.h);
-                                },
-                                itemCount:
-                                    // TODO: 참여 중인 매칭방 list length
-                                    7),
-                          )
-                        ],
-                      )),
-                ],
-              )));
+                                                  SizedBox(height: 13.h),
+
+                                                  // TODO: 읽지 않은 메세지 개수 0개 초과일 경우에만 보여줌
+                                                  Container(
+                                                    width: 21.sp,
+                                                    height: 21.sp,
+                                                    decoration: BoxDecoration(
+                                                      color: PrimaryColor,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text('${index + 1}',
+                                                        style: TextStyle(
+                                                            color: WhiteColor,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            fontSize: 11.sp)),
+                                                  )
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ));
+                            },
+                            separatorBuilder:
+                                (BuildContext context, int index) {
+                              return SizedBox(height: 13.h);
+                            },
+                            itemCount:
+                                // TODO: 참여 중인 매칭방 list length
+                                6),
+                      ),
+                    ),
+                  ],
+                ),
+                // )
+              ));
   }
 
   addMatchingRoom(Match match) {

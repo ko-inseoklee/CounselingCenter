@@ -235,7 +235,7 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                           TextButton(
                                               onPressed: () {
                                                 setState(() {
-                                                  tabController.toggleTab();
+                                                  tabController.toggleTab(true);
                                                 });
                                               },
                                               child: Text('전체 매칭방',
@@ -266,7 +266,7 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                           TextButton(
                                               onPressed: () {
                                                 setState(() {
-                                                  tabController.toggleTab();
+                                                  tabController.toggleTab(false);
                                                 });
                                               },
                                               child: Text('참여 매칭방',
