@@ -62,6 +62,7 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
               label: '홈',
               icon: Container(
+
                 margin: EdgeInsets.only(top: 3.h),
                 width: 21.w,
                 height: 21.h,
@@ -94,6 +95,7 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
               label: '매칭하기',
               icon: Container(
+
                 margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
                 width: 18.w,
                 height: 18.h,
@@ -101,6 +103,7 @@ class _MainPageState extends State<MainPage> {
                 child:Image.asset(
                   "image/matchIcon.png",
                   fit: BoxFit.contain,
+
                   color:
                   (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
                   // fit: BoxFit.fitHeight
@@ -109,6 +112,7 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
               label: '쪽지함',
+
               icon: Container(
                 margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
                 width: 18.w,
@@ -136,6 +140,7 @@ class _MainPageState extends State<MainPage> {
                 color:
                 (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
                 // fit: BoxFit.fitHeight
+
               ),
             ),
           ),
