@@ -62,83 +62,80 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
               label: '홈',
               icon: Container(
-                decoration: BoxDecoration(
-                  color: Colors.yellow,
-                  // image: DecorationImage(
-                  //   image: AssetImage(
-                  //     "image/homeIcon.png",
-                  //     // color:
-                  //     // (_currentIndex == 0) ? PrimaryColor : Color(0xff333333),
-                  //   ),
-                  // ),
-                ),
-                width: 24.w,
-                height: 24.h,
-                child: Image.asset(
+                margin: EdgeInsets.only(top: 3.h),
+                width: 21.w,
+                height: 21.h,
+                decoration: BoxDecoration(color: Colors.yellow),
+                child:Image.asset(
                   "image/homeIcon.png",
+                  fit: BoxFit.contain,
                   color:
-                      (_currentIndex == 0) ? PrimaryColor : Color(0xff333333),
+                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
+                  // fit: BoxFit.fitHeight
                 ),
-              )),
+              )
+              ),
           BottomNavigationBarItem(
               label: '게시판',
               icon: Container(
+                margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                width: 18.w,
+                height: 18.h,
                 decoration: BoxDecoration(color: Colors.yellow),
-                width: 24.w,
-                height: 24.h,
-                // margin: EdgeInsets.zero,
-                // padding: EdgeInsets.zero,
-                child: Image.asset(
+                child:Image.asset(
                   "image/boardIcon.png",
-                  width: 24.w,
-                  height: 24.h,
+                  fit: BoxFit.contain,
                   color:
-                      (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
+                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
                   // fit: BoxFit.fitHeight
                 ),
-              )),
+              )
+              ),
           BottomNavigationBarItem(
               label: '매칭하기',
               icon: Container(
-                width: 24.w,
-                height: 24.h,
+                margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                width: 18.w,
+                height: 18.h,
                 decoration: BoxDecoration(color: Colors.yellow),
-                child: ImageIcon(
-                  AssetImage("image/matchIcon.png"),
+                child:Image.asset(
+                  "image/matchIcon.png",
+                  fit: BoxFit.contain,
                   color:
-                      (_currentIndex == 2) ? PrimaryColor : Color(0xff333333),
+                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
+                  // fit: BoxFit.fitHeight
                 ),
-              )),
+              )
+          ),
           BottomNavigationBarItem(
               label: '쪽지함',
-              icon: Column(
-                children: [
-                  Container(
-                    width: 24.w,
-                    height: 24.h,
-                    decoration: BoxDecoration(color: Colors.yellow),
-                    padding: EdgeInsets.only(
-                        left: 2.w, right: 2.w, top: 2.h, bottom: 2.h),
-                    child: ImageIcon(
-                      AssetImage("image/messageIcon.png"),
-                      // size: 20.sp,
-                      color: (_currentIndex == 3)
-                          ? PrimaryColor
-                          : Color(0xff333333),
-                    ),
-                  ),
-                  // SizedBox(height: 3.h),
-                ],
-              )),
+              icon: Container(
+                margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                width: 18.w,
+                height: 18.h,
+                decoration: BoxDecoration(color: Colors.yellow),
+                child:Image.asset(
+                  "image/messageIcon.png",
+                  fit: BoxFit.contain,
+                  color:
+                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
+                  // fit: BoxFit.fitHeight
+                ),
+              ),
+          ),
           BottomNavigationBarItem(
             label: '꿀팁',
             icon: Container(
-              width: 24.w,
-              height: 24.h,
+              margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+              width: 18.w,
+              height: 18.h,
               decoration: BoxDecoration(color: Colors.yellow),
-              child: ImageIcon(
-                AssetImage("image/tipIcon.png"),
-                color: (_currentIndex == 4) ? PrimaryColor : Color(0xff333333),
+              child:Image.asset(
+                "image/tipIcon.png",
+                fit: BoxFit.contain,
+                color:
+                (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
+                // fit: BoxFit.fitHeight
               ),
             ),
           ),
