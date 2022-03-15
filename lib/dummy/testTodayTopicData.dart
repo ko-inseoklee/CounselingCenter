@@ -6,6 +6,7 @@ import 'package:online_counseling_center/model/board/todayTopic.dart';
 // "2", "2022.02.01", "학창시절로 다시 돌아간다면, 무엇을 가장 하고 싶어요?", "Producer", 15, 10),
 
 TodayTopic topic1 = TodayTopic(
+    title: "오늘의 주제1",
     date: "2022.02.04",
     question: "그저께 질문",
     writerID: "Producer",
@@ -13,6 +14,7 @@ TodayTopic topic1 = TodayTopic(
     comments: List.empty());
 
 TodayTopic topic2 = TodayTopic(
+    title: "오늘의 주제1",
     date: "2022.02.05",
     question: "어제 질문",
     writerID: "Producer",
@@ -20,6 +22,7 @@ TodayTopic topic2 = TodayTopic(
     comments: List.empty());
 
 TodayTopic topic3 = TodayTopic(
+    title: "오늘의 주제1",
     date: "2022.02.06",
     question: "학창시절로 다시 돌아간다면, 무엇을 가장 하고 싶어요?",
     writerID: "Producer",

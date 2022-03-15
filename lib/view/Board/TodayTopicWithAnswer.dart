@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/color.dart';
+import 'package:online_counseling_center/model/board/board.dart';
 import 'package:online_counseling_center/model/board/comment.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:online_counseling_center/view/Board/BoardDetail.dart';
 import 'package:online_counseling_center/view/Board/TopicInput.dart';
 
 class TodayTopicWithAnswer extends StatefulWidget {
@@ -178,87 +180,93 @@ class _TodayTopicWithAnswerState extends State<TodayTopicWithAnswer> {
                   )
                 ),
                 Container(
-                  height: 121,
-                  padding: EdgeInsets.fromLTRB(16.w, 11, 14.w, 7),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                      borderRadius: BorderRadius.vertical(bottom: Radius.circular(24))
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 28,
-                        child: Column(
-                          children: [
-                            Container(
-                                padding: EdgeInsets.only(left: 10.w),
-                                margin: EdgeInsets.only(bottom: 7),
-                                child:Row(
-                                  children: [
-                                    Container(child: Text("BEST", style: TextStyle(color: PrimaryVariant1Color, fontWeight: FontWeight.w700, fontSize: 13.sp),)),
+                    height: 121,
+                    padding: EdgeInsets.fromLTRB(16.w, 11, 14.w, 7),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                        borderRadius: BorderRadius.vertical(bottom: Radius.circular(24))
+                    ),
+                    child: FlatButton(
 
-                                    Container(padding: EdgeInsets.only(left: 10.w),child: Text(widget.topic.comments![0].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13.sp))),
-                                  ],
-                                ),
-                            ),
-                            Divider(height: 0.1),
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 50,
-                        padding: EdgeInsets.only(left: 16.w,top: 4,bottom: 4),
-                        alignment: Alignment.centerLeft,
-                        child: Text(widget.topic.comments![0].contents,style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 12.sp),),
-                      ),
-                      Container(
-                        height: 24,
-                        // padding: EdgeInsets.only(bottom: 14),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  child: Text('20대', style: TextStyle(color: Color(0xffAAAAAA)),),
-                                  margin: EdgeInsets.only(left: 16.w, right: 6.w),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(right: 8.w),
-                                  child: Text(widget.topic.writerID, style: TextStyle(color: Color(0xffAAAAAA)),),
-                                  constraints: BoxConstraints(
-                                      minWidth: 131.w
+                      onPressed: () {
+                        Get.to(() => BoardDetail(title: '오늘의 주제', board: Board.init(), isTodayTopic: true, todayTopic: widget.topic));
+                      },
+                      child: Column(
+                      children: [
+                        Container(
+                          height: 28,
+                          child: Column(
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.only(left: 10.w),
+                                  margin: EdgeInsets.only(bottom: 7),
+                                  child:Row(
+                                    children: [
+                                      Container(child: Text("BEST", style: TextStyle(color: PrimaryVariant1Color, fontWeight: FontWeight.w700, fontSize: 13.sp),)),
+
+                                      Container(padding: EdgeInsets.only(left: 10.w),child: Text(widget.topic.comments![0].title, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 13.sp))),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.only(right: 2.w),
-                                  child: Icon(Icons.favorite_border,size: 10.sp,color: PrimaryVariant1Color,),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(right: 16.w),
-                                  child: Text(widget.topic.likes.toString(),  style: TextStyle(color: Colors.black,),),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.only(right: 2.w),
-
-                                  child: Icon(Icons.sms,size: 10.sp,color:PrimaryVariant1Color,),
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(right: 16.w),
-                                  child: Text(widget.topic.comments![0].re.length.toString(),  style: TextStyle(color: Colors.black,),),
-                                ),
-                              ],
-                            ),
-                          ],
+                              ),
+                              Divider(height: 0.1),
+                            ],
+                          ),
                         ),
-                      )
-                    ],
+                        Container(
+                          height: 50,
+                          padding: EdgeInsets.only(left: 16.w,top: 4,bottom: 4),
+                          alignment: Alignment.centerLeft,
+                          child: Text(widget.topic.comments![0].contents,style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 12.sp),),
+                        ),
+                        Container(
+                          height: 24,
+                          // padding: EdgeInsets.only(bottom: 14),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    child: Text('20대', style: TextStyle(color: Color(0xffAAAAAA)),),
+                                    margin: EdgeInsets.only(left: 16.w, right: 6.w),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(right: 8.w),
+                                    child: Text(widget.topic.writerID, style: TextStyle(color: Color(0xffAAAAAA)),),
+                                    constraints: BoxConstraints(
+                                        minWidth: 131.w
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.only(right: 2.w),
+                                    child: Icon(Icons.favorite_border,size: 10.sp,color: PrimaryVariant1Color,),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(right: 16.w),
+                                    child: Text(widget.topic.likes.toString(),  style: TextStyle(color: Colors.black,),),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(right: 2.w),
+
+                                    child: Icon(Icons.sms,size: 10.sp,color:PrimaryVariant1Color,),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(right: 16.w),
+                                    child: Text(widget.topic.comments![0].re.length.toString(),  style: TextStyle(color: Colors.black,),),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    )
                   ),
-                ),
               ],
             ),
           )

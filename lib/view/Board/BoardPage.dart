@@ -17,7 +17,7 @@ class BoardPage extends StatefulWidget {
 }
 
 class _BoardPageState extends State<BoardPage> {
-  TodayTopic todayTopic = TodayTopic(date: '2022.01.18', question: "학창시절로 다시 돌아간다면, 무엇을 가장 하고 싶어요?", writerID: 'admin', likes: 0, comments: [new Comment(bID: 'admin', cID: '1', contents: "저는 일찍 잘래", writerID: "inseoking", writtenTime: "18:45", re: [], like: 16, title: '내 어린시절 우연히')]);
+  TodayTopic todayTopic = TodayTopic(date: '2022.01.18',title: "학창시절", question: "학창시절로 다시 돌아간다면, 무엇을 가장 하고 싶어요?", writerID: 'admin', likes: 0, comments: [new Comment(bID: 'admin', cID: '1', contents: "저는 일찍 잘래", writerID: "inseoking", writtenTime: "18:45", re: [], like: 16, title: '내 어린시절 우연히')]);
 
   @override
   Widget build(BuildContext context) {
