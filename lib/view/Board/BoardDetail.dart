@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:online_counseling_center/dummy/testUserData.dart';
 import 'package:online_counseling_center/model/board/board.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
+import 'package:online_counseling_center/model/user/user.dart';
 import 'package:online_counseling_center/view/Board/BoardAppBar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/view/Board/CommentsScreen.dart';
@@ -20,6 +22,11 @@ class BoardDetail extends StatefulWidget {
 }
 
 class _BoardDetailState extends State<BoardDetail> {
+  TextEditingController _controller = new TextEditingController();
+
+  //TEST DATA
+  User user = user_me;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,13 +118,65 @@ class _BoardDetailState extends State<BoardDetail> {
               ],
             ),
           ),
-          Container(
-            height: 254,
-              padding: EdgeInsets.only(top: 10),
+          Expanded(
+            // height: 254,
+            //   padding: EdgeInsets.only(top: 10),
               child: CommentsScreen(comments: widget.todayTopic.comments,)
           ),
-          Container()
         ],
+      ),
+      bottomSheet: Container(
+        height: 73,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(topRight: Radius.circular(30)),
+          color: Colors.white,
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: 32,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 250.w,
+                  child: TextField(
+                    style: TextStyle(
+                      color: Colors.black
+                    ),
+                    controller: _controller,
+                    showCursor: false,
+                    decoration: InputDecoration(
+                        fillColor: Color(0xffE5E5E5),
+                        filled: true,
+                        contentPadding: EdgeInsets.only(left: 10.w),
+                        hintText: '댓글을 입력해주세요',
+                        hintStyle: TextStyle(fontSize: 11.sp),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24),
+                          borderSide: BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                    width: 30.w,
+                    child: ButtonTheme(
+                        padding: EdgeInsets.zero,
+                        child: FlatButton(
+                          onPressed: () {  },
+                          child: Icon(Icons.arrow_upward,color: MediaQuery.of(context).viewInsets.bottom > 200 ? PrimaryColor : Colors.black,),
+                        )
+                    )
+                )
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
