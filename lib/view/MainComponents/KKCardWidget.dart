@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 
 import '../../color.dart';
@@ -11,7 +11,7 @@ class KKCardWidget extends StatefulWidget {
   final bool isTodayTopic;
   final double width;
   final double height;
-  final List<Board> hotPosts;
+  final List<GeneralBoard> hotPosts;
   final List<TodayTopic> topics;
   const KKCardWidget(
       {Key? key,
@@ -267,7 +267,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
     );
   }
 
-  Widget buildCard2(Board board, int idx) {
+  Widget buildCard2(GeneralBoard board, int idx) {
     return Center(
       child: Container(
         width: 288.w,

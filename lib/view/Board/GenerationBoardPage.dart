@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_counseling_center/controller/BoardController.dart';
 import 'package:online_counseling_center/dummy/testBoardData.dart';
-import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 
 class GenerationBoardPage extends StatefulWidget {
   const GenerationBoardPage({Key? key}) : super(key: key);
@@ -32,13 +32,13 @@ class _GenerationBoardPageState extends State<GenerationBoardPage> {
 }
 
 Widget boardList() {
-  List<Board> boardList = [board1, board2, board3];
+  List<GeneralBoard> boardList = [board1, board2, board3];
 
   return ListView.separated(
       itemBuilder: (context, index) {
         BoardController boardController =
             BoardController(board: boardList[index]);
-        Board board = boardList[index];
+        GeneralBoard board = boardList[index];
         return Container(
             padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
             height: 120,

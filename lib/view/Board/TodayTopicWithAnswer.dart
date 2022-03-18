@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/color.dart';
-import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 import 'package:online_counseling_center/model/board/comment.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -189,7 +189,7 @@ class _TodayTopicWithAnswerState extends State<TodayTopicWithAnswer> {
                     child: FlatButton(
 
                       onPressed: () {
-                        Get.to(() => BoardDetail(title: '오늘의 주제', board: Board.init(), isTodayTopic: true, todayTopic: widget.topic));
+                        Get.to(() => BoardDetail(title: '오늘의 주제', board: GeneralBoard.init(), isTodayTopic: true, todayTopic: widget.topic));
                       },
                       child: Column(
                       children: [

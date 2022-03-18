@@ -1,18 +1,24 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_counseling_center/dummy/testUserData.dart';
 import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 import 'package:online_counseling_center/model/board/todayTopic.dart';
 import 'package:online_counseling_center/model/user/user.dart';
 import 'package:online_counseling_center/view/Board/BoardAppBar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/view/Board/CommentsScreen.dart';
+import 'package:http/http.dart' as http;
+
 
 import '../../color.dart';
 
 class BoardDetail extends StatefulWidget {
   final String title;
-  final Board board;
+  final GeneralBoard board;
   final bool isTodayTopic;
   final TodayTopic todayTopic;
   const BoardDetail({Key? key,required this.title,required this.board,required this.isTodayTopic,required this.todayTopic}) : super(key: key);
@@ -27,12 +33,35 @@ class _BoardDetailState extends State<BoardDetail> {
   //TEST DATA
   User user = user_me;
 
+  late TodayTopic test;
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: BoardAppBar(title: widget.title,),
       body: Column(
         children: [
+          TextButton(onPressed: () async {
+            var client = http.Client();
+            try{
+              var url = Uri.parse('http://35.216.20.238:8080/today-topic/20220318');
+              var response = await client.get(url);
+              var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as Map;
+              // Board board = new Board.fromJson(decodedResponse);
+              decodedResponse.forEach((key, value) {
+                print("key = $key, val = $value");
+              });
+
+
+
+
+              var response2 = await Dio().get('http://35.216.20.238:8080/today-topic/20220318');
+              print(response2);
+            } finally{
+              client.close();
+            }
+          }, child: Text("test")),
           Container(
             height: 260,
             padding: EdgeInsets.only(left: 16.w, top: 18, right: 16.w),
