@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class PostWidget extends StatelessWidget {
   final Color backgroundColor;
-  final Board board;
+  final GeneralBoard board;
   const PostWidget({Key? key, required this.backgroundColor, required this.board}) : super(key: key);
 
   @override
@@ -17,7 +17,7 @@ abstract class PostWidget extends StatelessWidget {
 class HotPostWidget extends StatelessWidget implements PostWidget{
   final int rank;
   final Color backgroundColor;
-  final Board board;
+  final GeneralBoard board;
   const HotPostWidget({Key? key, required this.backgroundColor, required this.board, required this.rank}) : super(key: key);
 
   @override

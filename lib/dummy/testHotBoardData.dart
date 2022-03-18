@@ -1,7 +1,7 @@
-import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 
-List<Board> hotboards = [
-  Board(
+List<GeneralBoard> hotboards = [
+  GeneralBoard(
       bID: '0',
       category: '진로',
       title: "뭐죠 이 장난감은?",
@@ -11,7 +11,7 @@ List<Board> hotboards = [
       nickname: "inseoking",
       writtenTime: "2022.02.01",
       comments: List.empty()),
-  Board(
+  GeneralBoard(
       bID: '1',
       category: '가족여행',
       title: "3대 몇?",
@@ -21,7 +21,7 @@ List<Board> hotboards = [
       nickname: "someng2",
       writtenTime: "2022.02.02",
       comments: List.empty()),
-  Board(
+  GeneralBoard(
       bID: '2',
       category: '고민',
       title: "그리 아니하실지라도",

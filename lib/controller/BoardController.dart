@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 import 'package:online_counseling_center/dummy/testUserData.dart';
-import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 
 class BoardController extends GetxController{
-  Rx<Board> board;
+  Rx<GeneralBoard> board;
 
-  BoardController({required Board board}) : this.board = board.obs;
+  BoardController({required GeneralBoard board}) : this.board = board.obs;
 
-  getNickname({required Board board}) {
+  getNickname({required GeneralBoard board}) {
     BoardController boardController = BoardController(board: board);
     String nickname = '';
 

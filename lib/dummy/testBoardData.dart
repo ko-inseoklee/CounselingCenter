@@ -1,6 +1,6 @@
-import 'package:online_counseling_center/model/board/board.dart';
+import 'package:online_counseling_center/model/board/generalBoard.dart';
 
-Board board1 = Board(
+GeneralBoard board1 = GeneralBoard(
   bID: '0',
   title: "연애 고민",
   category: '동세대',
@@ -12,7 +12,7 @@ Board board1 = Board(
   comments: new List.empty()
 );
 
-Board board2 = Board(
+GeneralBoard board2 = GeneralBoard(
   bID: '1',
   title: "취업 고민",
   category: '동세대',
@@ -24,7 +24,7 @@ Board board2 = Board(
     comments: List.empty()
 );
 
-Board board3 = Board(
+GeneralBoard board3 = GeneralBoard(
   bID: '2',
   title: "운동 고민",
   category: '타세대',
