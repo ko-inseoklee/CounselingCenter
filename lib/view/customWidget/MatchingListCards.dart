@@ -75,7 +75,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
             ),
           ),
           Container(
-            height: 97,
+            height: 97.h,
             child: PageView(
               controller: _pageController,
               children: buildCards(),
@@ -89,7 +89,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
           Center(
             child: Container(
               width: 22.w,
-              padding: EdgeInsets.only(top: 8),
+              padding: EdgeInsets.only(top: 8.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -131,7 +131,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
             height: widget.height,
             decoration: BoxDecoration(
               color: Color(0xffffffff),
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(24.sp),
               boxShadow: [
                 BoxShadow(
                   color: Color(0xffffffff).withOpacity(0.08),
@@ -159,7 +159,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                 Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(top: 8),
+                      padding: EdgeInsets.only(top: 8.h),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,9 +177,9 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                           Container(
                             decoration: BoxDecoration(
                                 color: PrimaryVariantLColor,
-                                borderRadius: BorderRadius.circular(43)),
+                                borderRadius: BorderRadius.circular(43.sp)),
                             width: 45.w,
-                            height: 13,
+                            height: 13.h,
                             child: Center(
                               child: Text('#${match.topic}',
                                   style: TextStyle(
@@ -195,7 +195,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                                 color: PrimaryVariantLColor,
                                 borderRadius: BorderRadius.circular(43)),
                             width: 45.w,
-                            height: 13,
+                            height: 13.h,
                             child: Center(
                               child: Text('#${match.topic}',
                                   style: TextStyle(
@@ -208,7 +208,7 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                       ),
                     ),
                     Container(
-                        padding: EdgeInsets.only(top: 14, bottom: 12),
+                        padding: EdgeInsets.only(top: 14.h, bottom: 12.h),
                         child: Center(
                             child: Text(
                           match.title,
@@ -218,9 +218,9 @@ class _MatchingListCardsState extends State<MatchingListCards> {
                     Container(
                         decoration: BoxDecoration(
                             color: PrimaryColor,
-                            borderRadius: BorderRadius.circular(43)),
+                            borderRadius: BorderRadius.circular(43.sp)),
                         width: 236.w,
-                        height: 23,
+                        height: 23.h,
                         child: TextButton(
                           onPressed: () {},
                           child: Text(

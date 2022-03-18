@@ -80,6 +80,8 @@ flutter:
     - image/checkIcon_before.png
     - image/closeIcon.png
     - image/image_3.png
+    - image/selectedCheckIcon.png
+    - image/settingIcon.png
 
     - image/topicCard.png
     - image/hotCard.png

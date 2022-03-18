@@ -32,6 +32,10 @@ class _MatchingPageState extends State<MatchingPage> {
   List<Match> newMatchingRooms = matching_rooms;
   late int listLength;
   ScrollController _controller = new ScrollController();
+  bool editButtonClicked = false;
+
+  // TODO: List length 바꾸기
+  List<bool> editSelected = List.filled(7, false);
 
   @override
   void initState() {
@@ -513,31 +517,17 @@ class _MatchingPageState extends State<MatchingPage> {
                     Container(
                       padding: EdgeInsets.only(left: 16.w, right: 16.w),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Container(
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                setState(() {
+                                  editButtonClicked = !editButtonClicked;
+                                });
+                              },
                               child: Text(
-                                '전체읽음',
-                                style: TextStyle(
-                                    color: TextBodyColor,
-                                    fontSize: 9.sp,
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              style: TextButton.styleFrom(
-                                minimumSize: Size.zero,
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: 10.w),
-                          Container(
-                            child: TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                '편집',
+                                editButtonClicked ? '완료' : '편집',
                                 style: TextStyle(
                                     color: TextBodyColor,
                                     fontSize: 9.sp,
@@ -556,123 +546,209 @@ class _MatchingPageState extends State<MatchingPage> {
                     SizedBox(height: 13.h),
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.only(left: 16.w, right: 16.w),
+                        // padding: EdgeInsets.only(left: 16.w, right: 16.w),
+                        width: 320.w,
                         child: ListView.separated(
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              return Container(
-                                  width: 320.w,
-                                  height: 97.h,
-                                  padding:
-                                      EdgeInsets.only(left: 9.w, right: 13.w),
-                                  decoration: BoxDecoration(
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color(0xffffffff)
-                                                .withOpacity(0.08),
-                                            offset: Offset(4, 4),
-                                            blurRadius: 10.sp)
+                              return Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  if (editButtonClicked)
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 17.w,
+                                          height: 17.h,
+                                          alignment: Alignment.centerLeft,
+                                          decoration: editSelected[index]
+                                              ? BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          'image/selectedCheckIcon.png'),
+                                                      fit: BoxFit.fill))
+                                              : BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                      color: PrimaryColor, width :0.85.sp)),
+                                          child: TextButton(
+                                            child: Container(),
+                                            onPressed: () {
+                                              setState(() {
+                                                editSelected[index] =
+                                                    !editSelected[index];
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                        SizedBox(width: 12.w)
                                       ],
-                                      color: WhiteColor,
-                                      borderRadius:
-                                          BorderRadius.circular(24.sp)),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 50.sp,
-                                        height: 50.sp,
-                                        decoration: BoxDecoration(
-                                            border: Border.all(
-                                                width: 1.5.sp,
-                                                color: PrimaryColor),
-                                            shape: BoxShape.circle),
-                                      ),
-                                      Container(
-                                        width: 213.w,
-                                        height: 97.h,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                                height: 97.h,
-                                                padding: EdgeInsets.only(
-                                                    top: 7.h,
-                                                    bottom: 9.h,
-                                                    left: 7.w),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text('매칭방 제목',
+                                    ),
+                                  Container(
+                                      width: editButtonClicked ? 259.w : 288.w,
+                                      height: 97.h,
+                                      padding: EdgeInsets.only(
+                                          left: editButtonClicked ? 11.w : 9.w,
+                                          right: 13.w),
+                                      decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Color(0xffffffff)
+                                                    .withOpacity(0.08),
+                                                offset: Offset(4, 4),
+                                                blurRadius: 10.sp)
+                                          ],
+                                          color: WhiteColor,
+                                          borderRadius:
+                                              BorderRadius.circular(24.sp)),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            width: 50.sp,
+                                            height: 50.sp,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    width: 1.5.sp,
+                                                    color: PrimaryColor),
+                                                shape: BoxShape.circle),
+                                          ),
+                                          Container(
+                                            width: editButtonClicked
+                                                ? 185.w
+                                                : 216.w,
+                                            height: 97.h,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Container(
+                                                    height: 97.h,
+                                                    padding: EdgeInsets.only(
+                                                        top: 7.h,
+                                                        bottom: 9.h,
+                                                        left: 7.w),
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Container(
+                                                          width:
+                                                              editButtonClicked
+                                                                  ? 139.w
+                                                                  : 151.w,
+                                                          child: Row(
+                                                            children: [
+                                                              Flexible(
+                                                                child: Text(
+                                                                    '매칭방 제목',
+                                                                    overflow:
+                                                                        TextOverflow
+                                                                            .ellipsis,
+                                                                    style: TextStyle(
+                                                                        fontSize: 13
+                                                                            .sp,
+                                                                        color:
+                                                                            TextBodyColor,
+                                                                        fontWeight:
+                                                                            FontWeight.w700)),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 11.h),
+                                                        Container(
+                                                          width: 142.w,
+                                                          child: Row(
+                                                            children: [
+                                                              Flexible(
+                                                                child: Text(
+                                                                  '최근 대화 내역',
+                                                                  overflow:
+                                                                      TextOverflow
+                                                                          .ellipsis,
+                                                                  style: TextStyle(
+                                                                      color:
+                                                                          Gray1Color,
+                                                                      fontSize:
+                                                                          12.sp,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w400),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        SizedBox(height: 16.h),
+                                                        Container(
+                                                          width: 100.w,
+                                                          child: Text(
+                                                            '상대 닉네임',
+                                                            style: TextStyle(
+                                                                color:
+                                                                    SecondaryLColor,
+                                                                fontSize: 9.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500),
+                                                          ),
+                                                        )
+                                                      ],
+                                                    )),
+                                                Container(
+                                                  width: 22.w,
+                                                  height: 97.h,
+                                                  padding: EdgeInsets.only(
+                                                      top: 12.h),
+                                                  child: Column(
+                                                    children: [
+                                                      Text(
+                                                        '?분전',
                                                         style: TextStyle(
-                                                            fontSize: 13.sp,
-                                                            color:
-                                                                TextBodyColor,
+                                                            color: Gray1Color,
+                                                            fontSize: 9.sp,
                                                             fontWeight:
                                                                 FontWeight
-                                                                    .w700)),
-                                                    SizedBox(height: 11.h),
-                                                    Text(
-                                                      '최근 대화 내역',
-                                                      style: TextStyle(
-                                                          color: Gray1Color,
-                                                          fontSize: 12.sp,
-                                                          fontWeight:
-                                                              FontWeight.w400),
-                                                    ),
-                                                    SizedBox(height: 16.h),
-                                                    Text(
-                                                      '상대 닉네임',
-                                                      style: TextStyle(
-                                                          color:
-                                                              SecondaryLColor,
-                                                          fontSize: 9.sp,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    )
-                                                  ],
-                                                )),
-                                            Container(
-                                              height: 97.h,
-                                              padding:
-                                                  EdgeInsets.only(top: 12.h),
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    '?분전',
-                                                    style: TextStyle(
-                                                        color: Gray1Color,
-                                                        fontSize: 9.sp,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                  SizedBox(height: 13.h),
+                                                                    .w500),
+                                                      ),
+                                                      SizedBox(height: 13.h),
 
-                                                  // TODO: 읽지 않은 메세지 개수 0개 초과일 경우에만 보여줌
-                                                  Container(
-                                                    width: 21.sp,
-                                                    height: 21.sp,
-                                                    decoration: BoxDecoration(
-                                                      color: PrimaryColor,
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text('${index + 1}',
-                                                        style: TextStyle(
-                                                            color: WhiteColor,
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            fontSize: 11.sp)),
-                                                  )
-                                                ],
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      )
-                                    ],
-                                  ));
+                                                      // TODO: 읽지 않은 메세지 개수 0개 초과일 경우에만 보여줌
+                                                      Container(
+                                                        width: 21.sp,
+                                                        height: 21.sp,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: PrimaryColor,
+                                                          shape:
+                                                              BoxShape.circle,
+                                                        ),
+                                                        alignment:
+                                                            Alignment.center,
+                                                        child: Text(
+                                                            '${index + 1}',
+                                                            style: TextStyle(
+                                                                color:
+                                                                    WhiteColor,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                fontSize:
+                                                                    11.sp)),
+                                                      )
+                                                    ],
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      )),
+                                ],
+                              );
                             },
                             separatorBuilder:
                                 (BuildContext context, int index) {

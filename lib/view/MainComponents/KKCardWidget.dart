@@ -69,7 +69,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
             ),
           ),
           Container(
-            height: 158,
+            height: 158.h,
             child: PageView(
               controller: _pageController,
               children: buildCards(),
@@ -83,7 +83,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
           Center(
             child: Container(
               width: 22.w,
-              padding: EdgeInsets.only(top: 2),
+              padding: EdgeInsets.only(top: 2.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -124,9 +124,9 @@ class _KKCardWidgetState extends State<KKCardWidget> {
     return Center(
       child: Container(
         width: 288.w,
-        height: 158,
-        margin: EdgeInsets.only(bottom: 6.0),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(40),
+        height: 158.h,
+        margin: EdgeInsets.only(bottom: 6.h),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(40.sp),
             boxShadow: [
               BoxShadow(
                   color: Color(0xff000000).withOpacity(0.08),
@@ -142,7 +142,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                   color: widget.isTodayTopic
                       ? PrimaryVariant1Color
                       : SecondaryLColor.withOpacity(0.75),
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(24.sp)),
                   image: DecorationImage(
                     image: widget.isTodayTopic
                         ? AssetImage("image/Intersect_0.png")
@@ -150,8 +150,8 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                     fit: BoxFit.contain,
                     alignment: Alignment.centerLeft,
                   )),
-              height: 49,
-              padding: EdgeInsets.only(left: 14.w, top: 9),
+              height: 49.h,
+              padding: EdgeInsets.only(left: 14.w, top: 9.h),
               child: Text(topic.date,
                   style: TextStyle(
                       fontSize: 13.sp,
@@ -159,7 +159,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                       color: Color(0xffFFFFFF))),
             ),
             Container(
-              height: 76,
+              height: 76.h,
               decoration: BoxDecoration(
                 color: widget.isTodayTopic
                     ? PrimaryVariant1Color
@@ -170,7 +170,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                   Container(
                     alignment: Alignment.topCenter,
                     width: 35.w,
-                    height: 45,
+                    height: 45.h,
                     child: IconButton(
                       onPressed: () {
                         _pageController.previousPage(
@@ -184,7 +184,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                   ),
                   Container(
                     width: 215.w,
-                    height: 45,
+                    height: 45.h,
                     child: Text(
                       'Q. ${topic.question}',
                       // text,
@@ -197,7 +197,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                   Container(
                     alignment: Alignment.topCenter,
                     width: 35.w,
-                    height: 45,
+                    height: 45.h,
                     child: IconButton(
                         onPressed: () {
                           _pageController.nextPage(
@@ -218,7 +218,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
               thickness: 0.5.sp,
             ),
             Container(
-              height: 27,
+              height: 27.h,
               decoration: BoxDecoration(
                 color: widget.isTodayTopic
                     ? PrimaryVariant1Color.withOpacity(0.8)
@@ -271,8 +271,8 @@ class _KKCardWidgetState extends State<KKCardWidget> {
     return Center(
       child: Container(
         width: 288.w,
-        height: 158,
-        margin: EdgeInsets.only(bottom: 6.0),
+        height: 158.h,
+        margin: EdgeInsets.only(bottom: 6.h),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
@@ -297,7 +297,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                     fit: BoxFit.contain,
                     alignment: Alignment.centerLeft,
                   )),
-              height: 49,
+              height: 49.h,
               padding: EdgeInsets.only(left: 15.w, top: 12),
               child: Text("Best $idx",
                   style: TextStyle(
@@ -306,7 +306,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                       color: Color(0xffFFFFFF))),
             ),
             Container(
-              height: 76,
+              height: 76.h,
               decoration: BoxDecoration(
                 color: widget.isTodayTopic
                     ? PrimaryVariant1Color
@@ -317,7 +317,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                   Container(
                     alignment: Alignment.topCenter,
                     width: 35.w,
-                    height: 45,
+                    height: 45.h,
                     child: IconButton(
                       onPressed: () {
                         _pageController.previousPage(
@@ -331,7 +331,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                   ),
                   Container(
                     width: 215.w,
-                    height: 45,
+                    height: 45.h,
                     child: Text(
                       '${board.title}',
                       // text,
@@ -344,7 +344,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                   Container(
                     alignment: Alignment.topCenter,
                     width: 35.w,
-                    height: 45,
+                    height: 45.h,
                     child: IconButton(
                         onPressed: () {
                           _pageController.nextPage(
@@ -365,7 +365,7 @@ class _KKCardWidgetState extends State<KKCardWidget> {
               thickness: 0.5.sp,
             ),
             Container(
-              height: 27,
+              height: 27.h,
               decoration: BoxDecoration(
                 color: widget.isTodayTopic
                     ? PrimaryVariant1Color

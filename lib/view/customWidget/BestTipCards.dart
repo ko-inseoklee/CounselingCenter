@@ -34,7 +34,7 @@ class BestTipCards extends StatelessWidget {
         ),
         Container(
           width: 288.w,
-          height: 296,
+          height: 296.h,
           child: Row(
             children: [
               Container(
@@ -43,17 +43,17 @@ class BestTipCards extends StatelessWidget {
                   children: [
                     Container(
                       width: 138.w,
-                      height: 114,
+                      height: 114.h,
                       decoration: BoxDecoration(
                         color: SecondaryLColor.withOpacity(0.6),
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(24.sp),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             width: 138.w,
-                            height: 80,
+                            height: 80.h,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
                               image: AssetImage("image/Intersect_1.png"),
@@ -67,13 +67,13 @@ class BestTipCards extends StatelessWidget {
                               children: [
                                 Container(
                                   width: 55.w,
-                                  height: 80,
+                                  height: 80.h,
                                   alignment: Alignment.topLeft,
                                   child: Column(
                                     children: [
                                       Container(
                                           width: 55.w,
-                                          height: 69,
+                                          height: 69.h,
                                           padding: EdgeInsets.only(
                                               top: 11.78, left: 7.92.w),
                                           child: Image.asset(
@@ -99,7 +99,7 @@ class BestTipCards extends StatelessWidget {
                                 ),
                                 Container(
                                     width: 83.w,
-                                    height: 80,
+                                    height: 80.h,
                                     padding:
                                         EdgeInsets.only(right: 16.w, top: 19),
                                     child: Column(
@@ -134,13 +134,13 @@ class BestTipCards extends StatelessWidget {
                           Container(
                               padding: EdgeInsets.only(top: 11),
                               width: 138.w,
-                              height: 34,
+                              height: 34.h,
                               child: Container(
                                 width: 139.w,
-                                height: 34,
+                                height: 34.h,
                                 padding: EdgeInsets.only(
                                   left: 19.w,
-                                  right: 19,
+                                  right: 19.w,
                                 ),
                                 child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -158,7 +158,7 @@ class BestTipCards extends StatelessWidget {
                     SizedBox(height: 12),
                     Container(
                         width: 138.w,
-                        height: 159,
+                        height: 159.h,
                         decoration: BoxDecoration(
                             color: Color(0xff0085FF).withOpacity(0.6),
                             borderRadius: BorderRadius.circular(24)),
@@ -166,7 +166,7 @@ class BestTipCards extends StatelessWidget {
                           children: [
                             Container(
                                 width: 138.w,
-                                height: 110,
+                                height: 110.h,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage("image/Intersect_3.png"),
@@ -178,25 +178,25 @@ class BestTipCards extends StatelessWidget {
                                   children: [
                                     Container(
                                       width: 138.w,
-                                      height: 65,
+                                      height: 65.h,
                                       child: Row(
                                         children: [
                                           Container(
                                               width: 73.w,
-                                              height: 65,
+                                              height: 65.h,
                                               padding: EdgeInsets.only(
-                                                  top: 17.75, left: 14.17.w),
+                                                  top: 17.75.h, left: 14.17.w),
                                               child: Image.asset(
                                                 'image/30sIcon.png',
                                                 width: 31.67.w,
-                                                height: 28.5,
+                                                height: 28.5.h,
                                                 alignment: Alignment.topLeft,
                                               )),
                                           Container(
                                               width: 65.w,
-                                              height: 65,
+                                              height: 65.h,
                                               padding: EdgeInsets.only(
-                                                  right: 18.w, top: 45),
+                                                  right: 18.w, top: 45.h),
                                               alignment: Alignment.topLeft,
                                               child: Text(
                                                 '30대 꿀팁',
@@ -212,13 +212,13 @@ class BestTipCards extends StatelessWidget {
                                     ),
                                     Container(
                                         width: 138.w,
-                                        height: 45,
-                                        padding: EdgeInsets.only(top: 7),
+                                        height: 45.h,
+                                        padding: EdgeInsets.only(top: 7.h),
                                         child: Row(
                                           children: [
                                             Container(
                                                 width: 36.w,
-                                                height: 45,
+                                                height: 45.h,
                                                 padding:
                                                     EdgeInsets.only(left: 7.w),
                                                 child: Image.asset(
@@ -231,7 +231,7 @@ class BestTipCards extends StatelessWidget {
                                                 )),
                                             Container(
                                               width: 102.w,
-                                              height: 45,
+                                              height: 45.h,
                                               padding:
                                                   EdgeInsets.only(right: 18.w),
                                               child: Text('이직 준비하고 있다면 지금이야!',
@@ -249,8 +249,8 @@ class BestTipCards extends StatelessWidget {
                                 )),
                             Container(
                                 width: 138.w,
-                                height: 49,
-                                padding: EdgeInsets.only(top: 26),
+                                height: 49.h,
+                                padding: EdgeInsets.only(top: 26.h),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -275,10 +275,10 @@ class BestTipCards extends StatelessWidget {
                       Container(
                           margin: EdgeInsets.all(0),
                           width: 138.w,
-                          height: 159,
+                          height: 159.h,
                           constraints: BoxConstraints(
                             minWidth: 138.w,
-                            minHeight: 159,
+                            minHeight: 159.h,
                           ),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
@@ -293,12 +293,12 @@ class BestTipCards extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Container(
-                                  height: 45,
+                                  height: 45.h,
                                   padding: EdgeInsets.only(
                                       top: 14.33, left: 14.39.w),
                                   child: Container(
                                       width: 33.26.w,
-                                      height: 33.28,
+                                      height: 33.28.h,
                                       child:
                                           Image.asset('image/playTipIcon.png')),
                                 ),
@@ -334,9 +334,9 @@ class BestTipCards extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 27),
+                            SizedBox(height: 27.h),
                             Container(
-                              height: 12,
+                              height: 12.h,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -349,10 +349,10 @@ class BestTipCards extends StatelessWidget {
                               )
                             )
                           ])),
-                      SizedBox(height: 12),
+                      SizedBox(height: 12.h),
                       Container(
                           width: 138.w,
-                          height: 114,
+                          height: 114.h,
                           padding: EdgeInsets.all(0),
                           margin: EdgeInsets.all(0),
                           alignment: Alignment.center,
@@ -378,7 +378,7 @@ class BestTipCards extends StatelessWidget {
   Widget miniWhiteBox(String contents, int idx) {
     return Container(
       width: 28.w,
-      height: 12,
+      height: 12.h,
       decoration: BoxDecoration(
           color: Color(0xffffffff), borderRadius: BorderRadius.circular(18.sp)),
       padding: EdgeInsets.only(top: 1, bottom: 1),
