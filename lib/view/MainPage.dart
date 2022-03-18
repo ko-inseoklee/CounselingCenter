@@ -45,107 +45,347 @@ class _MainPageState extends State<MainPage> {
     );
     return Scaffold(
       appBar: _defaultAppBar,
-      body: menuList[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Color(0xffffffff),
-        type: BottomNavigationBarType.fixed,
-        onTap: _onTap,
-        selectedItemColor: PrimaryColor,
-        currentIndex: _currentIndex,
-        selectedLabelStyle:
-            TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
-        unselectedLabelStyle:
-            TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
-        // selectedIconTheme: IconThemeData(color: PrimaryColor),
-        // unselectedIconTheme: IconThemeData(color: TextBodyColor),
-        items: [
-          BottomNavigationBarItem(
-              label: '홈',
-              icon: Container(
-
-                margin: EdgeInsets.only(top: 3.h),
-                width: 21.w,
-                height: 21.h,
-                decoration: BoxDecoration(color: Colors.yellow),
-                child:Image.asset(
-                  "image/homeIcon.png",
-                  fit: BoxFit.contain,
-                  color:
-                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
-                  // fit: BoxFit.fitHeight
-                ),
-              )
+      drawerEnableOpenDragGesture: false,
+      endDrawer: SizedBox(
+        width: 203.w,
+        child: Drawer(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 89.h,
+                child: DrawerHeader(
+                    decoration: BoxDecoration(
+                      color: PrimaryColor,
+                    ),
+                    margin: EdgeInsets.zero,
+                    padding: EdgeInsets.only(top: 4.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(right: 15.w),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                child: Image.asset(
+                                  'image/settingIcon.png',
+                                  width: 14.88.w,
+                                  color: WhiteColor,
+                                ),
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size.zero,
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                              ),
+                              SizedBox(width: 2.83.w),
+                              TextButton(
+                                child: Image.asset(
+                                  'image/closeIcon.png',
+                                  width: 17.w,
+                                  color: WhiteColor,
+                                ),
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size.zero,
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(
+                            left: 11.w,
+                            top: 20.42.h,
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                width: 30.sp,
+                                height: 30.sp,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all()),
+                              ),
+                              SizedBox(width: 6.w),
+                              TextButton(
+                                style: TextButton.styleFrom(
+                                  minimumSize: Size.zero,
+                                  padding: EdgeInsets.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      '로그인 해주세요',
+                                      style: TextStyle(
+                                          color: Color(0xffffffff),
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w700),
+                                    ),
+                                    Image.asset(
+                                      'image/navigateNextIcon.png',
+                                      color: WhiteColor,
+                                      width: 20.w,
+                                      height: 20.h,
+                                    )
+                                  ],
+                                ),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
               ),
-          BottomNavigationBarItem(
-              label: '게시판',
-              icon: Container(
-                margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-                width: 18.w,
-                height: 18.h,
-                decoration: BoxDecoration(color: Colors.yellow),
-                child:Image.asset(
-                  "image/boardIcon.png",
-                  fit: BoxFit.contain,
-                  color:
-                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
-                  // fit: BoxFit.fitHeight
-                ),
-              )
+              Container(
+                child: Column(
+                    // padding: EdgeInsets.zero,
+                    // shrinkWrap: true,
+                    children: [
+                      Column(
+                        children: [
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.only(left: 20.w),
+                          //   title: Text(
+                          //     '핫한 게시글',
+                          //     style: TextStyle(
+                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
+                          //   ),
+                          //   onTap: () {
+                          //     // Update the state of the app.
+                          //     // ...
+                          //   },
+                          // ),
+                          Container(
+                              child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '핫한 게시글',
+                              style: TextStyle(
+                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                            ),
+                          )),
+
+                          // children: [
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.only(left: 20.w),
+                          //   title: Text(
+                          //     '오늘의 주제',
+                          //     style: TextStyle(
+                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
+                          //   ),
+                          //   onTap: () {
+                          //     // Update the state of the app.
+                          //     // ...
+                          //   },
+                          // ),
+                          Container(
+                              child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '오늘의 주제',
+                              style: TextStyle(
+                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                            ),
+                          )),
+
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.only(left: 20.w),
+                          //   title: Text(
+                          //     '세대별 매칭방',
+                          //     style: TextStyle(
+                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
+                          //   ),
+                          //   onTap: () {
+                          //     // Update the state of the app.
+                          //     // ...
+                          //   },
+                          // ),
+                          Container(
+                              child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '세대별 매칭방',
+                              style: TextStyle(
+                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                            ),
+                          )),
+
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.only(left: 20.w),
+                          //   title: Text(
+                          //     '세대별 꿀팁',
+                          //     style: TextStyle(
+                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
+                          //   ),
+                          //   onTap: () {
+                          //     // Update the state of the app.
+                          //     // ...
+                          //   },
+                          // ),
+                          Container(
+                              child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '세대별 꿀팁',
+                              style: TextStyle(
+                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                            ),
+                          )),
+
+                          // ListTile(
+                          //   contentPadding: EdgeInsets.only(left: 20.w),
+                          //   title: Text(
+                          //     '세대별 투표',
+                          //     style: TextStyle(
+                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
+                          //   ),
+                          //   onTap: () {},
+                          // ),
+                          Container(
+                              child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '세대별 투표',
+                              style: TextStyle(
+                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                            ),
+                          )),
+                        ],
+                      )
+                    ]
+                    // },
+                    // ],
+                    ),
               ),
-          BottomNavigationBarItem(
-              label: '매칭하기',
-              icon: Container(
-
-                margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-                width: 18.w,
-                height: 18.h,
-                decoration: BoxDecoration(color: Colors.yellow),
-                child:Image.asset(
-                  "image/matchIcon.png",
-                  fit: BoxFit.contain,
-
-                  color:
-                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
-                  // fit: BoxFit.fitHeight
-                ),
-              )
+            ],
           ),
-          BottomNavigationBarItem(
-              label: '쪽지함',
-
-              icon: Container(
-                margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-                width: 18.w,
-                height: 18.h,
-                decoration: BoxDecoration(color: Colors.yellow),
-                child:Image.asset(
-                  "image/messageIcon.png",
-                  fit: BoxFit.contain,
-                  color:
-                  (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
-                  // fit: BoxFit.fitHeight
-                ),
-              ),
-          ),
-          BottomNavigationBarItem(
-            label: '꿀팁',
-            icon: Container(
-              margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-              width: 18.w,
-              height: 18.h,
-              decoration: BoxDecoration(color: Colors.yellow),
-              child:Image.asset(
-                "image/tipIcon.png",
-                fit: BoxFit.contain,
-                color:
-                (_currentIndex == 1) ? PrimaryColor : Color(0xff333333),
-                // fit: BoxFit.fitHeight
-
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
+      body: menuList[_currentIndex],
+      bottomNavigationBar: Container(
+        height: 90,
+        margin: EdgeInsets.only(top: 10),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+            color: Color(0xffaaaaaa).withOpacity(0.25),
+            offset: Offset(0, -4.sp),
+            blurRadius: 10,
+          )
+        ]),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(28.sp),
+          ),
+          child: BottomNavigationBar(
+            elevation: 10,
+            backgroundColor: Color(0xffffffff),
+            type: BottomNavigationBarType.fixed,
+            onTap: _onTap,
+            selectedItemColor: PrimaryColor,
+            currentIndex: _currentIndex,
+            selectedLabelStyle:
+                TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
+            unselectedLabelStyle:
+                TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
+            // selectedIconTheme: IconThemeData(color: PrimaryColor),
+            // unselectedIconTheme: IconThemeData(color: TextBodyColor),
+            items: [
+              BottomNavigationBarItem(
+                  label: '홈',
+                  icon: Container(
+                    margin: EdgeInsets.only(top: 3.h),
+                    width: 21.w,
+                    height: 21.h,
+                    // decoration: BoxDecoration(color: Colors.yellow),
+                    child: Image.asset(
+                      "image/homeIcon.png",
+                      fit: BoxFit.contain,
+                      color: (_currentIndex == 0)
+                          ? PrimaryColor
+                          : Color(0xff333333),
+                      // fit: BoxFit.fitHeight
+                    ),
+                  )),
+              BottomNavigationBarItem(
+                  label: '게시판',
+                  icon: Container(
+                    margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                    width: 18.w,
+                    height: 18.h,
+                    // decoration: BoxDecoration(color: Colors.yellow),
+                    child: Image.asset(
+                      "image/boardIcon.png",
+                      fit: BoxFit.contain,
+                      color: (_currentIndex == 1)
+                          ? PrimaryColor
+                          : Color(0xff333333),
+                      // fit: BoxFit.fitHeight
+                    ),
+                  )),
+              BottomNavigationBarItem(
+                  label: '매칭하기',
+                  icon: Container(
+                    margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                    width: 18.w,
+                    height: 18.h,
+                    // decoration: BoxDecoration(color: Colors.yellow),
+                    child: Image.asset(
+                      "image/matchIcon.png",
+                      fit: BoxFit.contain,
+
+                      color: (_currentIndex == 2)
+                          ? PrimaryColor
+                          : Color(0xff333333),
+                      // fit: BoxFit.fitHeight
+                    ),
+                  )),
+              BottomNavigationBarItem(
+                label: '쪽지함',
+                icon: Container(
+                  margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                  width: 18.w,
+                  height: 18.h,
+                  // decoration: BoxDecoration(color: Colors.yellow),
+                  child: Image.asset(
+                    "image/messageIcon.png",
+                    fit: BoxFit.contain,
+                    color:
+                        (_currentIndex == 3) ? PrimaryColor : Color(0xff333333),
+                    // fit: BoxFit.fitHeight
+                  ),
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: '꿀팁',
+                icon: Container(
+                  margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                  width: 18.w,
+                  height: 18.h,
+                  // decoration: BoxDecoration(color: Colors.yellow),
+                  child: Image.asset(
+                    "image/tipIcon.png",
+                    fit: BoxFit.contain,
+                    color:
+                        (_currentIndex == 4) ? PrimaryColor : Color(0xff333333),
+                    // fit: BoxFit.fitHeight
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // ),
     );
   }
 }

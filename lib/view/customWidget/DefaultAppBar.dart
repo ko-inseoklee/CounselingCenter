@@ -56,6 +56,7 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
               )
             ]),
             child: AppBar(
+                automaticallyImplyLeading: false,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(30.sp),
@@ -208,7 +209,10 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                   tapTargetSize:
                                       MaterialTapTargetSize.shrinkWrap,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  print('pressed drawer!');
+                                  Scaffold.of(context).openEndDrawer();
+                                },
                               ),
                             ),
                           ],
@@ -266,7 +270,8 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                           TextButton(
                                               onPressed: () {
                                                 setState(() {
-                                                  tabController.toggleTab(false);
+                                                  tabController
+                                                      .toggleTab(false);
                                                 });
                                               },
                                               child: Text('참여 매칭방',
