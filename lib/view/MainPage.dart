@@ -46,6 +46,8 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: _defaultAppBar,
       drawerEnableOpenDragGesture: false,
+
+      // TODO: textbutton onPressed -> 페이지 연결
       endDrawer: SizedBox(
         width: 203.w,
         child: Drawer(
@@ -88,7 +90,9 @@ class _MainPageState extends State<MainPage> {
                                   width: 17.w,
                                   color: WhiteColor,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
                                 style: TextButton.styleFrom(
                                   minimumSize: Size.zero,
                                   padding: EdgeInsets.zero,
@@ -107,12 +111,13 @@ class _MainPageState extends State<MainPage> {
                           child: Row(
                             children: [
                               Container(
-                                width: 30.sp,
-                                height: 30.sp,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all()),
-                              ),
+                                  width: 30.sp,
+                                  height: 30.sp,
+                                  // decoration: BoxDecoration(
+                                  //   shape: BoxShape.circle,
+                                  // ),
+                                  child:
+                                      Image.asset('image/defaultProfile.png')),
                               SizedBox(width: 6.w),
                               TextButton(
                                 style: TextButton.styleFrom(
@@ -130,6 +135,7 @@ class _MainPageState extends State<MainPage> {
                                           fontSize: 13.sp,
                                           fontWeight: FontWeight.w700),
                                     ),
+                                    SizedBox(width: 1.w),
                                     Image.asset(
                                       'image/navigateNextIcon.png',
                                       color: WhiteColor,
@@ -147,120 +153,152 @@ class _MainPageState extends State<MainPage> {
                     )),
               ),
               Container(
+                alignment: Alignment.topLeft,
+                padding: EdgeInsets.only(left: 20.w, top: 20.h),
                 child: Column(
-                    // padding: EdgeInsets.zero,
-                    // shrinkWrap: true,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Column(
-                        children: [
-                          // ListTile(
-                          //   contentPadding: EdgeInsets.only(left: 20.w),
-                          //   title: Text(
-                          //     '핫한 게시글',
-                          //     style: TextStyle(
-                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
-                          //   ),
-                          //   onTap: () {
-                          //     // Update the state of the app.
-                          //     // ...
-                          //   },
-                          // ),
-                          Container(
-                              child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              '핫한 게시글',
-                              style: TextStyle(
-                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
-                            ),
-                          )),
-
-                          // children: [
-                          // ListTile(
-                          //   contentPadding: EdgeInsets.only(left: 20.w),
-                          //   title: Text(
-                          //     '오늘의 주제',
-                          //     style: TextStyle(
-                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
-                          //   ),
-                          //   onTap: () {
-                          //     // Update the state of the app.
-                          //     // ...
-                          //   },
-                          // ),
-                          Container(
-                              child: TextButton(
+                      Container(
+                          child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          '핫한 게시글',
+                          style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w700,
+                              color: TextBodyColor),
+                        ),
+                        style: TextButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                      )),
+                      Container(
+                          padding: EdgeInsets.only(top: 16.h),
+                          child: TextButton(
                             onPressed: () {},
                             child: Text(
                               '오늘의 주제',
                               style: TextStyle(
-                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: TextBodyColor),
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
                           )),
-
-                          // ListTile(
-                          //   contentPadding: EdgeInsets.only(left: 20.w),
-                          //   title: Text(
-                          //     '세대별 매칭방',
-                          //     style: TextStyle(
-                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
-                          //   ),
-                          //   onTap: () {
-                          //     // Update the state of the app.
-                          //     // ...
-                          //   },
-                          // ),
-                          Container(
-                              child: TextButton(
+                      Container(
+                          padding: EdgeInsets.only(top: 16.h),
+                          child: TextButton(
                             onPressed: () {},
                             child: Text(
                               '세대별 매칭방',
                               style: TextStyle(
-                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: TextBodyColor),
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
                           )),
-
-                          // ListTile(
-                          //   contentPadding: EdgeInsets.only(left: 20.w),
-                          //   title: Text(
-                          //     '세대별 꿀팁',
-                          //     style: TextStyle(
-                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
-                          //   ),
-                          //   onTap: () {
-                          //     // Update the state of the app.
-                          //     // ...
-                          //   },
-                          // ),
-                          Container(
-                              child: TextButton(
+                      Container(
+                          padding: EdgeInsets.only(top: 16.h),
+                          child: TextButton(
                             onPressed: () {},
                             child: Text(
                               '세대별 꿀팁',
                               style: TextStyle(
-                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: TextBodyColor),
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
                           )),
-
-                          // ListTile(
-                          //   contentPadding: EdgeInsets.only(left: 20.w),
-                          //   title: Text(
-                          //     '세대별 투표',
-                          //     style: TextStyle(
-                          //         fontSize: 12.sp, fontWeight: FontWeight.w700),
-                          //   ),
-                          //   onTap: () {},
-                          // ),
-                          Container(
-                              child: TextButton(
+                      Container(
+                          padding: EdgeInsets.only(top: 16.h),
+                          child: TextButton(
                             onPressed: () {},
                             child: Text(
                               '세대별 투표',
                               style: TextStyle(
-                                  fontSize: 12.sp, fontWeight: FontWeight.w700),
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: TextBodyColor),
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             ),
                           )),
-                        ],
+                      Container(
+                          padding: EdgeInsets.only(top: 16.h),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '고객센터',
+                              style: TextStyle(
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xff969696)),
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                          )),
+                      Container(
+                          padding: EdgeInsets.only(top: 5.h),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '공지사항',
+                              style: TextStyle(
+                                  fontSize: 11.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xff969696)),
+                            ),
+                            style: TextButton.styleFrom(
+                              minimumSize: Size.zero,
+                              padding: EdgeInsets.zero,
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                          )),
+                      SizedBox(height: 166.h),
+                      Container(
+                        width: 161.38.w,
+                        height: 30.h,
+                        decoration: BoxDecoration(
+                          color: Color(0xffDDDDDD),
+                          borderRadius: BorderRadius.circular(390.sp),
+                        ),
+                        child: TextButton(
+                          child: Text(
+                            '로그아웃',
+                            style: TextStyle(
+                                fontSize: 7.84.sp,
+                                fontWeight: FontWeight.w700,
+                                color: WhiteColor),
+                          ),
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            minimumSize: Size.zero,
+                            padding: EdgeInsets.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                        ),
                       )
                     ]
                     // },

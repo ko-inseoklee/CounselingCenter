@@ -210,7 +210,7 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                       MaterialTapTargetSize.shrinkWrap,
                                 ),
                                 onPressed: () {
-                                  print('pressed drawer!');
+                                  // print('pressed drawer!');
                                   Scaffold.of(context).openEndDrawer();
                                 },
                               ),
