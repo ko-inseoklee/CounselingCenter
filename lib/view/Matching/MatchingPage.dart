@@ -17,7 +17,8 @@ import 'package:online_counseling_center/controller/MatchTabController.dart';
 List<bool> categorySelected = <bool>[true, false, false];
 
 class MatchingPage extends StatefulWidget {
-  const MatchingPage({Key? key}) : super(key: key);
+  final ValueChanged<bool> editPressed;
+  const MatchingPage({Key? key, required this.editPressed}) : super(key: key);
 
   @override
   _MatchingPageState createState() => _MatchingPageState();
@@ -525,6 +526,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                 setState(() {
                                   editButtonClicked = !editButtonClicked;
                                 });
+                                widget.editPressed(editButtonClicked);
                               },
                               child: Text(
                                 editButtonClicked ? '완료' : '편집',

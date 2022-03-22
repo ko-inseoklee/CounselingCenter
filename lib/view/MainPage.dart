@@ -23,10 +23,14 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
-  final List<Widget> menuList = [
+  bool editPressed = false;
+
+  late List<Widget> menuList = [
     HomePage(),
     BoardPage(),
-    MatchingPage(),
+    MatchingPage(
+      editPressed: toggleBottomSheet,
+    ),
     MessagePage(),
     TipPage()
   ];
@@ -35,6 +39,12 @@ class _MainPageState extends State<MainPage> {
     setState(() {
       _currentIndex = index;
       // isMain = ((index == 0) ? true : false);
+    });
+  }
+
+  toggleBottomSheet(bool value) {
+    setState(() {
+      editPressed = value;
     });
   }
 
@@ -321,107 +331,163 @@ class _MainPageState extends State<MainPage> {
           )
         ]),
         child: ClipRRect(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(28.sp),
-          ),
-          child: BottomNavigationBar(
-            elevation: 10,
-            backgroundColor: Color(0xffffffff),
-            type: BottomNavigationBarType.fixed,
-            onTap: _onTap,
-            selectedItemColor: PrimaryColor,
-            currentIndex: _currentIndex,
-            selectedLabelStyle:
-                TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
-            unselectedLabelStyle:
-                TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
-            // selectedIconTheme: IconThemeData(color: PrimaryColor),
-            // unselectedIconTheme: IconThemeData(color: TextBodyColor),
-            items: [
-              BottomNavigationBarItem(
-                  label: '홈',
-                  icon: Container(
-                    margin: EdgeInsets.only(top: 3.h),
-                    width: 21.w,
-                    height: 21.h,
-                    // decoration: BoxDecoration(color: Colors.yellow),
-                    child: Image.asset(
-                      "image/homeIcon.png",
-                      fit: BoxFit.contain,
-                      color: (_currentIndex == 0)
-                          ? PrimaryColor
-                          : Color(0xff333333),
-                      // fit: BoxFit.fitHeight
-                    ),
-                  )),
-              BottomNavigationBarItem(
-                  label: '게시판',
-                  icon: Container(
-                    margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-                    width: 18.w,
-                    height: 18.h,
-                    // decoration: BoxDecoration(color: Colors.yellow),
-                    child: Image.asset(
-                      "image/boardIcon.png",
-                      fit: BoxFit.contain,
-                      color: (_currentIndex == 1)
-                          ? PrimaryColor
-                          : Color(0xff333333),
-                      // fit: BoxFit.fitHeight
-                    ),
-                  )),
-              BottomNavigationBarItem(
-                  label: '매칭하기',
-                  icon: Container(
-                    margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-                    width: 18.w,
-                    height: 18.h,
-                    // decoration: BoxDecoration(color: Colors.yellow),
-                    child: Image.asset(
-                      "image/matchIcon.png",
-                      fit: BoxFit.contain,
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(28.sp),
+            ),
+            child: !editPressed
+                ? BottomNavigationBar(
+                    // elevation: 10,
+                    backgroundColor: Color(0xffffffff),
+                    type: BottomNavigationBarType.fixed,
+                    onTap: _onTap,
+                    selectedItemColor: PrimaryColor,
+                    currentIndex: _currentIndex,
+                    selectedLabelStyle:
+                        TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
+                    unselectedLabelStyle:
+                        TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w700),
+                    // selectedIconTheme: IconThemeData(color: PrimaryColor),
+                    // unselectedIconTheme: IconThemeData(color: TextBodyColor),
+                    items: [
+                      BottomNavigationBarItem(
+                          label: '홈',
+                          icon: Container(
+                            margin: EdgeInsets.only(top: 3.h),
+                            width: 21.w,
+                            height: 21.h,
+                            // decoration: BoxDecoration(color: Colors.yellow),
+                            child: Image.asset(
+                              "image/homeIcon.png",
+                              fit: BoxFit.contain,
+                              color: (_currentIndex == 0)
+                                  ? PrimaryColor
+                                  : Color(0xff333333),
+                              // fit: BoxFit.fitHeight
+                            ),
+                          )),
+                      BottomNavigationBarItem(
+                          label: '게시판',
+                          icon: Container(
+                            margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                            width: 18.w,
+                            height: 18.h,
+                            // decoration: BoxDecoration(color: Colors.yellow),
+                            child: Image.asset(
+                              "image/boardIcon.png",
+                              fit: BoxFit.contain,
+                              color: (_currentIndex == 1)
+                                  ? PrimaryColor
+                                  : Color(0xff333333),
+                              // fit: BoxFit.fitHeight
+                            ),
+                          )),
+                      BottomNavigationBarItem(
+                          label: '매칭하기',
+                          icon: Container(
+                            margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                            width: 18.w,
+                            height: 18.h,
+                            // decoration: BoxDecoration(color: Colors.yellow),
+                            child: Image.asset(
+                              "image/matchIcon.png",
+                              fit: BoxFit.contain,
 
-                      color: (_currentIndex == 2)
-                          ? PrimaryColor
-                          : Color(0xff333333),
-                      // fit: BoxFit.fitHeight
-                    ),
-                  )),
-              BottomNavigationBarItem(
-                label: '쪽지함',
-                icon: Container(
-                  margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-                  width: 18.w,
-                  height: 18.h,
-                  // decoration: BoxDecoration(color: Colors.yellow),
-                  child: Image.asset(
-                    "image/messageIcon.png",
-                    fit: BoxFit.contain,
-                    color:
-                        (_currentIndex == 3) ? PrimaryColor : Color(0xff333333),
-                    // fit: BoxFit.fitHeight
-                  ),
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: '꿀팁',
-                icon: Container(
-                  margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
-                  width: 18.w,
-                  height: 18.h,
-                  // decoration: BoxDecoration(color: Colors.yellow),
-                  child: Image.asset(
-                    "image/tipIcon.png",
-                    fit: BoxFit.contain,
-                    color:
-                        (_currentIndex == 4) ? PrimaryColor : Color(0xff333333),
-                    // fit: BoxFit.fitHeight
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+                              color: (_currentIndex == 2)
+                                  ? PrimaryColor
+                                  : Color(0xff333333),
+                              // fit: BoxFit.fitHeight
+                            ),
+                          )),
+                      BottomNavigationBarItem(
+                        label: '쪽지함',
+                        icon: Container(
+                          margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                          width: 18.w,
+                          height: 18.h,
+                          // decoration: BoxDecoration(color: Colors.yellow),
+                          child: Image.asset(
+                            "image/messageIcon.png",
+                            fit: BoxFit.contain,
+                            color: (_currentIndex == 3)
+                                ? PrimaryColor
+                                : Color(0xff333333),
+                            // fit: BoxFit.fitHeight
+                          ),
+                        ),
+                      ),
+                      BottomNavigationBarItem(
+                        label: '꿀팁',
+                        icon: Container(
+                          margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+                          width: 18.w,
+                          height: 18.h,
+                          // decoration: BoxDecoration(color: Colors.yellow),
+                          child: Image.asset(
+                            "image/tipIcon.png",
+                            fit: BoxFit.contain,
+                            color: (_currentIndex == 4)
+                                ? PrimaryColor
+                                : Color(0xff333333),
+                            // fit: BoxFit.fitHeight
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : BottomNavigationBar(
+                    showSelectedLabels: false,
+                    showUnselectedLabels: false,
+                type: BottomNavigationBarType.fixed,
+                    items: [
+                        BottomNavigationBarItem(
+                            label: '',
+                            icon: Container(
+                                width: 138.w,
+                                height: 48,
+                                decoration: BoxDecoration(
+                                    color: PrimaryColor,
+                                    borderRadius: BorderRadius.circular(24.sp)),
+                                child: TextButton(
+                                  child: Text(
+                                    '모두 읽기',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: WhiteColor,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    minimumSize: Size.zero,
+                                    padding: EdgeInsets.zero,
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                  ),
+                                ))),
+                        BottomNavigationBarItem(
+                            label: '매칭하기',
+                            icon: Container(
+                                width: 138.w,
+                                height: 48,
+                                decoration: BoxDecoration(
+                                    color: PrimaryColor,
+                                    borderRadius: BorderRadius.circular(24.sp)),
+                                child: TextButton(
+                                  child: Text(
+                                    '매칭방 나가기',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        color: WhiteColor,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    minimumSize: Size.zero,
+                                    padding: EdgeInsets.zero,
+                                    tapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                  ),
+                                ))),
+                      ])),
       ),
       // ),
     );
