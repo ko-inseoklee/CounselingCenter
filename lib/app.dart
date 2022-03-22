@@ -27,7 +27,7 @@ class _KnockKnockAppState extends State<KnockKnockApp> {
         builder: () => GetMaterialApp(
             home: MainPage(),
             getPages: [
-              GetPage(name: '/matching', page: () => MatchingPage()),
+              // GetPage(name: '/matching', page: () => MatchingPage()),
               GetPage(name: '/login', page: () => LogInPage()),
               GetPage(name: '/sign-up', page: () => SignUpPage()),
               GetPage(name: '/chat', page: () => ChatPage()),
