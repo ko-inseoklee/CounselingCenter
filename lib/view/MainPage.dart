@@ -24,12 +24,14 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
   bool editPressed = false;
+  bool anySelected = false;
 
   late List<Widget> menuList = [
     HomePage(),
     BoardPage(),
     MatchingPage(
       editPressed: toggleBottomSheet,
+      anySelected: checkAnySelected,
     ),
     MessagePage(),
     TipPage()
@@ -45,6 +47,12 @@ class _MainPageState extends State<MainPage> {
   toggleBottomSheet(bool value) {
     setState(() {
       editPressed = value;
+    });
+  }
+
+  checkAnySelected(bool value) {
+    setState(() {
+      anySelected = value;
     });
   }
 
@@ -437,7 +445,7 @@ class _MainPageState extends State<MainPage> {
                 : BottomNavigationBar(
                     showSelectedLabels: false,
                     showUnselectedLabels: false,
-                type: BottomNavigationBarType.fixed,
+                    type: BottomNavigationBarType.fixed,
                     items: [
                         BottomNavigationBarItem(
                             label: '',
@@ -445,7 +453,8 @@ class _MainPageState extends State<MainPage> {
                                 width: 138.w,
                                 height: 48,
                                 decoration: BoxDecoration(
-                                    color: PrimaryColor,
+                                    color:
+                                        anySelected ? PrimaryColor : Gray1Color,
                                     borderRadius: BorderRadius.circular(24.sp)),
                                 child: TextButton(
                                   child: Text(
@@ -469,7 +478,8 @@ class _MainPageState extends State<MainPage> {
                                 width: 138.w,
                                 height: 48,
                                 decoration: BoxDecoration(
-                                    color: PrimaryColor,
+                                    color:
+                                        anySelected ? PrimaryColor : Gray1Color,
                                     borderRadius: BorderRadius.circular(24.sp)),
                                 child: TextButton(
                                   child: Text(
@@ -479,7 +489,85 @@ class _MainPageState extends State<MainPage> {
                                         color: WhiteColor,
                                         fontWeight: FontWeight.w700),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    if (anySelected) {
+                                      Get.dialog(Dialog(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(24.sp))),
+                                        backgroundColor: Color(0xffffffff),
+                                        child: Container(
+                                            width: 240.w,
+                                            height: 138.h,
+                                            child: Column(children: [
+                                              SizedBox(height: 38.h),
+                                              Text('이 매칭방을 나가시겠습니까?',
+                                                  style: TextStyle(
+                                                      color: Color(0xff000000),
+                                                      fontSize: 12.sp,
+                                                      fontWeight:
+                                                          FontWeight.w500)),
+                                              SizedBox(height: 33.h),
+                                              Container(
+                                                  width: 204.w,
+                                                  height: 34.h,
+                                                  child: Row(children: [
+                                                    Container(
+                                                        width: 95.w,
+                                                        height: 34.h,
+                                                        decoration: BoxDecoration(
+                                                            color: Gray3Color,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        18.sp)),
+                                                        child: TextButton(
+                                                          child: Text('취소',
+                                                              style: TextStyle(
+                                                                  color: Color(
+                                                                      0xff000000),
+                                                                  fontSize:
+                                                                      12.sp,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500)),
+                                                          onPressed: () {},
+                                                        )),
+                                                    SizedBox(width: 14.w),
+                                                    Container(
+                                                        width: 95.w,
+                                                        height: 34.h,
+                                                        decoration: BoxDecoration(
+                                                            color: PrimaryColor,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        18.sp)),
+                                                        child: TextButton(
+                                                          child: Text(
+                                                            '나가기',
+                                                            style: TextStyle(
+                                                                color:
+                                                                    WhiteColor,
+                                                                fontSize: 12.sp,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500),
+                                                          ),
+                                                          onPressed: () {},
+                                                          style: ButtonStyle(
+                                                            overlayColor: MaterialStateColor.resolveWith(
+                                                                (states) => Color(
+                                                                        0xff000000)
+                                                                    .withOpacity(
+                                                                        0.08)),
+                                                          ),
+                                                        ))
+                                                  ]))
+                                            ])),
+                                      ));
+                                    }
+                                  },
                                   style: TextButton.styleFrom(
                                     minimumSize: Size.zero,
                                     padding: EdgeInsets.zero,
