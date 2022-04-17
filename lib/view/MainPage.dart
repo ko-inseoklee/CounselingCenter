@@ -306,7 +306,7 @@ class _MainPageState extends State<MainPage> {
                           child: Text(
                             '로그아웃',
                             style: TextStyle(
-                                fontSize: 7.84.sp,
+                                fontSize: 9.sp,
                                 fontWeight: FontWeight.w700,
                                 color: WhiteColor),
                           ),
@@ -454,7 +454,7 @@ class _MainPageState extends State<MainPage> {
                                 height: 48,
                                 decoration: BoxDecoration(
                                     color:
-                                        anySelected ? PrimaryColor : Gray1Color,
+                                        anySelected ? PrimaryColor : Gray2Color,
                                     borderRadius: BorderRadius.circular(24.sp)),
                                 child: TextButton(
                                   child: Text(
@@ -464,12 +464,24 @@ class _MainPageState extends State<MainPage> {
                                         color: WhiteColor,
                                         fontWeight: FontWeight.w700),
                                   ),
-                                  onPressed: () {},
-                                  style: TextButton.styleFrom(
-                                    minimumSize: Size.zero,
-                                    padding: EdgeInsets.zero,
+                                  onPressed: () {
+                                    // TODO: 모두읽기
+                                  },
+                                  style: ButtonStyle(
+                                    // minimumSize: Size.zero,
+                                    // padding: EdgeInsets.zero,
                                     tapTargetSize:
                                         MaterialTapTargetSize.shrinkWrap,
+                                    shape: MaterialStateProperty.all<
+                                            RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(18.sp),
+                                      // side: BorderSide(color: Colors.red)
+                                    )),
+                                    overlayColor:
+                                        MaterialStateColor.resolveWith(
+                                            (states) => PrimaryVariant3Color),
                                   ),
                                 ))),
                         BottomNavigationBarItem(
@@ -479,7 +491,7 @@ class _MainPageState extends State<MainPage> {
                                 height: 48,
                                 decoration: BoxDecoration(
                                     color:
-                                        anySelected ? PrimaryColor : Gray1Color,
+                                        anySelected ? PrimaryColor : Gray2Color,
                                     borderRadius: BorderRadius.circular(24.sp)),
                                 child: TextButton(
                                   child: Text(
@@ -531,7 +543,25 @@ class _MainPageState extends State<MainPage> {
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500)),
-                                                          onPressed: () {},
+                                                          onPressed: () {
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          style: ButtonStyle(
+                                                              // overlayColor:
+                                                              // MaterialStateColor
+                                                              //     .resolveWith(
+                                                              //         (states) =>
+                                                              //     PrimaryVariant3Color),
+                                                              shape: MaterialStateProperty.all<
+                                                                      RoundedRectangleBorder>(
+                                                                  RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        18.sp),
+                                                            // side: BorderSide(color: Colors.red)
+                                                          ))),
                                                         )),
                                                     SizedBox(width: 14.w),
                                                     Container(
@@ -556,23 +586,40 @@ class _MainPageState extends State<MainPage> {
                                                           ),
                                                           onPressed: () {},
                                                           style: ButtonStyle(
-                                                            overlayColor: MaterialStateColor.resolveWith(
-                                                                (states) => Color(
-                                                                        0xff000000)
-                                                                    .withOpacity(
-                                                                        0.08)),
-                                                          ),
+                                                              overlayColor: MaterialStateColor
+                                                                  .resolveWith(
+                                                                      (states) =>
+                                                                          PrimaryVariant3Color),
+                                                              shape: MaterialStateProperty.all<
+                                                                      RoundedRectangleBorder>(
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            18.sp),
+                                                                // side: BorderSide(color: Colors.red)
+                                                              ))),
                                                         ))
                                                   ]))
                                             ])),
                                       ));
                                     }
                                   },
-                                  style: TextButton.styleFrom(
-                                    minimumSize: Size.zero,
-                                    padding: EdgeInsets.zero,
+                                  style: ButtonStyle(
+                                    // minimumSize: Size.zero,
+                                    // padding: EdgeInsets.zero,
                                     tapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
+                                    MaterialTapTargetSize.shrinkWrap,
+                                    shape: MaterialStateProperty.all<
+                                        RoundedRectangleBorder>(
+                                        RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.circular(18.sp),
+                                          // side: BorderSide(color: Colors.red)
+                                        )),
+                                    overlayColor:
+                                    MaterialStateColor.resolveWith(
+                                            (states) => PrimaryVariant3Color),
                                   ),
                                 ))),
                       ])),

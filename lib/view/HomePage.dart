@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/dummy/testHotBoardData.dart';
 import 'package:online_counseling_center/dummy/testMatchingData.dart';
+import 'package:online_counseling_center/view/Login/SignUp.dart';
 import 'package:online_counseling_center/view/customWidget/MatchingListCards.dart';
 import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
 import 'package:online_counseling_center/view/customWidget/BestTipCards.dart';
 import 'package:online_counseling_center/dummy/testTodayTopicData.dart';
-
+import 'package:get/get.dart';
 import 'MainComponents/KKCardWidget.dart';
+import 'package:online_counseling_center/view/SignUp/SignUpNamePage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,7 +31,13 @@ class _HomePageState extends State<HomePage> {
         orientation: Orientation.portrait);
     ScreenUtil().setSp(11);
     return ListView(children: [
-      // SwipingCards(),
+      Container(
+          child: TextButton(
+        child: Text('회원가입 페이지 ㄲ'),
+        onPressed: () {
+          Get.to(SignUpNamePage());
+        },
+      )),
       SizedBox(height: 14),
       KKCardWidget(
         title: 'Today Topic',

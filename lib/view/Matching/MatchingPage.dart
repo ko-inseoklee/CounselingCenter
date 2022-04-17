@@ -33,7 +33,7 @@ class _MatchingPageState extends State<MatchingPage> {
   late String tabName;
   List<Match> newMatchingRooms = matching_rooms;
   late int listLength;
-  ScrollController _controller = new ScrollController();
+  // ScrollController _controller = new ScrollController();
   bool editButtonClicked = false;
 
   // TODO: List length 바꾸기
@@ -535,7 +535,7 @@ class _MatchingPageState extends State<MatchingPage> {
                               child: Text(
                                 editButtonClicked ? '완료' : '편집',
                                 style: TextStyle(
-                                    color: editButtonClicked ? (anySelected ? PrimaryColor : Gray1Color) : TextBodyColor,
+                                    color: editButtonClicked ? (anySelected ? PrimaryColor : Gray2Color) : TextBodyColor,
                                     fontSize: 9.sp,
                                     fontWeight: FontWeight.w500),
                               ),
@@ -681,7 +681,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                                                           .ellipsis,
                                                                   style: TextStyle(
                                                                       color:
-                                                                          Gray1Color,
+                                                                          Gray2Color,
                                                                       fontSize:
                                                                           12.sp,
                                                                       fontWeight:
@@ -718,7 +718,7 @@ class _MatchingPageState extends State<MatchingPage> {
                                                       Text(
                                                         '?분전',
                                                         style: TextStyle(
-                                                            color: Gray1Color,
+                                                            color: Gray2Color,
                                                             fontSize: 9.sp,
                                                             fontWeight:
                                                                 FontWeight
