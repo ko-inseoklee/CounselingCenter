@@ -97,7 +97,7 @@ class _GenerationCardsState extends State<GenerationCards> {
                         fontSize: 13.sp,
                         fontWeight: FontWeight.w700,
                         color: (isGridview && !generationSelected[idx])
-                            ? Gray1Color
+                            ? Gray2Color
                             : WhiteColor),
                   ),
                   if (idx == 5)
@@ -107,7 +107,7 @@ class _GenerationCardsState extends State<GenerationCards> {
                           fontSize: 13.sp,
                           fontWeight: FontWeight.w700,
                           color: (isGridview && !generationSelected[idx])
-                              ? Gray1Color
+                              ? Gray2Color
                               : WhiteColor),
                     )
                 ],

@@ -129,7 +129,7 @@ class _NewMatchingBottomSheetState extends State<NewMatchingBottomSheet> {
                                 }).toList(),
                                 hint: Text('선택하기',
                                     style: TextStyle(
-                                        color: Gray1Color,
+                                        color: Gray2Color,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.w700)),
                               )))
@@ -173,7 +173,7 @@ class _NewMatchingBottomSheetState extends State<NewMatchingBottomSheet> {
                                         border: InputBorder.none,
                                         hintText: '입력하기',
                                         hintStyle: TextStyle(
-                                            color: Gray1Color,
+                                            color: Gray2Color,
                                             fontSize: 13.sp,
                                             fontWeight: FontWeight.w700)),
                                   ))
@@ -226,7 +226,7 @@ class _NewMatchingBottomSheetState extends State<NewMatchingBottomSheet> {
                                       style: TextStyle(
                                           color: ageSelected[index]
                                               ? WhiteColor
-                                              : Gray1Color,
+                                              : Gray2Color,
                                           fontSize: 13.sp,
                                           fontWeight: FontWeight.w700),
                                     ),

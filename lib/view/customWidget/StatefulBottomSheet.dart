@@ -130,7 +130,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                               style: TextStyle(
                                   color: topicSelected[index]
                                       ? TextPrimaryColor
-                                      : Gray1Color,
+                                      : Gray2Color,
                                   fontSize: 13.sp,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -210,7 +210,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                         fontSize: 13.sp,
                         fontWeight: FontWeight.w700,
                         color: (!generationSelected[idx])
-                            ? Gray1Color
+                            ? Gray2Color
                             : WhiteColor),
                   ),
                   if (idx == 5)
@@ -220,7 +220,7 @@ class _StatefulBottomSheetState extends State<StatefulBottomSheet> {
                           fontSize: 13.sp,
                           fontWeight: FontWeight.w700,
                           color: (!generationSelected[idx])
-                              ? Gray1Color
+                              ? Gray2Color
                               : WhiteColor),
                     )
                 ],
