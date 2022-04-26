@@ -6,9 +6,13 @@ import 'package:online_counseling_center/view/SignUp/SignUpNicknamePage.dart';
 import 'package:online_counseling_center/view/customWidget/SignUpTextbox.dart';
 import 'package:online_counseling_center/dummy/signUpEmailList.dart';
 import 'package:get/get.dart';
+import 'package:dio/dio.dart' as dio;
+
+import '../../ignore.dart';
 
 class SignUpEmailPage extends StatefulWidget {
-  const SignUpEmailPage({Key? key}) : super(key: key);
+  Map<String,dynamic> user;
+  SignUpEmailPage({Key? key, required this.user}) : super(key: key);
 
   @override
   _SignUpEmailPageState createState() => _SignUpEmailPageState();
@@ -30,6 +34,8 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
     super.initState();
     pw1Controller.addListener(checkPw1Field);
     pw2Controller.addListener(checkPw2Field);
+
+    print("init user => {name : ${widget.user["name"]}, phoneNumber : ${widget.user["phoneNumber"]}}");
   }
 
   // _SignUpNamePageState 제거될 때 호출
@@ -206,7 +212,9 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                                             : SecondaryLColor,
                                         fontWeight: FontWeight.w700),
                                   ),
-                                  onPressed: () {
+                                  onPressed: () async{
+                                    dio.Response response = await dio.Dio().get("$apiServer/users/verify-nickname?nickname=${idController.text + "@" + selectedValue}");
+                                    isIdValid = response.data;
                                     if (idController.text.isNotEmpty &&
                                         !isIdValid) {
                                       setState(() {
@@ -287,7 +295,11 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                             ),
                             onPressed: () {
                               if (isIdValid && isPw2Valid) {
-                                Get.to(SignUpNicknamePage());
+                                String email = idController.text + "@" + selectedValue;
+                                widget.user["id"] = email;
+                                widget.user["password"] = pw1Controller.text;
+
+                                Get.to(SignUpNicknamePage(user: widget.user,));
                               }
                             },
                             style: ButtonStyle(

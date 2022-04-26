@@ -4,12 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:online_counseling_center/color.dart';
 import 'package:online_counseling_center/model/user/user.dart';
-import 'package:online_counseling_center/view/Login/GetAdditionalUserInfo.dart';
+import 'package:online_counseling_center/view/SignUp/GetAdditionalUserInfo.dart';
 
-import 'DefaultAB.dart';
+import '../Login/DefaultAB.dart';
 
 class CheckTermsOfService extends StatefulWidget {
-  CheckTermsOfService({Key? key}) : super(key: key);
+  Map<String,dynamic> user;
+  CheckTermsOfService({Key? key, required this.user}) : super(key: key);
 
   @override
   _CheckTermsOfServiceState createState() => _CheckTermsOfServiceState();
@@ -23,6 +24,8 @@ class _CheckTermsOfServiceState extends State<CheckTermsOfService> {
     // TODO: implement initState
     super.initState();
     checked = false;
+    print("init user => {name : ${widget.user["name"]}, phoneNumber : ${widget.user["phoneNumber"]}, email :  ${widget.user["id"]}, password : ${widget.user["password"]}}");
+
   }
 
   @override
@@ -113,12 +116,7 @@ class _CheckTermsOfServiceState extends State<CheckTermsOfService> {
             child: FlatButton(
               onPressed: () {
                 //TODO: 여기도 유저로 넘어와야 함.
-                Map<String,dynamic> user = {
-                  "id" : "tjrkd222",
-                  "password" : "1234",
-                  "uid" : "1234",
-                };
-                if(checked) Get.to(GetAdditionalInfoPage(user: user,));
+                if(checked) Get.to(GetAdditionalInfoPage(user: widget.user,));
               },
               child: Text('다음',style: TextStyle(fontSize: 14.sp,color: Colors.white, fontWeight: FontWeight.w700),),
             ),

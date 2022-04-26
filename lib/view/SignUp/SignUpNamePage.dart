@@ -1,9 +1,11 @@
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:online_counseling_center/color.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/ignore.dart';
 import 'package:online_counseling_center/view/SignUp/SignUpEmailPage.dart';
 import 'package:online_counseling_center/view/customWidget/SignUpTextbox.dart';
 
@@ -15,6 +17,8 @@ class SignUpNamePage extends StatefulWidget {
 }
 
 class _SignUpNamePageState extends State<SignUpNamePage> {
+  Map<String,dynamic> user = {};
+
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController validationNumController = TextEditingController();
@@ -203,7 +207,8 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
                                                                 ),
                                                             )
                                                             : TextButton(
-                                                                onPressed: () {
+                                                                onPressed: () async {
+                                                                  await dio.Dio().post("$apiServer/users/phone-auth",data: {"phoneNumber" : phoneController.text});
                                                                   // TODO: 전화번호 인증 api
 
                                                                   setState(() {
@@ -273,13 +278,16 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
                                               padding:
                                                   EdgeInsets.only(right: 7.w),
                                               child: TextButton(
-                                                  onPressed: () {
+                                                  onPressed: () async {
                                                     // TODO: 인증번호 일치 여부 확인
-
+                                                    dio.Response response = await dio.Dio().get("$apiServer/users/validate-phone?phoneNumber=${phoneController.text}&code=${validationNumController.text}");
+                                                    print(response.data["data"]);
                                                     setState(() {
-                                                      checkedValidNum = true;
-                                                      isValidationNumCorrect =
-                                                          true;
+                                                      if(response.data["data"]){
+                                                        checkedValidNum = true;
+                                                        isValidationNumCorrect =
+                                                        true;
+                                                      }
                                                     });
                                                   },
                                                   child: Text(
@@ -355,7 +363,9 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
                             ),
                             onPressed: () {
                               if (isNameValid && isValidationNumCorrect) {
-                                Get.to(SignUpEmailPage());
+                                user["name"] = nameController.text;
+                                user["phoneNumber"] = phoneController.text;
+                                Get.to(SignUpEmailPage(user: user,));
                               }
                             },
                             style: ButtonStyle(
