@@ -1,11 +1,16 @@
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/color.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/view/SignUp/CheckTermsOfService.dart';
 import 'package:online_counseling_center/view/customWidget/SignUpTextbox.dart';
 
+import '../../ignore.dart';
+
 class SignUpNicknamePage extends StatefulWidget {
-  const SignUpNicknamePage({Key? key}) : super(key: key);
+  Map<String,dynamic> user;
+  SignUpNicknamePage({Key? key,required this.user}) : super(key: key);
 
   @override
   _SignUpNicknamePageState createState() => _SignUpNicknamePageState();
@@ -16,6 +21,13 @@ class _SignUpNicknamePageState extends State<SignUpNicknamePage> {
 
   bool isNicknameValid = false;
   bool checkedDuplicateNick = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("init user => {name : ${widget.user["name"]}, phoneNumber : ${widget.user["phoneNumber"]}, email :  ${widget.user["id"]}, password : ${widget.user["password"]}}");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +129,11 @@ class _SignUpNicknamePageState extends State<SignUpNicknamePage> {
                                             : SecondaryLColor,
                                         fontSize: 13.sp,
                                         fontWeight: FontWeight.w700)),
-                                onPressed: () {
+                                onPressed: () async{
+
+                                  dio.Response response = await dio.Dio().get("$apiServer/users/verify-nickname?nickname=${nicknameController.text}");
+                                  isNicknameValid = response.data;
+
                                   if (nicknameController.text.isNotEmpty &&
                                       !isNicknameValid) {
                                     setState(() {
@@ -163,7 +179,8 @@ class _SignUpNicknamePageState extends State<SignUpNicknamePage> {
                           ),
                           onPressed: () {
                             if (isNicknameValid) {
-                              // Get.to(SignUpNicknamePage());
+                              widget.user["nickname"] = nicknameController.text;
+                              Get.to(CheckTermsOfService(user: widget.user,));
 
                             }
                           },

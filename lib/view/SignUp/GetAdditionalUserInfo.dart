@@ -1,9 +1,11 @@
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/ignore.dart';
 import 'package:online_counseling_center/model/user/user.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../color.dart';
-import 'DefaultAB.dart';
+import '../Login/DefaultAB.dart';
 
 class GetAdditionalInfoPage extends StatefulWidget {
   Map<String, dynamic> user;
@@ -231,8 +233,11 @@ class _GetAdditionalInfoPageState extends State<GetAdditionalInfoPage> {
               // color: Colors.grey
             ),
             child: FlatButton(
-              onPressed: () {
+              onPressed: () async{
                 //TODO: 회원가입
+                dio.Response response = await dio.Dio().post("$apiServer/users/create",data: {"id" : widget.user["id"],"name" : widget.user["name"], "phoneNumber" : widget.user["phoneNumber"],"password" : widget.user["password"], "age" : widget.user["birth"], "sex" : widget.user["sex"], "jobs" : widget.user["job"], "nickname" : widget.user["nickname"]});
+                print(response.data);
+                print("init user => {name : ${widget.user["name"]}, phoneNumber : ${widget.user["phoneNumber"]}, email :  ${widget.user["id"]}, password : ${widget.user["password"]}, birth: ${widget.user["birth"]}, sex : ${widget.user["sex"]}, job : ${widget.user["job"]}}");
               },
               child: Text('회원가입 완료',style: TextStyle(fontSize: 14.sp,color: Colors.white, fontWeight: FontWeight.w700),),
             ),
