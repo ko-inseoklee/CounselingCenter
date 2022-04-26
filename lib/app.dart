@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/view/Login/CheckTermsOfService.dart';
 import 'package:online_counseling_center/view/Login/Login.dart';
 import 'package:online_counseling_center/view/Login/SignUp.dart';
 import 'package:online_counseling_center/view/Matching/Chat.dart';
@@ -25,7 +26,7 @@ class _KnockKnockAppState extends State<KnockKnockApp> {
     return ScreenUtilInit(
         designSize: Size(320, 568),
         builder: () => GetMaterialApp(
-            home: MainPage(),
+            home: CheckTermsOfService(),
             getPages: [
               // GetPage(name: '/matching', page: () => MatchingPage()),
               GetPage(name: '/login', page: () => LogInPage()),
