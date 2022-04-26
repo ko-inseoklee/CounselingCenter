@@ -208,7 +208,7 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
                                                             )
                                                             : TextButton(
                                                                 onPressed: () async {
-                                                                  await dio.Dio().post("$apiServer/users/phone-auth",data: {"phoneNumber" : "01027765098"});
+                                                                  await dio.Dio().post("$apiServer/users/phone-auth",data: {"phoneNumber" : phoneController.text});
                                                                   // TODO: 전화번호 인증 api
 
                                                                   setState(() {
