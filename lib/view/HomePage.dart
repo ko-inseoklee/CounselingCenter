@@ -8,6 +8,7 @@ import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
 import 'package:online_counseling_center/view/customWidget/BestTipCards.dart';
 import 'package:online_counseling_center/dummy/testTodayTopicData.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/view/Login/LoginPage.dart';
 import 'MainComponents/KKCardWidget.dart';
 import 'package:online_counseling_center/view/SignUp/SignUpNamePage.dart';
 
@@ -38,6 +39,13 @@ class _HomePageState extends State<HomePage> {
           Get.to(SignUpNamePage());
         },
       )),
+      Container(
+          child: TextButton(
+            child: Text('로그인 페이지 ㄲ'),
+            onPressed: () {
+              Get.to(LoginPage());
+            },
+          )),
       SizedBox(height: 14),
       KKCardWidget(
         title: 'Today Topic',
