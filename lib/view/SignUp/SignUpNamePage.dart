@@ -123,7 +123,9 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
                             autocheck: true,
                             isValid: isNameValid,
                             textEditingController: nameController,
-                            hintText: '이름  ex)홍길동'),
+                            hintText: '이름  ex)홍길동',
+                            isObscure: false
+                        ),
                         SizedBox(height: 14.h),
                         Container(
                             width: 291.w,
