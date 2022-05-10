@@ -27,7 +27,7 @@ class _KnockKnockAppState extends State<KnockKnockApp> {
     return ScreenUtilInit(
         designSize: Size(320, 568),
         builder: () => GetMaterialApp(
-            home: HomePage(),
+            home: MainPage(),
             getPages: [
               // GetPage(name: '/matching', page: () => MatchingPage()),
               GetPage(name: '/login', page: () => LogInPage()),
