@@ -141,111 +141,106 @@ class _MatchingListCardsState extends State<MatchingListCards> {
               ],
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 26.w,
-                  child: Center(
-                    child: IconButton(
-                        onPressed: () {
-                          _pageController.previousPage(
-                              duration: Duration(milliseconds: 400),
-                              curve: Curves.easeIn);
-                        },
-                        icon: ImageIcon(
-                            AssetImage("image/navigateBeforeIcon.png")),
-                        color: Color(0xffD4D4D4)),
-                  ),
+                    width: 26.w,
+                    padding: EdgeInsets.only(left: 8.0),
+                    alignment: Alignment.centerLeft,
+                    child: FlatButton(onPressed: (){
+                      _pageController.previousPage(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.easeIn);
+                    }, child: Icon(Icons.arrow_back_ios, color: Color(0xffD4D4D4)),)
                 ),
-                Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 8.h),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text('10대',
-                                style: TextStyle(
-                                    fontSize: 10.sp,
-                                    color: Color(0xff37352F),
-                                    fontWeight: FontWeight.w700)),
-                            padding: EdgeInsets.only(right: 5.sp),
-                          ),
-                          // 1st topic
-                          SizedBox(width: 4.w),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: PrimaryVariantLColor,
-                                borderRadius: BorderRadius.circular(43.sp)),
-                            width: 45.w,
-                            height: 13.h,
-                            child: Center(
-                              child: Text('#${match.topic}',
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(top: 8.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: Text('10대',
                                   style: TextStyle(
-                                      fontSize: 8.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xffffffff))),
+                                      fontSize: 10.sp,
+                                      color: Color(0xff37352F),
+                                      fontWeight: FontWeight.w700)),
+                              padding: EdgeInsets.only(right: 5.sp),
                             ),
-                          ),
-                          // 2nd topic
-                          SizedBox(width: 4.w),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: PrimaryVariantLColor,
-                                borderRadius: BorderRadius.circular(43)),
-                            width: 45.w,
-                            height: 13.h,
-                            child: Center(
-                              child: Text('#${match.topic}',
-                                  style: TextStyle(
-                                      fontSize: 8.sp,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xffffffff))),
+                            // 1st topic
+                            SizedBox(width: 4.w),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: PrimaryVariantLColor,
+                                  borderRadius: BorderRadius.circular(43.sp)),
+                              width: 45.w,
+                              height: 13.h,
+                              child: Center(
+                                child: Text('#${match.topic}',
+                                    style: TextStyle(
+                                        fontSize: 8.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xffffffff))),
+                              ),
                             ),
-                          ),
-                        ],
+                            // 2nd topic
+                            SizedBox(width: 4.w),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: PrimaryVariantLColor,
+                                  borderRadius: BorderRadius.circular(43)),
+                              width: 45.w,
+                              height: 13.h,
+                              child: Center(
+                                child: Text('#${match.topic}',
+                                    style: TextStyle(
+                                        fontSize: 8.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color(0xffffffff))),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                        padding: EdgeInsets.only(top: 14.h, bottom: 12.h),
-                        child: Center(
-                            child: Text(
-                          match.title,
-                          style: TextStyle(
-                              fontSize: 11.sp, fontWeight: FontWeight.w500),
-                        ))),
-                    Container(
-                        decoration: BoxDecoration(
-                            color: PrimaryColor,
-                            borderRadius: BorderRadius.circular(43.sp)),
-                        width: 236.w,
-                        height: 23.h,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            '매칭하기',
+                      Container(
+                          padding: EdgeInsets.only(top: 14.h, bottom: 12.h),
+                          child: Center(
+                              child: Text(
+                            match.title,
                             style: TextStyle(
-                                color: Color(0xffffffff),
-                                fontSize: 9.sp,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ))
-                  ],
+                                fontSize: 11.sp, fontWeight: FontWeight.w500),
+                          ))),
+                      Container(
+                          decoration: BoxDecoration(
+                              color: PrimaryColor,
+                              borderRadius: BorderRadius.circular(43.sp)),
+                          width: 236.w,
+                          height: 23.h,
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              '매칭하기',
+                              style: TextStyle(
+                                  color: Color(0xffffffff),
+                                  fontSize: 9.sp,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ))
+                    ],
+                  ),
                 ),
                 Container(
                   width: 26.w,
-                  child: Center(
-                    child: IconButton(
-                        onPressed: () {
-                          _pageController.nextPage(
-                              duration: Duration(milliseconds: 400),
-                              curve: Curves.easeIn);
-                        },
-                        icon: ImageIcon(
-                            AssetImage("image/navigateNextIcon.png")),
-                        color: Color(0xffD4D4D4)),
-                  ),
+                  padding: EdgeInsets.only(right: 8.0),
+                  alignment: Alignment.centerLeft,
+                  child: FlatButton(onPressed: (){
+                    _pageController.previousPage(
+                        duration: Duration(milliseconds: 400),
+                        curve: Curves.easeIn);
+                  }, child: Icon(Icons.arrow_forward_ios, color: Color(0xffD4D4D4)),)
                 ),
               ],
             )));

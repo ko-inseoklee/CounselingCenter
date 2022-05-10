@@ -171,16 +171,12 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                     alignment: Alignment.topCenter,
                     width: 35.w,
                     height: 45.h,
-                    child: IconButton(
-                      onPressed: () {
+                    child:
+                      FlatButton(onPressed: (){
                         _pageController.previousPage(
                             duration: Duration(milliseconds: 400),
                             curve: Curves.easeIn);
-                      },
-                      icon:
-                      ImageIcon(AssetImage("image/navigateBeforeIcon.png")),
-                      color: Color(0xffffffff).withOpacity(0.6),
-                    ),
+                      }, child: Icon(Icons.arrow_back_ios, color: Color(0xffffffff).withOpacity(0.6)),)
                   ),
                   Container(
                     width: 215.w,
@@ -198,16 +194,11 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                     alignment: Alignment.topCenter,
                     width: 35.w,
                     height: 45.h,
-                    child: IconButton(
-                        onPressed: () {
-                          _pageController.nextPage(
-                              duration: Duration(milliseconds: 400),
-                              curve: Curves.easeIn);
-                        },
-                        icon: ImageIcon(
-                          AssetImage("image/navigateNextIcon.png"),
-                          color: Color(0xffffffff).withOpacity(0.6),
-                        )),
+                    child: FlatButton(onPressed: (){
+                      _pageController.previousPage(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.easeIn);
+                    }, child: Icon(Icons.arrow_forward_ios, color: Color(0xffffffff).withOpacity(0.6)),)
                   ),
                 ],
               ),
@@ -318,16 +309,11 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                     alignment: Alignment.topCenter,
                     width: 35.w,
                     height: 45.h,
-                    child: IconButton(
-                      onPressed: () {
-                        _pageController.previousPage(
-                            duration: Duration(milliseconds: 400),
-                            curve: Curves.easeIn);
-                      },
-                      icon:
-                          ImageIcon(AssetImage("image/navigateBeforeIcon.png")),
-                      color: Color(0xffffffff).withOpacity(0.6),
-                    ),
+                    child: FlatButton(onPressed: (){
+                      _pageController.previousPage(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.easeIn);
+                    }, child: Icon(Icons.arrow_back_ios, color: Color(0xffffffff).withOpacity(0.6)),)
                   ),
                   Container(
                     width: 215.w,
@@ -345,16 +331,11 @@ class _KKCardWidgetState extends State<KKCardWidget> {
                     alignment: Alignment.topCenter,
                     width: 35.w,
                     height: 45.h,
-                    child: IconButton(
-                        onPressed: () {
-                          _pageController.nextPage(
-                              duration: Duration(milliseconds: 400),
-                              curve: Curves.easeIn);
-                        },
-                        icon: ImageIcon(
-                          AssetImage("image/navigateNextIcon.png"),
-                          color: Color(0xffffffff).withOpacity(0.6),
-                        )),
+                    child: FlatButton(onPressed: (){
+                      _pageController.previousPage(
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.easeIn);
+                    }, child: Icon(Icons.arrow_forward_ios, color: Color(0xffffffff).withOpacity(0.6)),)
                   ),
                 ],
               ),

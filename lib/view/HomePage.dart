@@ -22,53 +22,47 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(
+    /*ScreenUtil.init(
         BoxConstraints(
             maxWidth: MediaQuery.of(context).size.width,
             maxHeight: MediaQuery.of(context).size.height),
         designSize: Size(320, 568),
         // context: context,
         // minTextAdapt: true,
-        orientation: Orientation.portrait);
-    ScreenUtil().setSp(11);
-    return ListView(children: [
-      Container(
-          child: TextButton(
-        child: Text('회원가입 페이지 ㄲ'),
-        onPressed: () {
-          Get.to(SignUpNamePage());
-        },
-      )),
-      Container(
-          child: TextButton(
-            child: Text('로그인 페이지 ㄲ'),
-            onPressed: () {
-              Get.to(LoginPage());
-            },
-          )),
-      SizedBox(height: 14),
-      KKCardWidget(
-        title: 'Today Topic',
-        width: 288.w,
-        height: 221.h,
-        isTodayTopic: true,
-        hotPosts: hotboards,
-        topics: topicData,
-      ),
-      KKCardWidget(
+        orientation: Orientation.portrait); */
+    return Scaffold(
+      body: ListView(children: [
+        Container(
+            child: TextButton(
+          child: Text('회원가입 페이지 ㄲ'),
+          onPressed: () {
+            Get.to(SignUpNamePage());
+          },
+        )),
+        SizedBox(height: 14),
+        KKCardWidget(
+          title: 'Today Topic',
           width: 288.w,
-          height: 231.h,
-          title: '핫한 게시글',
-          isTodayTopic: false,
+          height: 221.h,
+          isTodayTopic: true,
+          hotPosts: hotboards,
           topics: topicData,
-          hotPosts: hotboards),
-      MatchingListCards(
-        width: 288.w,
-        height: 170.h,
-        title: '현재 매칭 가능방',
-        matchList: matching_rooms,
-      ),
-      BestTipCards(title: 'Best 꿀팁')
-    ]);
+        ),
+        KKCardWidget(
+            width: 288.w,
+            height: 231.h,
+            title: '핫한 게시글',
+            isTodayTopic: false,
+            topics: topicData,
+            hotPosts: hotboards),
+        MatchingListCards(
+          width: 288.w,
+          height: 170.h,
+          title: '현재 매칭 가능방',
+          matchList: matching_rooms,
+        ),
+        BestTipCards(title: 'Best 꿀팁')
+      ]),
+    );
   }
 }
