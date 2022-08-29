@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/dummy/testHotBoardData.dart';
 import 'package:online_counseling_center/dummy/testMatchingData.dart';
 import 'package:online_counseling_center/view/Login/SignUp.dart';
+import 'package:online_counseling_center/view/customWidget/DefaultAppBar.dart';
 import 'package:online_counseling_center/view/customWidget/MatchingListCards.dart';
 import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
 import 'package:online_counseling_center/view/customWidget/BestTipCards.dart';
@@ -11,6 +12,8 @@ import 'package:get/get.dart';
 import 'package:online_counseling_center/view/Login/LoginPage.dart';
 import 'MainComponents/KKCardWidget.dart';
 import 'package:online_counseling_center/view/SignUp/SignUpNamePage.dart';
+
+import 'Matching/ChattingTestPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,6 +42,20 @@ class _HomePageState extends State<HomePage> {
             Get.to(SignUpNamePage());
           },
         )),
+        Container(
+            child: TextButton(
+              child: Text('로그인 페이지 ㄲ'),
+              onPressed: () {
+                Get.to(LoginPage());
+              },
+            )),
+        Container(
+            child: TextButton(
+              child: Text('Firebase test page'),
+              onPressed: () {
+                Get.to(ChattingTestPage());
+              },
+            )),
         SizedBox(height: 14),
         KKCardWidget(
           title: 'Today Topic',

@@ -35,6 +35,8 @@ dependencies:
   flutter_screenutil: 5.0.0
   dropdown_button2: ^1.1.1
   dio: ^4.0.4
+  firebase_core: ^1.20.1
+  cloud_firestore: ^3.4.4
 
 dev_dependencies:
   flutter_test:
@@ -103,6 +105,9 @@ flutter:
     - image/Polygon_1.png
     - image/defaultProfile.png
     - image/login/getAdditionalInfo/
+    - image/login/authenticationChoiceAfter.png
+    - image/login/authenticationChoiceBefore.png
+    - image/login/foundIDIcon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
