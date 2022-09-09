@@ -217,9 +217,8 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                                             : SecondaryLColor,
                                         fontWeight: FontWeight.w700),
                                   ),
-                                  onPressed: () async {
-                                    dio.Response response = await dio.Dio().get(
-                                        "$apiServer/users/verify-nickname?nickname=${idController.text + "@" + selectedValue}");
+                                  onPressed: () async{
+                                    dio.Response response = await dio.Dio().get("$apiServer/user/check-email?email=${idController.text + "@" + selectedValue}");
                                     isIdValid = response.data;
                                     if (idController.text.isNotEmpty &&
                                         !isIdValid) {
