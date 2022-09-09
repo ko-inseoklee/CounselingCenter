@@ -22,8 +22,8 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController validationNumController = TextEditingController();
-  bool isNameValid = false;
 
+  bool isNameValid = false;
   bool isTyping = false;
   bool isPhoneValid = false;
   bool sentMessage = false;

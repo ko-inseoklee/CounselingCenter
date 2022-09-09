@@ -11,6 +11,7 @@ import 'package:online_counseling_center/view/MainPage.dart';
 import 'package:online_counseling_center/view/Board/BoardPage.dart';
 import 'package:online_counseling_center/view/Board/GenerationBoardPage.dart';
 import 'package:online_counseling_center/color.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 const primaryColor = Colors.white;
 
@@ -22,6 +23,13 @@ class KnockKnockApp extends StatefulWidget {
 }
 
 class _KnockKnockAppState extends State<KnockKnockApp> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    Firebase.initializeApp();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

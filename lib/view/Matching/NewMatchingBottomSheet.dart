@@ -257,9 +257,9 @@ class _NewMatchingBottomSheetState extends State<NewMatchingBottomSheet> {
                     Match newMatchingRoom = Match(
                         topic: selectedTopic!,
                         title: roomTitleController.text,
-                        chatId: '0',
-                        chatterId: user1.uID,
-                        partnerId: '',
+                        matchingID: '0',
+                        hostID: user1.uID,
+                        partnerID: [],
                         ageLimit: ageLimit);
 
                     widget.addMatchingRoom(newMatchingRoom);
