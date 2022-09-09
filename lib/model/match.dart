@@ -1,13 +1,10 @@
 class Match {
   String topic;
   String title;
-
-  String chatId; // 채팅방 id
-  String chatterId; // 방장 id
-  String partnerId; // 대화상태 id
-
-  // 참여 제한
-  List<String> ageLimit;
+  String matchingID; // 채팅방 id
+  String hostID; // 방장 id
+  List<String> partnerID; // 대화상태 id
+  List<String> ageLimit; // 참여 제한
 
   // Match.init()
   //     : this.topic = ' ',
@@ -20,11 +17,12 @@ class Match {
   Match({
     required this.topic,
     required this.title,
-    required this.chatId,
-    required this.chatterId,
-    required this.partnerId,
+    required this.matchingID,
+    required this.hostID,
+    required this.partnerID,
     required this.ageLimit,
   });
+
 }
 
 final List<String> topicList = [

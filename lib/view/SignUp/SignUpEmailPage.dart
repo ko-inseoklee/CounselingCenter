@@ -8,9 +8,10 @@ import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 
 import '../../ignore.dart';
+import '../../dummy/emailDomainData.dart';
 
 class SignUpEmailPage extends StatefulWidget {
-  Map<String,dynamic> user;
+  Map<String, dynamic> user;
   SignUpEmailPage({Key? key, required this.user}) : super(key: key);
 
   @override
@@ -28,16 +29,6 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
   bool isPw2Valid = false;
   bool isPw2Empty = true;
 
-  final emailList = [
-    'naver.com',
-    'gmail.com',
-    'daum.net',
-    'kakao.com',
-    'nate.com',
-    'hanmail.com',
-    'yahoo.com'
-  ];
-
   var selectedValue = 'naver.com';
 
   @override
@@ -46,7 +37,8 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
     pw1Controller.addListener(checkPw1Field);
     pw2Controller.addListener(checkPw2Field);
 
-    print("init user => {name : ${widget.user["name"]}, phoneNumber : ${widget.user["phoneNumber"]}}");
+    print(
+        "init user => {name : ${widget.user["name"]}, phoneNumber : ${widget.user["phoneNumber"]}}");
   }
 
   // _SignUpNamePageState 제거될 때 호출
@@ -128,12 +120,12 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                       children: [
                         Row(children: [
                           SignUpTextButton(
-                              width: 130.w,
-                              height: 48.h,
-                              autocheck: false,
-                              isValid: false,
-                              textEditingController: idController,
-                              hintText: '아이디',
+                            width: 130.w,
+                            height: 48.h,
+                            autocheck: false,
+                            isValid: false,
+                            textEditingController: idController,
+                            hintText: '아이디',
                             isObscure: false,
                           ),
                           Container(
@@ -165,7 +157,7 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                                 );
                               }).toList(),
                               style: TextStyle(
-                                  color: Gray2Color,
+                                  color: TextBodyColor,
                                   fontSize: 12.sp,
                                   fontWeight: FontWeight.w500),
                               menuMaxHeight: 184.h,
@@ -247,22 +239,21 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                             )),
                         SizedBox(height: 16.h),
                         SignUpTextButton(
-                          width: 288.w,
-                          height: 48.h,
-                          autocheck: true,
-                          isValid: isPw1Valid,
-                          textEditingController: pw1Controller,
-                          hintText: '비밀번호  (영문, 숫자 포함된 8자리 이상)',
-                          isObscure: true
-                        ),
-                        SizedBox(height: 14.h),
-                        SignUpTextButton(
                             width: 288.w,
                             height: 48.h,
                             autocheck: true,
-                            isValid: isPw2Valid,
-                            textEditingController: pw2Controller,
-                            hintText: '비밀번호 확인',
+                            isValid: isPw1Valid,
+                            textEditingController: pw1Controller,
+                            hintText: '비밀번호  (영문, 숫자 포함된 8자리 이상)',
+                            isObscure: true),
+                        SizedBox(height: 14.h),
+                        SignUpTextButton(
+                          width: 288.w,
+                          height: 48.h,
+                          autocheck: true,
+                          isValid: isPw2Valid,
+                          textEditingController: pw2Controller,
+                          hintText: '비밀번호 확인',
                           isObscure: true,
                         ),
                         SizedBox(height: 10.h),
@@ -311,11 +302,14 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                             ),
                             onPressed: () {
                               if (isIdValid && isPw2Valid) {
-                                String email = idController.text + "@" + selectedValue;
+                                String email =
+                                    idController.text + "@" + selectedValue;
                                 widget.user["id"] = email;
                                 widget.user["password"] = pw1Controller.text;
 
-                                Get.to(SignUpNicknamePage(user: widget.user,));
+                                Get.to(SignUpNicknamePage(
+                                  user: widget.user,
+                                ));
                               }
                             },
                             style: ButtonStyle(

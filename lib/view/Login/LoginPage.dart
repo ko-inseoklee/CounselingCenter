@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:online_counseling_center/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/view/HomePage.dart';
+import 'package:online_counseling_center/view/Login/FindIDPage.dart';
+import 'package:online_counseling_center/view/Login/ResetPw_EnterIDPage.dart';
 import 'package:online_counseling_center/view/customWidget/LoginTextbox.dart';
 import 'package:get/get.dart';
+
+import 'package:online_counseling_center/view/MainPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -14,8 +18,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController idController = TextEditingController();
-  TextEditingController pwdController = TextEditingController();
+  final idController = TextEditingController();
+  final pwdController = TextEditingController();
 
   bool isIdEmpty = true;
   bool isPwdEmpty = true;
@@ -83,199 +87,209 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Container(
-              padding: EdgeInsets.only(top: 28.h, left: 22.w),
-              child: Text(
-                '넉넉을 통해\n온 세대가 함께하는\n이야기에 참여하세요.',
-                style: TextStyle(
-                    color: Gray2Color,
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w500),
-              )),
-          SizedBox(height: 28.h),
-          Container(
-            padding: EdgeInsets.only(left: 16.w, right: 16.w),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Container(
-                  // height: ScreenUtil.defaultSize.height - (240.h),
-                  height: 234.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      LoginTextBox(
-                        width: 288.w,
-                        height: 48.h,
-                        textEditingController: idController,
-                        hintText: '아이디',
-                        isObscure: false,
-                        isEmpty: isIdEmpty,
-                      ),
-                      SizedBox(height: 14.h),
-                      LoginTextBox(
-                          width: 288.w,
-                          height: 48.h,
-                          textEditingController: pwdController,
-                          hintText: '비밀번호',
-                          isObscure: true,
-                          isEmpty: isPwdEmpty),
-                      SizedBox(height: 10.h),
-                      if (!isLoginValid)
-                      Container(
-                        padding: EdgeInsets.only(left: 14.w),
-                        child: Text(
-                          '아이디 또는 비밀번호를 잘못 입력하셨습니다.',
-                          style:
-                              TextStyle(color: AlertRedColor, fontSize: 9.sp),
-                        ),
-                      ),
-                      Expanded(
-                        child: Container(),
-                      ),
-                    ],
-                  ),
-                ),
+                    padding: EdgeInsets.only(top: 28.h, left: 22.w),
+                    child: Text(
+                      '넉넉을 통해\n온 세대가 함께하는\n이야기에 참여하세요.',
+                      style: TextStyle(
+                          color: Gray2Color,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w500),
+                    )),
+                SizedBox(height: 28.h),
                 Container(
-                  height: 105.h,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                          // width: 163.w,
-                          height: 16.h,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  '아이디 찾기',
-                                  style: TextStyle(
-                                      color: Gray2Color,
-                                      fontSize: 9.sp,
-                                      fontWeight: FontWeight.w500),
+                    padding: EdgeInsets.only(left: 16.w, right: 16.w),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            // height: ScreenUtil.defaultSize.height - (240.h),
+                            height: 234.h,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                LoginTextBox(
+                                  width: 288.w,
+                                  height: 48.h,
+                                  textEditingController: idController,
+                                  hintText: '아이디',
+                                  isObscure: false,
+                                  isEmpty: isIdEmpty,
                                 ),
-                                style: TextButton.styleFrom(
-                                  minimumSize: Size.zero,
-                                  padding: EdgeInsets.zero,
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
+                                SizedBox(height: 14.h),
+                                LoginTextBox(
+                                    width: 288.w,
+                                    height: 48.h,
+                                    textEditingController: pwdController,
+                                    hintText: '비밀번호',
+                                    isObscure: true,
+                                    isEmpty: isPwdEmpty),
+                                SizedBox(height: 10.h),
+                                if (!isLoginValid)
+                                  Container(
+                                    padding: EdgeInsets.only(left: 14.w),
+                                    child: Text(
+                                      '아이디 또는 비밀번호를 잘못 입력하셨습니다.',
+                                      style: TextStyle(
+                                          color: AlertRedColor, fontSize: 9.sp),
+                                    ),
+                                  ),
+                                Expanded(
+                                  child: Container(),
                                 ),
-                              ),
-                              SizedBox(width: 9.w),
-                              VerticalDivider(
-                                color: Gray2Color,
-                                thickness: 0.2,
-                                width: 0,
-                                indent: 2.h,
-                                endIndent: 2.h,
-                              ),
-                              SizedBox(width: 9.w),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  '비밀번호 찾기',
-                                  style: TextStyle(
-                                      color: Gray2Color,
-                                      fontSize: 9.sp,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                style: TextButton.styleFrom(
-                                  minimumSize: Size.zero,
-                                  padding: EdgeInsets.zero,
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                ),
-                              ),
-                              SizedBox(width: 9.w),
-                              VerticalDivider(
-                                color: Gray2Color,
-                                thickness: 0.2,
-                                width: 0,
-                                indent: 2.h,
-                                endIndent: 2.h,
-                              ),
-                              SizedBox(width: 9.w),
-                              TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  '회원가입',
-                                  style: TextStyle(
-                                      color: Gray2Color,
-                                      fontSize: 9.sp,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                style: TextButton.styleFrom(
-                                  minimumSize: Size.zero,
-                                  padding: EdgeInsets.zero,
-                                  tapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                ),
-                              )
-                            ],
-                          )),
-                      SizedBox(height: 13.h),
-                      Container(
-                        width: 320.w,
-                        height: 48.h,
-                        margin: EdgeInsets.only(bottom: 16.h),
-                        padding: EdgeInsets.only(left: 16.w, right: 16.w),
-                        decoration: BoxDecoration(
-                            color: (!isIdEmpty && !isPwdEmpty)
-                                ? PrimaryColor
-                                : Color(0xffDDDDDD),
-                            borderRadius: BorderRadius.circular(24.sp)),
-                        child: TextButton(
-                          child: Text(
-                            '로그인',
-                            style: TextStyle(
-                                color: WhiteColor,
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w700),
+                              ],
+                            ),
                           ),
-                          onPressed: () {
-                            // TODO: 로그인 정보 db와 일치하는지 확인
-
-                            // 일치할 경우
-                            // if () {
-                              // user["name"] = nameController.text;
-                              // user["phoneNumber"] = phoneController.text;
-                            setState(() {
-                              isLoginValid = true;
-                            });
-                              Get.to(HomePage());
-                            // }
-
-                            // 일치하지 않을 경우
-                            // else {
-                            //  setState(() {
-                            //  isLoginValid = false;
-                            // });
-                            // }
-                          },
-                          style: ButtonStyle(
-                            overlayColor: MaterialStateColor.resolveWith(
-                                (states) => (!isIdEmpty && !isPwdEmpty)
-                                    ? PrimaryVariant3Color
-                                    : Color(0xffDDDDDD)),
-                            shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(24.sp),
+                        ]))
+              ]),
+              Container(
+                height: 105.h,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                        // width: 163.w,
+                        height: 16.h,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Get.to(FindIDPage());
+                              },
+                              child: Text(
+                                '아이디 찾기',
+                                style: TextStyle(
+                                    color: Gray2Color,
+                                    fontSize: 9.sp,
+                                    fontWeight: FontWeight.w500),
                               ),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
+                            SizedBox(width: 9.w),
+                            VerticalDivider(
+                              color: Gray2Color,
+                              thickness: 0.2,
+                              width: 0,
+                              indent: 2.h,
+                              endIndent: 2.h,
+                            ),
+                            SizedBox(width: 9.w),
+                            TextButton(
+                              onPressed: () {
+                                Get.to(ResetPw_EnterIDPage());
+                              },
+                              child: Text(
+                                '비밀번호 찾기',
+                                style: TextStyle(
+                                    color: Gray2Color,
+                                    fontSize: 9.sp,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
+                            SizedBox(width: 9.w),
+                            VerticalDivider(
+                              color: Gray2Color,
+                              thickness: 0.2,
+                              width: 0,
+                              indent: 2.h,
+                              endIndent: 2.h,
+                            ),
+                            SizedBox(width: 9.w),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                '회원가입',
+                                style: TextStyle(
+                                    color: Gray2Color,
+                                    fontSize: 9.sp,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              style: TextButton.styleFrom(
+                                minimumSize: Size.zero,
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            )
+                          ],
+                        )),
+                    SizedBox(height: 13.h),
+                    Container(
+                      width: 288.w,
+                      height: 48.h,
+                      margin: EdgeInsets.only(bottom: 28.h),
+                      decoration: BoxDecoration(
+                        color: (!isIdEmpty && !isPwdEmpty)
+                            ? PrimaryColor
+                            : Color(0xffDDDDDD),
+                        borderRadius: BorderRadius.circular(24.sp),
+                        boxShadow: [
+                          BoxShadow(
+                              offset: Offset(4.sp, 4.sp),
+                              color: Color(0xff000000).withOpacity(0.08),
+                              blurRadius: 20.sp)
+                        ],
+                      ),
+                      child: TextButton(
+                        child: Text(
+                          '로그인',
+                          style: TextStyle(
+                              color: WhiteColor,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        onPressed: () {
+                          // TODO: 로그인 정보 db와 일치하는지 확인
+
+                          // 일치할 경우
+                          // if () {
+                          // user["name"] = nameController.text;
+                          // user["phoneNumber"] = phoneController.text;
+                          setState(() {
+                            isLoginValid = true;
+                            // isLoginValid = false;
+                          });
+                          Get.to(MainPage());
+                          // }
+
+                          // 일치하지 않을 경우
+                          // else {
+                          //  setState(() {
+                          //  isLoginValid = false;
+                          // });
+                          // }
+                        },
+                        style: ButtonStyle(
+                          overlayColor: MaterialStateColor.resolveWith(
+                              (states) => (!isIdEmpty && !isPwdEmpty)
+                                  ? PrimaryVariant3Color
+                                  : Color(0xffDDDDDD)),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(24.sp),
                             ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          )
-        ]));
+                    ),
+                  ],
+                ),
+              )
+            ]));
   }
 
   void _checkIdField() {
@@ -287,6 +301,7 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         isIdEmpty = false;
       });
+    print('isIdEmpty : $isIdEmpty');
   }
 
   void _checkPwdField() {

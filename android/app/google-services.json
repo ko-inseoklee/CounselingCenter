@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "696037093665",
+    "project_id": "knock-knock-d29b5",
+    "storage_bucket": "knock-knock-d29b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696037093665:android:8e7b85d693a4d37cba0e60",
+        "android_client_info": {
+          "package_name": "com.example.OCC.online_counseling_center"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696037093665-77mk4bjm94daut5ue40cq4df77d8jsm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCnl2T1eiACjHsbiV6XBcVDkdA3Nn5nnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696037093665-77mk4bjm94daut5ue40cq4df77d8jsm4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "696037093665-3e4ru5etem7k8nvctldlr52rshd43pns.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.company.KnockKnock"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

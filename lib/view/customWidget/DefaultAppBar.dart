@@ -240,6 +240,8 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                               onPressed: () {
                                                 setState(() {
                                                   tabController.toggleTab(true);
+                                                  // TODO: 아래 bottom sheet 없애기
+                                                  // editButtonClicked = false;
                                                 });
                                               },
                                               child: Text('전체 매칭방',
@@ -272,6 +274,7 @@ class _DefaultAppBarState extends State<DefaultAppBar> {
                                                 setState(() {
                                                   tabController
                                                       .toggleTab(false);
+
                                                 });
                                               },
                                               child: Text('참여 매칭방',

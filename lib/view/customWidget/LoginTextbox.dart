@@ -7,8 +7,8 @@ class LoginTextBox extends StatefulWidget {
   double width;
   double height;
   String hintText = '';
-  bool isObscure;
-  bool isEmpty;
+  bool isObscure = false;
+  bool isEmpty = false;
   TextEditingController textEditingController;
 
   LoginTextBox(
@@ -43,6 +43,7 @@ class _LoginTextBoxState extends State<LoginTextBox> {
           borderRadius: BorderRadius.circular(16.sp),
         ),
         child: TextField(
+          controller: widget.textEditingController,
             style: TextStyle(
                 color: TextBodyColor,
                 fontSize: 12.sp,
@@ -75,7 +76,7 @@ class _LoginTextBoxState extends State<LoginTextBox> {
                         onPressed: () {
                           setState(() {
                             widget.textEditingController.clear();
-                            print('delete button clicked!');
+                            // print('delete button clicked!');
                           });
                         },
                         style: TextButton.styleFrom(
