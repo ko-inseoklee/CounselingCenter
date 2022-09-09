@@ -86,6 +86,7 @@ flutter:
     - image/navigateBeforeIcon_2.png
     - image/signUpCheckIcon.png
     - image/dropdownIcon.png
+    - image/login/deleteIcon.png
 
     - image/topicCard.png
     - image/hotCard.png

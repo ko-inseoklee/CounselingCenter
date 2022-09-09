@@ -8,6 +8,7 @@ import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
 import 'package:online_counseling_center/view/customWidget/BestTipCards.dart';
 import 'package:online_counseling_center/dummy/testTodayTopicData.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/view/Login/LoginPage.dart';
 import 'MainComponents/KKCardWidget.dart';
 import 'package:online_counseling_center/view/SignUp/SignUpNamePage.dart';
 
@@ -28,8 +29,7 @@ class _HomePageState extends State<HomePage> {
         designSize: Size(320, 568),
         // context: context,
         // minTextAdapt: true,
-        orientation: Orientation.portrait);
-    ScreenUtil().setSp(11);*/
+        orientation: Orientation.portrait); */
     return Scaffold(
       body: ListView(children: [
         Container(

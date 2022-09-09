@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/color.dart';
 import 'package:online_counseling_center/view/SignUp/SignUpNicknamePage.dart';
 import 'package:online_counseling_center/view/customWidget/SignUpTextbox.dart';
-import 'package:online_counseling_center/dummy/signUpEmailList.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
 
@@ -28,6 +27,18 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
   bool isPw1Valid = false;
   bool isPw2Valid = false;
   bool isPw2Empty = true;
+
+  final emailList = [
+    'naver.com',
+    'gmail.com',
+    'daum.net',
+    'kakao.com',
+    'nate.com',
+    'hanmail.com',
+    'yahoo.com'
+  ];
+
+  var selectedValue = 'naver.com';
 
   @override
   void initState() {
@@ -122,7 +133,9 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                               autocheck: false,
                               isValid: false,
                               textEditingController: idController,
-                              hintText: '아이디'),
+                              hintText: '아이디',
+                            isObscure: false,
+                          ),
                           Container(
                               padding: EdgeInsets.only(left: 8.w, right: 8.w),
                               child: Text('@',
@@ -240,6 +253,7 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                           isValid: isPw1Valid,
                           textEditingController: pw1Controller,
                           hintText: '비밀번호  (영문, 숫자 포함된 8자리 이상)',
+                          isObscure: true
                         ),
                         SizedBox(height: 14.h),
                         SignUpTextButton(
@@ -248,7 +262,9 @@ class _SignUpEmailPageState extends State<SignUpEmailPage> {
                             autocheck: true,
                             isValid: isPw2Valid,
                             textEditingController: pw2Controller,
-                            hintText: '비밀번호 확인'),
+                            hintText: '비밀번호 확인',
+                          isObscure: true,
+                        ),
                         SizedBox(height: 10.h),
                         if (!isPw2Empty)
                           Container(
