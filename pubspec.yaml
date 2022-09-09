@@ -37,6 +37,8 @@ dependencies:
   dio: ^4.0.4
   firebase_core: ^1.20.1
   cloud_firestore: ^3.4.4
+  image_picker: ^0.8.5+3
+  permission_handler: ^10.0.0
 
 dev_dependencies:
   flutter_test:
@@ -108,6 +110,7 @@ flutter:
     - image/login/authenticationChoiceAfter.png
     - image/login/authenticationChoiceBefore.png
     - image/login/foundIDIcon.png
+    - image/generations/profile.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

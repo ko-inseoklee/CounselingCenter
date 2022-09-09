@@ -481,7 +481,9 @@ class _MainPageState extends State<MainPage> {
                                     )),
                                     overlayColor:
                                         MaterialStateColor.resolveWith(
-                                            (states) => PrimaryVariant3Color),
+                                            (states) => anySelected
+                                                ? PrimaryVariant3Color
+                                                : Gray2Color),
                                   ),
                                 ))),
                         BottomNavigationBarItem(
@@ -519,7 +521,14 @@ class _MainPageState extends State<MainPage> {
                                                       fontSize: 12.sp,
                                                       fontWeight:
                                                           FontWeight.w500)),
-                                              SizedBox(height: 33.h),
+                                              SizedBox(height: 1.h),
+                                              Text('매칭방을 나가면 복구할 수 없습니다.',
+                                                  style: TextStyle(
+                                                      color: AlertRedColor,
+                                                      fontSize: 9.sp,
+                                                      fontWeight:
+                                                          FontWeight.w500)),
+                                              SizedBox(height: 18.h),
                                               Container(
                                                   width: 204.w,
                                                   height: 34.h,
@@ -548,20 +557,19 @@ class _MainPageState extends State<MainPage> {
                                                                 context);
                                                           },
                                                           style: ButtonStyle(
-                                                              // overlayColor:
-                                                              // MaterialStateColor
-                                                              //     .resolveWith(
-                                                              //         (states) =>
-                                                              //     PrimaryVariant3Color),
+                                                              overlayColor: MaterialStateColor
+                                                                  .resolveWith(
+                                                                      (states) =>
+                                                                          GrayButtonDown),
                                                               shape: MaterialStateProperty.all<
                                                                       RoundedRectangleBorder>(
                                                                   RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        18.sp),
-                                                            // side: BorderSide(color: Colors.red)
-                                                          ))),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            18.sp),
+                                                                // side: BorderSide(color: Colors.red)
+                                                              ))),
                                                         )),
                                                     SizedBox(width: 14.w),
                                                     Container(
@@ -584,10 +592,7 @@ class _MainPageState extends State<MainPage> {
                                                                     FontWeight
                                                                         .w500),
                                                           ),
-                                                          onPressed: () {
-
-
-                                                          },
+                                                          onPressed: () {},
                                                           style: ButtonStyle(
                                                               overlayColor: MaterialStateColor
                                                                   .resolveWith(
@@ -612,17 +617,19 @@ class _MainPageState extends State<MainPage> {
                                     // minimumSize: Size.zero,
                                     // padding: EdgeInsets.zero,
                                     tapTargetSize:
-                                    MaterialTapTargetSize.shrinkWrap,
+                                        MaterialTapTargetSize.shrinkWrap,
                                     shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
+                                            RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
-                                          borderRadius:
+                                      borderRadius:
                                           BorderRadius.circular(18.sp),
-                                          // side: BorderSide(color: Colors.red)
-                                        )),
+                                      // side: BorderSide(color: Colors.red)
+                                    )),
                                     overlayColor:
-                                    MaterialStateColor.resolveWith(
-                                            (states) => PrimaryVariant3Color),
+                                        MaterialStateColor.resolveWith(
+                                            (states) => anySelected
+                                                ? PrimaryVariant3Color
+                                                : Gray2Color),
                                   ),
                                 ))),
                       ])),

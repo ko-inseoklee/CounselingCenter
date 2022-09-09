@@ -5,6 +5,7 @@ import 'package:online_counseling_center/color.dart';
 import 'package:online_counseling_center/view/Login/FindIDPage.dart';
 import 'package:online_counseling_center/view/Login/LoginPage.dart';
 import 'package:get/get.dart';
+import 'package:online_counseling_center/view/Login/ResetPw_EnterIDPage.dart';
 
 class FindIDResultPage extends StatelessWidget {
   const FindIDResultPage({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class FindIDResultPage extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(51.h),
         child: Container(
+          padding: EdgeInsets.only(top: 15.h),
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -154,7 +156,9 @@ class FindIDResultPage extends StatelessWidget {
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w700),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(ResetPw_EnterIDPage());
+                  },
                   style: ButtonStyle(
                     overlayColor: MaterialStateColor.resolveWith(
                         (states) => GrayButtonDown),

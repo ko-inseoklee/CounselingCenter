@@ -4,7 +4,6 @@ import 'package:online_counseling_center/color.dart';
 import 'package:online_counseling_center/view/Login/FindIDResultPage.dart';
 import 'package:online_counseling_center/view/customWidget/SignUpTextbox.dart';
 import 'package:dio/dio.dart' as dio;
-
 import 'package:online_counseling_center/ignore.dart';
 import 'package:get/get.dart';
 
@@ -71,6 +70,7 @@ class _FindIDPageState extends State<FindIDPage> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(51.h),
           child: Container(
+            padding: EdgeInsets.only(top: 15.h),
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(

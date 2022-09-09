@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/dummy/testHotBoardData.dart';
 import 'package:online_counseling_center/dummy/testMatchingData.dart';
 import 'package:online_counseling_center/view/Login/SignUp.dart';
+import 'package:online_counseling_center/view/Profile/EditProfilePage.dart';
 import 'package:online_counseling_center/view/customWidget/DefaultAppBar.dart';
 import 'package:online_counseling_center/view/customWidget/MatchingListCards.dart';
 import 'package:online_counseling_center/view/customWidget/SwipeCards.dart';
@@ -56,6 +57,12 @@ class _HomePageState extends State<HomePage> {
                 Get.to(ChattingTestPage());
               },
             )),
+        TextButton(
+          child: Text('프로필 - 계정 page'),
+          onPressed: () {
+            Get.to(EditProfilePage());
+          },
+        ),
         SizedBox(height: 14),
         KKCardWidget(
           title: 'Today Topic',

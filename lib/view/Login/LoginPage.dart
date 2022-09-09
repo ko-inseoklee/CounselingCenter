@@ -4,6 +4,7 @@ import 'package:online_counseling_center/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:online_counseling_center/view/HomePage.dart';
 import 'package:online_counseling_center/view/Login/FindIDPage.dart';
+import 'package:online_counseling_center/view/Login/ResetPw_EnterIDPage.dart';
 import 'package:online_counseling_center/view/customWidget/LoginTextbox.dart';
 import 'package:get/get.dart';
 
@@ -183,7 +184,9 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             SizedBox(width: 9.w),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(ResetPw_EnterIDPage());
+                              },
                               child: Text(
                                 '비밀번호 찾기',
                                 style: TextStyle(

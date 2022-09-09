@@ -19,7 +19,9 @@ List<bool> categorySelected = <bool>[true, false, false];
 class MatchingPage extends StatefulWidget {
   final ValueChanged<bool> editPressed;
   final ValueChanged<bool> anySelected;
-  const MatchingPage({Key? key, required this.editPressed, required this.anySelected}) : super(key: key);
+  const MatchingPage(
+      {Key? key, required this.editPressed, required this.anySelected})
+      : super(key: key);
 
   @override
   _MatchingPageState createState() => _MatchingPageState();
@@ -40,18 +42,18 @@ class _MatchingPageState extends State<MatchingPage> {
   List<bool> editSelected = List.filled(6, false);
   bool anySelected = false;
 
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     matchingRooms = matching_rooms;
     tabName = '전체';
+
   }
 
   @override
   Widget build(BuildContext context) {
     listLength = newMatchingRooms.length;
-
     return GetX<MatchTabController>(
         builder: (_) => (_.isTab1.value)
             ?
@@ -528,14 +530,18 @@ class _MatchingPageState extends State<MatchingPage> {
                               onPressed: () {
                                 setState(() {
                                   editButtonClicked = !editButtonClicked;
-
                                 });
                                 widget.editPressed(editButtonClicked);
+                                print(editButtonClicked);
                               },
                               child: Text(
                                 editButtonClicked ? '완료' : '편집',
                                 style: TextStyle(
-                                    color: editButtonClicked ? (anySelected ? PrimaryColor : Gray2Color) : TextBodyColor,
+                                    color: editButtonClicked
+                                        ? (anySelected
+                                            ? PrimaryColor
+                                            : Gray2Color)
+                                        : TextBodyColor,
                                     fontSize: 9.sp,
                                     fontWeight: FontWeight.w500),
                               ),
@@ -586,7 +592,9 @@ class _MatchingPageState extends State<MatchingPage> {
                                                 editSelected[index] =
                                                     !editSelected[index];
 
-                                                anySelected = checkAnyRoomChosen(editSelected);
+                                                anySelected =
+                                                    checkAnyRoomChosen(
+                                                        editSelected);
                                                 widget.anySelected(anySelected);
                                               });
                                             },
@@ -786,7 +794,6 @@ class _MatchingPageState extends State<MatchingPage> {
     }
     // print ('checkAnyRoomChosen => $chosen');
     return chosen;
-
   }
 
   addMatchingRoom(Match match) {
