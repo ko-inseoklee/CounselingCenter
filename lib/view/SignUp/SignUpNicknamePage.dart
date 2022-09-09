@@ -131,7 +131,7 @@ class _SignUpNicknamePageState extends State<SignUpNicknamePage> {
                                         fontWeight: FontWeight.w700)),
                                 onPressed: () async{
 
-                                  dio.Response response = await dio.Dio().get("$apiServer/users/verify-nickname?nickname=${nicknameController.text}");
+                                  dio.Response response = await dio.Dio().get("$apiServer/user/check-nickname?nickname=${nicknameController.text}");
                                   isNicknameValid = response.data;
 
                                   if (nicknameController.text.isNotEmpty &&

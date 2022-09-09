@@ -235,7 +235,7 @@ class _GetAdditionalInfoPageState extends State<GetAdditionalInfoPage> {
             child: FlatButton(
               onPressed: () async{
                 //TODO: 회원가입
-                dio.Response response = await dio.Dio().post("$apiServer/users/create",data: {"id" : widget.user["id"],"name" : widget.user["name"], "phoneNumber" : widget.user["phoneNumber"],"password" : widget.user["password"], "age" : widget.user["birth"], "sex" : widget.user["sex"], "jobs" : widget.user["job"], "nickname" : widget.user["nickname"]});
+                dio.Response response = await dio.Dio().post("$apiServer/user/sign-up",data: {"email" : widget.user["id"],"name" : widget.user["name"], "phoneNumber" : widget.user["phoneNumber"],"password" : widget.user["password"], "age" : widget.user["birth"], "sex" : widget.user["sex"], "jobs" : widget.user["job"], "nickname" : widget.user["nickname"]});
                 print(response.data);
                 print("init user => {name : ${widget.user["name"]}, phoneNumber : ${widget.user["phoneNumber"]}, email :  ${widget.user["id"]}, password : ${widget.user["password"]}, birth: ${widget.user["birth"]}, sex : ${widget.user["sex"]}, job : ${widget.user["job"]}}");
               },

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -208,7 +210,8 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
                                                             )
                                                             : TextButton(
                                                                 onPressed: () async {
-                                                                  await dio.Dio().post("$apiServer/users/phone-auth",data: {"phoneNumber" : phoneController.text});
+                                                                  print(phoneController.text);
+                                                                  await dio.Dio().post("$apiServer/user/phoneAuth-request?phoneNumber=${phoneController.text}");
                                                                   // TODO: 전화번호 인증 api
 
                                                                   setState(() {
@@ -280,10 +283,10 @@ class _SignUpNamePageState extends State<SignUpNamePage> {
                                               child: TextButton(
                                                   onPressed: () async {
                                                     // TODO: 인증번호 일치 여부 확인
-                                                    dio.Response response = await dio.Dio().get("$apiServer/users/validate-phone?phoneNumber=${phoneController.text}&code=${validationNumController.text}");
-                                                    print(response.data["data"]);
+                                                    dio.Response response = await dio.Dio().post("$apiServer/user/phoneAuth-validate?phoneNumber=${phoneController.text}&code=${validationNumController.text}");
+
                                                     setState(() {
-                                                      if(response.data["data"]){
+                                                      if(response.data){
                                                         checkedValidNum = true;
                                                         isValidationNumCorrect =
                                                         true;
