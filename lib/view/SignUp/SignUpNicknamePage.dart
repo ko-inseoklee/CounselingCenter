@@ -101,7 +101,7 @@ class _SignUpNicknamePageState extends State<SignUpNicknamePage> {
                             autocheck: true,
                             isValid: isNicknameValid,
                             textEditingController: nicknameController,
-                            hintText: '닉네임'),
+                            hintText: '닉네임', isObscure: false,),
                         SizedBox(height: 10.h),
                         Container(
                           width: 320.w,
