@@ -2,6 +2,10 @@
 
 Online counseling platform for resolve generational conflict.
 
+## UPDATE INFO
+
+11.21 Cloud 변경 (AWS -> Oracle)
+
 # TODO
 
 #### 인석
