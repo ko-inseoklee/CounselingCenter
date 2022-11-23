@@ -26,14 +26,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    /*ScreenUtil.init(
-        BoxConstraints(
-            maxWidth: MediaQuery.of(context).size.width,
-            maxHeight: MediaQuery.of(context).size.height),
-        designSize: Size(320, 568),
-        // context: context,
-        // minTextAdapt: true,
-        orientation: Orientation.portrait); */
     return Scaffold(
       body: ListView(children: [
         Container(
